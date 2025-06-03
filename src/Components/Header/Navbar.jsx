@@ -27,7 +27,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
+      <li><Link to='/'>Home</Link></li>
       <li>
         <details>
           <summary>Parent</summary>
@@ -41,6 +41,13 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img
+            alt="Tailwind CSS Navbar component"
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+        </div>
+      </div>
     <Link to='/login'><button>Login</button></Link>
   </div>
 </div>
