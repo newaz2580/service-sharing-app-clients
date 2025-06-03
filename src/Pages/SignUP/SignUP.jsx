@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
 
 const SignUP = () => {
+    const {createUser}=useContext(AuthContext)
+    const handleSignUpForm=(e)=>{
+    e.preventDefault()
+    const form=e.target;
+    // const name=form.name.value;
+    // const photo=form.photo.value
+    const email=form.email.value;
+    const password=form.password.value;
+    createUser(email,password)
+    .then((result) => {
+  
+    const user = result.user;
+    console.log(user)
+    
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode,errorMessage)
+    // ..
+  });
+
+    }
     return (
                 <div className="hero bg-base-200 min-h-screen">
   <div className="hero-content flex-col lg:flex-row-reverse">
@@ -12,7 +36,7 @@ const SignUP = () => {
       <div className="card-body">
       <h1 className="text-5xl font-bold">Please Register Now!</h1>
 
-        <form>
+        <form onSubmit={handleSignUpForm}>
          <fieldset className="fieldset">
           <label className="label">Name</label>
           <input type="text" name='name' className="input" placeholder="Your name" />
@@ -22,10 +46,11 @@ const SignUP = () => {
           <input type="email" name='email' className="input" placeholder="Email" />
           <label className="label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn btn-neutral mt-4">SignUP</button>
           <p>Already have an Account ? please <Link to='/login' className='text-green-700 underline'>Login</Link></p>
         </fieldset>
         </form>
+        
       </div>
     </div>
   </div>

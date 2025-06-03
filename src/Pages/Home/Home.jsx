@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Home = () => {
+    const {a}=useContext(AuthContext)
+    console.log(a)
     return (
         <div>
          <div className="hero bg-base-200 min-h-screen">
