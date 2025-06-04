@@ -8,6 +8,7 @@ import SignUP from "../Pages/SignUP/SignUP";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AddService from "../Pages/Add Service/AddService";
 import Loading from "../Pages/Loading/Loading";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,12 @@ export const router = createBrowserRouter([
         {
           path:'/addService',
           element:<AddService></AddService>
+        },
+        {
+          path:'/serviceDetail/:id',
+          element:<ServiceDetails></ServiceDetails>,
+          loader:({params})=>fetch(`http://localhost:3000/service/${params.id}`)
+
         }
     ]
   },

@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const ShowServiceCard = ({ service }) => {
-  console.log(service);
-  const { photo, price,serviceDescription,serviceName } = service;
+
+  const {_id, photo, price,serviceDescription,serviceName } = service;
   return (
     <div className="card bg-base-100 w-96 mx-auto shadow-sm">
       <figure>
@@ -20,7 +21,7 @@ const ShowServiceCard = ({ service }) => {
           {serviceDescription}
         </p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">View Details</div>
+          <Link to={`/serviceDetail/${_id}`} className="badge badge-outline">View Details</Link>
          
         </div>
       </div>
