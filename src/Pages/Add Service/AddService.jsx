@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 
 const AddService = () => {
@@ -6,6 +7,12 @@ const AddService = () => {
     const form=e.target;
     const formData=new FormData(form)
     const newService=Object.fromEntries(formData.entries())
+    axios.post('http://localhost:3000/service',newService)
+    .then((res)=>{
+        console.log(res.data)
+    }).catch(error=>{
+        console.log(error)
+    })
     console.log(newService)
     }
   return (

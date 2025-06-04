@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import SignUP from "../Pages/SignUP/SignUP";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AddService from "../Pages/Add Service/AddService";
+import Loading from "../Pages/Loading/Loading";
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +17,10 @@ export const router = createBrowserRouter([
     children:[
         {
             index:true,
-            element:<Home/>
+            element:<Home/>,
+            loader:()=>fetch('http://localhost:3000/service'),
+            hydrateFallbackElement:<Loading></Loading>
+
         },
         {
             path:'/login',
