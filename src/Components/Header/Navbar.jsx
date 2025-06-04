@@ -1,10 +1,31 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
+import SignOut from '../../Pages/SignOut/SignOut';
+import UserProfile from '../../Pages/Profile/UserProfile';
 
 const Navbar = () => {
-    const {user}=useContext(AuthContext)
+   const {user}=useContext(AuthContext)
+   const links=<>
+   <li><Link to='/'>Home</Link></li>
+      <li><Link>Services</Link></li>
 
+      {
+        user && 
+        <li>
+        <details>
+          <summary>Dashboard</summary>
+          <ul className="p-2 z-20">
+            <li><Link to='/addService'>Add Service</Link> </li>
+            <li><a>Manage Service</a></li>
+            <li><a>Booked-Services</a></li>
+            <li>Service-To-Do</li>
+          </ul>
+        </details>
+      </li>
+      }
+     
+   </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -15,45 +36,19 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+        {links}
       </ul>
     </div>
     <a className="btn btn-ghost text-xl">daisyUI</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><Link to='/'>Home</Link></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+      {links}
     </ul>
   </div>
   <div className="navbar-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-        </div>
-      </div>
-    {
-        user? (<button>SignOut</button>):(<Link to='/login'><button>Login</button></Link>)
-    }
+    <UserProfile></UserProfile>
+    <SignOut></SignOut>
   </div>
 </div>
     );

@@ -10,6 +10,7 @@ const AuthProvider = ({children}) => {
     const loginUser=(email,password)=>{
         return signInWithEmailAndPassword(auth,email,password)
     }
+   
     
     useEffect(()=>{
         const Unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
