@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
 import SignOut from '../../Pages/SignOut/SignOut';
 import UserProfile from '../../Pages/Profile/UserProfile';
+import ModeToggle from '../../Pages/ModeToggle/ModeToggle';
 
 const Navbar = () => {
    const {user}=useContext(AuthContext)
@@ -27,7 +28,7 @@ const Navbar = () => {
      
    </>
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar sticky top-0 right-0 left-0 z-30 bg-amber-100 text-gray-700 shadow-sm dark:bg-gray-800 dark:text-white ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -40,6 +41,7 @@ const Navbar = () => {
       </ul>
     </div>
     <a className="btn btn-ghost text-xl">daisyUI</a>
+    <ModeToggle></ModeToggle>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

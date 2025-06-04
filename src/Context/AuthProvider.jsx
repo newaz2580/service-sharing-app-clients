@@ -4,26 +4,44 @@ import {  createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAnd
 import { auth } from '../firebase/Firebase.init';
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
+    const [loading,setLoading]=useState(true)
+    const [darkMode,setDarkMode]=useState(
+        localStorage.getItem('theme')==='dark'
+    )
     const createUser=(email,password)=>{
+        setLoading(true)
     return createUserWithEmailAndPassword(auth,email,password)
     }
     const loginUser=(email,password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
    
     
     useEffect(()=>{
+        if(darkMode){
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('theme','dark')
+        }else{
+            document.documentElement.classList.remove('dark')
+            localStorage.setItem('theme','light')
+        }
         const Unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
             console.log(currentUser)
             setUser(currentUser)
+            setLoading(false)
         })
         return()=> Unsubscribe()
-    },[])
+    },[darkMode])
     console.log(user)
     const info={
     createUser,
     loginUser,
     user,
+    darkMode,
+    setDarkMode,
+    loading,
+    setLoading
     }
     return (
         <div>
