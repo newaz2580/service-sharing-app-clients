@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ShowServicesCard = ({service}) => {
-    console.log(service)
+ 
     return (
         <div className="card bg-base-100 w-full shadow-sm mx-auto">
   <figure>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/Firebase.init";
@@ -7,6 +7,7 @@ import SignInWithGoogle from "../SignInWithGoogle";
 
 const SignUP = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate=useNavigate()
   const handleSignUpForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,6 +17,7 @@ const SignUP = () => {
     const password = form.password.value;
     createUser(email, password)
       .then((result) => {
+        navigate('/')
         const profile = {
           displayName: name,
           photoURL: photo,

@@ -10,6 +10,8 @@ import AddService from "../Pages/Add Service/AddService";
 import Loading from "../Pages/Loading/Loading";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
+import AllServices from "../Pages/AllServices/AllServices";
+import ManageServices from "../Pages/ManageService/ManageServices";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +35,12 @@ export const router = createBrowserRouter([
             element:<SignUP></SignUP>
         },
         {
+        path:'/allServices',
+        element:<AllServices></AllServices>,
+        loader:()=>fetch('http://localhost:3000/service'),
+        hydrateFallbackElement:<Loading></Loading>
+        },
+        {
           path:'/addService',
           element:<AddService></AddService>
         },
@@ -42,6 +50,10 @@ export const router = createBrowserRouter([
           loader:({params})=>fetch(`http://localhost:3000/service/${params.id}`),
           hydrateFallbackElement:<Loading></Loading>
 
+        },
+        {
+          path:'/manageServices',
+          element:<ManageServices></ManageServices>
         }
     ]
   },

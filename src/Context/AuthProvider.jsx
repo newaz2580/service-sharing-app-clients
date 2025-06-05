@@ -27,13 +27,13 @@ const AuthProvider = ({children}) => {
             localStorage.setItem('theme','light')
         }
         const Unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
-            console.log(currentUser)
+            // console.log(currentUser)
             setUser(currentUser)
             setLoading(false)
         })
         return()=> Unsubscribe()
     },[darkMode])
-    console.log(user)
+    
     const info={
     createUser,
     loginUser,

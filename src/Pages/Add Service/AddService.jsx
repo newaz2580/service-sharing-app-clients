@@ -1,12 +1,16 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const AddService = () => {
+   const {user}=useContext(AuthContext)
     const handleAddService=(e)=>{
     e.preventDefault()
     const form=e.target;
     const formData=new FormData(form)
     const newService=Object.fromEntries(formData.entries())
+    const email=user.email;
+    newService.User_email=email;
     axios.post('http://localhost:3000/service',newService)
     .then((res)=>{
         console.log(res.data)
@@ -45,7 +49,7 @@ const AddService = () => {
         </div>
         <div>
           <label className="label">User</label>
-          <input type="email" className="input" placeholder="user email" />
+          <input type="email" defaultValue={user?.email} className="input read-only" placeholder="user email" />
         </div>
     
        

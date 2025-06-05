@@ -3,6 +3,7 @@ import ShowServicesCard from "./ShowServicesCard";
 
 
 const ServicesCategories = () => {
+
 const servicesData = [
   {
     image: "https://i.ibb.co/Fb4pZZC1/worker-applies.webphttps://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp",
@@ -62,7 +63,7 @@ const servicesData = [
       <h1 className="text-4xl text-center py-8">Service categories</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {
-            servicesData?.map(service=><ShowServicesCard service={service}></ShowServicesCard>)
+            servicesData?.map((service,index)=><ShowServicesCard key={index} service={service}></ShowServicesCard>)
         }
       </div>
     </>
