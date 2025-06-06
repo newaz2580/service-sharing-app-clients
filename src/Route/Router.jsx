@@ -12,6 +12,7 @@ import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 import AllServices from "../Pages/AllServices/AllServices";
 import ManageServices from "../Pages/ManageService/ManageServices";
+import Update from "../Pages/Update/Update";
 
 export const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ export const router = createBrowserRouter([
           element:<AddService></AddService>
         },
         {
-          path:'/serviceDetail/:id',
+          path:'/serviceDetails/:id',
           element:<PrivateRoutes><ServiceDetails></ServiceDetails></PrivateRoutes>,
           loader:({params})=>fetch(`http://localhost:3000/service/${params.id}`),
           hydrateFallbackElement:<Loading></Loading>
@@ -53,7 +54,14 @@ export const router = createBrowserRouter([
         },
         {
           path:'/manageServices',
-          element:<ManageServices></ManageServices>
+          element:<PrivateRoutes><ManageServices></ManageServices></PrivateRoutes>
+        },
+        {
+          path:'update/:id',
+          loader:({params})=>fetch(`http://localhost:3000/service/${params}`),
+          hydrateFallbackElement:<Loading></Loading>,
+          
+          element:<PrivateRoutes><Update></Update></PrivateRoutes>,
         }
     ]
   },

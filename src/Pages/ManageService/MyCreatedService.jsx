@@ -4,7 +4,7 @@ import ShowCreatedService from './ShowCreatedService';
 const MyCreatedService = ({serviceCreateByPromise}) => {
     const services=use(serviceCreateByPromise)
     const [myServices,setMyServices]=useState(services)
-    console.log(services)
+    
     return (
         <div>
             <h2>My Created Service</h2>

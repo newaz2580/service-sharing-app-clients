@@ -1,12 +1,14 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 
 const ServiceDetails = () => {
   const singleService = useLoaderData();
+  const {id}=useParams()
+
   const { _id, photo, price, serviceDescription, serviceName, serviceArea } =
     singleService;
-  console.log(singleService);
+  console.log(singleService,id);
   return (
     <div className="card bg-white text-black mx-auto w-96 shadow-sm dark:bg-black dark:text-white">
      <Helmet><title>This Service Details</title></Helmet>

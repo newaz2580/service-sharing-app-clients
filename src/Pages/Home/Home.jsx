@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router';
 import ServiceCard from '../ServiceCard/ServiceCard';
-import ServiceCategories from '../Service category/ServiceCategories';
+
 import ServicesCategories from '../Services/ServiceCategories';
+
+import Hero from '../Hero/Hero';
 
 
 
@@ -11,9 +13,11 @@ const Home = () => {
     
    
     return (
-        <div>
+        <div className='px-10 lg:px-20 bg-white text-black dark:bg-black dark:text-white'>
+         {/* <BannerSection></BannerSection> */}
+         <Hero></Hero>
          <ServiceCard serviceData={serviceData}></ServiceCard>
-         <ServiceCategories></ServiceCategories>
+       
          <ServicesCategories></ServicesCategories>
         </div>
     );

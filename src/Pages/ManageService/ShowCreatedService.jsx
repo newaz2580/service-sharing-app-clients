@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router";
 
 
 const ShowCreatedService = ({ service,setMyServices,myServices }) => {
-   
+   console.log(service.serviceName)
     const handleServiceDelete=(id)=>{
+        
         fetch(`http://localhost:3000/service/${id}`,{
             method: "DELETE"
         })
@@ -26,14 +28,14 @@ const ShowCreatedService = ({ service,setMyServices,myServices }) => {
       <div className="card-body">
         <h2 className="card-title">
           {service.serviceName}
-          <div className="badge badge-secondary">NEW</div>
+          <p>{service.price}</p>
         </h2>
         <p>
           {service.serviceDescription}
         </p>
         <div className="card-actions justify-end">
           <div onClick={()=>handleServiceDelete(service._id)} className="badge badge-outline">Delete</div>
-          <div className="badge badge-outline">Update</div>
+          <Link to={`/update/${service._id}`}><div className="badge badge-outline">Update</div></Link>
         </div>
       </div>
     </div>

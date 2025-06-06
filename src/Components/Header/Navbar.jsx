@@ -9,15 +9,15 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
   const links = (
     <>
-      <li>
+      <li className="text-2xl">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      <li className="text-2xl">
         <NavLink to="/allServices">All Services</NavLink>
       </li>
 
       {user && (
-        <li>
+        <li className="text-2xl">
           <details>
             <summary>Dashboard</summary>
             <ul className="p-2 z-20">
@@ -39,7 +39,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar sticky top-0 right-0 left-0 z-30 bg-amber-100 text-gray-700 shadow-sm dark:bg-gray-800 dark:text-white ">
+    <div className="navbar sticky top-0 right-0 left-0 z-30 bg-amber-100 text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +66,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-3xl">HomeRepair(BD)</a>
         <ModeToggle></ModeToggle>
       </div>
       <div className="navbar-center hidden lg:flex">

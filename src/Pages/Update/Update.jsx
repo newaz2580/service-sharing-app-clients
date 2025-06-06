@@ -1,26 +1,26 @@
-import axios from "axios";
-import React, { useContext } from "react";
-import { AuthContext } from "../../Context/AuthContext";
 
-const AddService = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
-  const handleAddService = (e) => {
+import React from "react";
+import { useLoaderData, useParams } from "react-router";
+
+const Update = () => {
+    const {id}=useParams()
+    console.log(id)
+  const singleServiceData = useLoaderData();
+  console.log(singleServiceData)
+  const { photo, price, area, serviceDescription, serviceName,_id } =
+    singleServiceData;
+
+  const handleUpdateService = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    const newService = Object.fromEntries(formData.entries());
-    const email = user.email;
-    newService.User_email = email;
-    newService.User_name=user.displayName
-    newService.User_Photo=user.photoURL
-    console.log(newService)
-      fetch('http://localhost:3000/service', {
-      method: "POST",
+    const form=e.target;
+    const formData =new FormData(form)
+    const updateServiceData=Object.fromEntries(formData.entries())
+     fetch(`http://localhost:3000/service/${_id}`, {
+      method: "PUT",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(newService),
+      body: JSON.stringify(updateServiceData),
     })
       .then((res) => res.json())
       .then((result) => {
@@ -29,27 +29,17 @@ const AddService = () => {
       .catch((error) => console.log(error))
       
   };
-
-  //   axios
-  //     .post("http://localhost:3000/service", newService)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  //   console.log(newService);
-  // };
   return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xl mx-auto border p-4">
       <legend className="fieldset-legend">Page details</legend>
-      <form onSubmit={handleAddService}>
+      <form onSubmit={handleUpdateService}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="label">Image URL</label>
             <input
               type="text"
               name="photo"
+              defaultValue={photo}
               className="input"
               placeholder="Photo URL"
             />
@@ -59,6 +49,7 @@ const AddService = () => {
             <input
               type="text"
               name="serviceName"
+              defaultValue={serviceName}
               className="input"
               placeholder="Service Name"
             />
@@ -69,6 +60,7 @@ const AddService = () => {
             <input
               type="text"
               name="price"
+              defaultValue={price}
               className="input"
               placeholder="Price"
             />
@@ -79,6 +71,7 @@ const AddService = () => {
             <input
               type="text"
               name="area"
+              defaultValue={area}
               className="input"
               placeholder="Service Area"
             />
@@ -87,34 +80,17 @@ const AddService = () => {
             <label className="label">Service Description</label>
             <input
               type="text"
+              defaultValue={serviceDescription}
               name="serviceDescription"
               className="input"
               placeholder="Service Description"
             />
           </div>
           <div>
-            <label className="label">User Email</label>
+            <label className="label">User</label>
             <input
               type="email"
-              defaultValue={user?.email}
-              className="input read-only"
-              placeholder="user email"
-            />
-          </div>
-          <div>
-            <label className="label">User Name</label>
-            <input
-              type="text"
-              defaultValue={user?.displayName}
-              className="input read-only"
-              placeholder="user email"
-            />
-          </div>
-          <div>
-            <label className="label">User PhotoURL</label>
-            <input
-              type="text"
-              defaultValue={user?.photoURL}
+              defaultValue={""}
               className="input read-only"
               placeholder="user email"
             />
@@ -123,7 +99,7 @@ const AddService = () => {
         <div className="w-full">
           <input
             type="submit"
-            value="Add Service"
+            value="Update service"
             className=" text-center btn w-full"
           />
         </div>
@@ -132,4 +108,4 @@ const AddService = () => {
   );
 };
 
-export default AddService;
+export default Update;
