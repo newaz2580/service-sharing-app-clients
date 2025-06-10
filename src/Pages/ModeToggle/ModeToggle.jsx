@@ -6,8 +6,8 @@ import { FaMoon } from 'react-icons/fa';
 const ModeToggle = () => {
     const {darkMode,setDarkMode}=useContext(AuthContext)
     return (
-        <div>
-            <button onClick={()=>setDarkMode(!darkMode)}>{darkMode ? <IoSunnyOutline />:<FaMoon />}</button>
+        <div className='ml-3'>
+            <button onClick={()=>setDarkMode(!darkMode)}>{darkMode ? <IoSunnyOutline size={25} />:<FaMoon size={25} />}</button>
         </div>
     );
 };

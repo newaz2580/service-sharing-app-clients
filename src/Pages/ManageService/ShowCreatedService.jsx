@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 
 const ShowCreatedService = ({ service,setMyServices,myServices }) => {
-   console.log(service.serviceName)
+  
     const handleServiceDelete=(id)=>{
         
         fetch(`http://localhost:3000/service/${id}`,{

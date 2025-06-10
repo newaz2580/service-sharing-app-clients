@@ -1,10 +1,10 @@
-import axios from "axios";
+
 import React, { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const handleAddService = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,7 +14,7 @@ const AddService = () => {
     newService.User_email = email;
     newService.User_name=user.displayName
     newService.User_Photo=user.photoURL
-    console.log(newService)
+    // console.log(newService)
       fetch('http://localhost:3000/service', {
       method: "POST",
       headers: {
@@ -29,17 +29,6 @@ const AddService = () => {
       .catch((error) => console.log(error))
       
   };
-
-  //   axios
-  //     .post("http://localhost:3000/service", newService)
-  //     .then((res) => {
-  //       console.log(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  //   console.log(newService);
-  // };
   return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xl mx-auto border p-4">
       <legend className="fieldset-legend">Page details</legend>

@@ -32,7 +32,7 @@ const Hero = () => {
 			<motion.img 
 			animate={{y:[0,50,0]}}
 			transition={{duration:5,repeat:Infinity}}
-			src={`https://i.ibb.co/5gm1s7Y6/home.jpg`} alt="" className="object-contain h-60 sm:h-70 lg:h-80 xl:h-96 2xl:h-110" />
+			src={`https://i.ibb.co/5gm1s7Y6/home.jpg`} alt="" className="object-contain h-60 sm:h-70 lg:h-80 xl:h-96 2xl:h-110 rounded-full" />
 		</div>
 	</div>
 </section>

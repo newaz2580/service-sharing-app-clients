@@ -1,29 +1,27 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData } from "react-router";
+import Model from "../Model/Model";
 
 const ServiceDetails = () => {
   const singleService = useLoaderData();
-  const {id}=useParams()
-
-  const { _id, photo, price, serviceDescription, serviceName, serviceArea } =
+  const { _id, photo, price, serviceDescription, serviceName, area } =
     singleService;
-  console.log(singleService,id);
+
   return (
-    <div className="card bg-white text-black mx-auto w-96 shadow-sm dark:bg-black dark:text-white">
-     <Helmet><title>This Service Details</title></Helmet>
+    <div className="card bg-white text-black mx-auto w-150 shadow-sm dark:bg-black dark:text-white">
+      <Helmet>
+        <title>This Service Details</title>
+      </Helmet>
       <figure>
-        <img src={photo} alt="Shoes" />
+        <img className="h-96 p-5 w-full object-cover" src={photo} alt="Shoes" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{serviceName}</h2>
         <p>{serviceDescription}</p>
-        <p>{serviceArea}</p>
+        <p>{area}</p>
         <p>{price}</p>
-
-        <div className="card-actions justify-end">
-          <div className="badge badge-outline">Book Now</div>
-        </div>
+        <Model singleService={singleService}></Model>
       </div>
     </div>
   );

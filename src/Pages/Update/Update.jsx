@@ -1,12 +1,12 @@
 
 import React from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData } from "react-router";
 
 const Update = () => {
-    const {id}=useParams()
-    console.log(id)
+
+
   const singleServiceData = useLoaderData();
-  console.log(singleServiceData)
+
   const { photo, price, area, serviceDescription, serviceName,_id } =
     singleServiceData;
 

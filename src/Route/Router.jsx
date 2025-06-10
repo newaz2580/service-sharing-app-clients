@@ -13,6 +13,7 @@ import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 import AllServices from "../Pages/AllServices/AllServices";
 import ManageServices from "../Pages/ManageService/ManageServices";
 import Update from "../Pages/Update/Update";
+import ServiceBooked from "../Pages/ServiceBooked/ServiceBooked";
 
 export const router = createBrowserRouter([
   {
@@ -58,10 +59,15 @@ export const router = createBrowserRouter([
         },
         {
           path:'update/:id',
-          loader:({params})=>fetch(`http://localhost:3000/service/${params}`),
+          loader:({params})=>fetch(`http://localhost:3000/service/${params.id}`),
           hydrateFallbackElement:<Loading></Loading>,
           
           element:<PrivateRoutes><Update></Update></PrivateRoutes>,
+        },
+        {
+          path:'/serviceBooked',
+          loader:()=>fetch('http://localhost:3000/purchaseService'),
+          element:<PrivateRoutes><ServiceBooked></ServiceBooked></PrivateRoutes>
         }
     ]
   },

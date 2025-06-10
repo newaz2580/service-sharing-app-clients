@@ -28,9 +28,9 @@ const Navbar = () => {
                 
                 <Link to="/manageServices">Manage Service</Link>{" "}
               </li>
-              <li>
-                <a>Booked-Services</a>
-              </li>
+              <Link to='/serviceBooked'>
+               <li> Booked-Services</li>
+              </Link>
               <li>Service-To-Do</li>
             </ul>
           </details>
@@ -66,7 +66,10 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl">HomeRepair(BD)</a>
+        <div className="flex">
+        <a className="btn btn-ghost text-3xl hidden md:flex">HomeRepair(BD)</a>
+        <img className="h-12 w-12 rounded-full" src={`https://i.ibb.co/V0nskT0v/home-06.jpg`} alt="" />
+        </div>
         <ModeToggle></ModeToggle>
       </div>
       <div className="navbar-center hidden lg:flex">
