@@ -14,6 +14,7 @@ import AllServices from "../Pages/AllServices/AllServices";
 import ManageServices from "../Pages/ManageService/ManageServices";
 import Update from "../Pages/Update/Update";
 import ServiceBooked from "../Pages/ServiceBooked/ServiceBooked";
+import TodoService from "../Pages/TodoService/TodoService";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,11 @@ export const router = createBrowserRouter([
           path:'/serviceBooked',
           loader:()=>fetch('http://localhost:3000/purchaseService'),
           element:<PrivateRoutes><ServiceBooked></ServiceBooked></PrivateRoutes>
+        },
+        {
+          path:'/todoService',
+          loader:()=>fetch('http://localhost:3000/purchaseService'),
+          element:<TodoService></TodoService>
         }
     ]
   },

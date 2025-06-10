@@ -31,7 +31,10 @@ const Navbar = () => {
               <Link to='/serviceBooked'>
                <li> Booked-Services</li>
               </Link>
+              <Link to='/todoService'>
               <li>Service-To-Do</li>
+              
+              </Link>
             </ul>
           </details>
         </li>
