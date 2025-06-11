@@ -27,7 +27,7 @@ const ShowAllService = ({ service }) => {
   return (
     <div
       data-aos="fade-up"
-      className="w-full rounded-2xl shadow-xl bg-white dark:bg-gray-900 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-lg mx-auto"
+      className="w-full rounded-2xl shadow-xl bg-white dark:bg-gray-900 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-lg mx-auto mb-5"
     >
       <img
         src={photo}
