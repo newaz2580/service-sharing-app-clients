@@ -19,7 +19,9 @@ const ServiceBooked = () => {
   console.log(bookedData);
 
   return (
-    <div>
+    <>
+    <h2 className="text-3xl font-bold py-5 text-green-300 text-center">Booked Services</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
       {bookedData.map((booked) => (
         <DisplayMyBookingService
           key={booked._id}
@@ -27,6 +29,7 @@ const ServiceBooked = () => {
         ></DisplayMyBookingService>
       ))}
     </div>
+    </>
   );
 };
 
