@@ -70,8 +70,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex">
-        <a className="btn btn-ghost text-3xl hidden md:flex">HomeRepair(BD)</a>
+        <Link to='/' className="btn btn-ghost text-3xl hidden md:flex">HomeRepair(BD)</Link>
+        <Link to='/'>
         <img className="h-12 w-12 rounded-full" src={`https://i.ibb.co/V0nskT0v/home-06.jpg`} alt="" />
+        
+        </Link>
         </div>
         <ModeToggle></ModeToggle>
       </div>

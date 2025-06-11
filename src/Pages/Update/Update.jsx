@@ -1,21 +1,19 @@
-
 import React from "react";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const Update = () => {
-
-
   const singleServiceData = useLoaderData();
 
-  const { photo, price, area, serviceDescription, serviceName,_id } =
+  const { photo, price, area, serviceDescription, serviceName, _id } =
     singleServiceData;
 
   const handleUpdateService = (e) => {
     e.preventDefault();
-    const form=e.target;
-    const formData =new FormData(form)
-    const updateServiceData=Object.fromEntries(formData.entries())
-     fetch(`http://localhost:3000/service/${_id}`, {
+    const form = e.target;
+    const formData = new FormData(form);
+    const updateServiceData = Object.fromEntries(formData.entries());
+    fetch(`http://localhost:3000/service/${_id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -24,14 +22,20 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result)
+        console.log(result);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your service has been updated",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
-      .catch((error) => console.log(error))
-      
+      .catch((error) => console.log(error));
   };
   return (
-    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xl mx-auto border p-4">
-      <legend className="fieldset-legend">Page details</legend>
+    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xl mx-auto border p-5">
+      <h2 className="text-center text-3xl">Update service</h2>
       <form onSubmit={handleUpdateService}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>

@@ -14,10 +14,8 @@ const Home = () => {
    
     return (
         <div className='px-10 lg:px-20 bg-white text-black dark:bg-black dark:text-white'>
-         {/* <BannerSection></BannerSection> */}
          <Hero></Hero>
          <ServiceCard serviceData={serviceData}></ServiceCard>
-       
          <ServicesCategories></ServicesCategories>
         </div>
     );

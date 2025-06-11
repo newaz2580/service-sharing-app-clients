@@ -20,9 +20,9 @@ const ShowCreatedService = ({ service,setMyServices,myServices }) => {
         })
     }
   return (
-    <div className="card bg-base-100  shadow-sm">
+    <div className="card bg-base-300  shadow-xl">
       <figure>
-        <img className="h-50" src={service.photo} alt="Shoes" />
+        <img className="h-50 w-full" src={service.photo} alt="" />
         
       </figure>
       <div className="card-body">

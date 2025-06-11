@@ -61,19 +61,22 @@ export const router = createBrowserRouter([
         {
           path:'update/:id',
           loader:({params})=>fetch(`http://localhost:3000/service/${params.id}`),
-          hydrateFallbackElement:<Loading></Loading>,
-          
           element:<PrivateRoutes><Update></Update></PrivateRoutes>,
+          hydrateFallbackElement:<Loading></Loading>,
+
         },
         {
           path:'/serviceBooked',
           loader:()=>fetch('http://localhost:3000/purchaseService'),
-          element:<PrivateRoutes><ServiceBooked></ServiceBooked></PrivateRoutes>
+          element:<PrivateRoutes><ServiceBooked></ServiceBooked></PrivateRoutes>,
+          hydrateFallbackElement:<Loading></Loading>
+          
         },
         {
           path:'/todoService',
           loader:()=>fetch('http://localhost:3000/purchaseService'),
-          element:<TodoService></TodoService>
+          element:<PrivateRoutes><TodoService></TodoService></PrivateRoutes>,
+           hydrateFallbackElement:<Loading></Loading>
         }
     ]
   },

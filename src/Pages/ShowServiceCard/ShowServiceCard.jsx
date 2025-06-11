@@ -1,62 +1,72 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router";
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ShowServiceCard = ({ service }) => {
-  
-   useEffect(()=>{
-          AOS.init({
-              duration:600,
-              delay:200
-          })
-      })
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      delay: 200,
+    });
+  }, []);
 
-  const {User_Photo,User_name, photo, price,serviceDescription,serviceName } = service;
+  const {
+    User_Photo,
+    User_name,
+    photo,
+    price,
+    serviceDescription,
+    serviceName,
+    _id,
+  } = service;
+
   return (
-    // <div className="card bg-base-100  shadow-sm">
-    //   <figure>
-    //     <img
-    //       src={photo}
-    //       alt="Shoes"
-    //       className="h-60 w-full"
-    //     />
-    //   </figure>
-    //   <div className="card-body">
-    //     <h2 className="card-title">
-    //       {serviceName}
-    //       <div className="badge badge-secondary">{price}</div>
-    //     </h2>
-    //     <p>
-    //       {serviceDescription}
-    //     </p>
-    //     <div className="card-actions justify-end">
-    //       <Link to={`/serviceDetails/${service._id}`} className="badge badge-outline">View Details</Link>
-         
-    //     </div>
-    //   </div>
-    // </div>
-    <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600" className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
-	<div className="flex space-x-4">
-		<img alt="" src={User_Photo} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" />
-		<div className="flex flex-col space-y-1">
-			<a rel="noopener noreferrer" href="#" className="text-sm font-semibold">{User_name}</a>
-			
-		</div>
-	</div>
-	<div>
-		<img src={photo} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500" />
-		<h2 className="mb-1 text-xl font-semibold">{serviceName}</h2>
-    <p>Price:{price}</p>
-		<p className="text-sm dark:text-gray-600">{serviceDescription}</p>
-	</div>
-	<div className="flex flex-wrap justify-between">
-		
-		<div className="flex space-x-2 text-sm dark:text-gray-600">
-		 <Link to={`/serviceDetails/${service._id}`} className="badge badge-outline">View Details</Link>
-		</div>
-	</div>
-</div>
+    <div
+      data-aos="fade-up"
+      className="w-full rounded-2xl shadow-xl bg-white dark:bg-gray-900 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-lg mx-auto"
+    >
+      <img
+        src={photo}
+        alt={serviceName}
+        className="w-full h-64  object-cover"
+      />
+
+      <div className="p-6 space-y-4">
+        <div className="flex items-center space-x-4">
+          <img
+            src={User_Photo}
+            alt={User_name}
+            className="w-12 h-12 rounded-full border-2 border-green-500"
+          />
+          <div>
+            <p className="font-semibold text-lg text-gray-800 dark:text-white">
+              {User_name}
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            {serviceName}
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 mt-1 line-clamp-3">
+            {serviceDescription}
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <span className="text-xl font-semibold text-green-600">${price}</span>
+          <Link
+            to={`/serviceDetails/${_id}`}
+            className="px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+          >
+            View Details
+          </Link>
+        </div>
+      </div>
+      
+    </div>
   );
 };
 
