@@ -1,25 +1,34 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { auth } from "../firebase/Firebase.init";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const SignInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const handleSignInWithGoogle = () => {
+    setLoading(true);
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate("/");
+        setLoading(false);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        toast.error(`${errorCode}: ${errorMessage}`);
+        setLoading(false);
       });
   };
   return (
     <button
       onClick={handleSignInWithGoogle}
-      className="btn bg-white text-black border-[#e5e5e5]"
+      disabled={loading}
+      className="btn bg-white text-black border-[#e5e5e5] rounded-2xl"
     >
       <svg
         aria-label="Google logo"
@@ -48,7 +57,13 @@ const SignInWithGoogle = () => {
           ></path>
         </g>
       </svg>
-      Login with Google
+      {loading ? (
+        <>
+          <span className="loading loading-spinner loading-sm"></span>Signing...
+        </>
+      ) : (
+        "Login with Google"
+      )}
     </button>
   );
 };

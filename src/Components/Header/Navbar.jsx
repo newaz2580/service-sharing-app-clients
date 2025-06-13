@@ -20,20 +20,18 @@ const Navbar = () => {
         <li className="text-2xl">
           <details>
             <summary>Dashboard</summary>
-            <ul className="p-2 z-20">
-              <li>
+            <ul className="p-2 z-20 text-md bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-white">
+              <li className="">
                 <Link to="/addService">Add Service</Link>{" "}
               </li>
               <li>
-                
                 <Link to="/manageServices">Manage Service</Link>{" "}
               </li>
-              <Link to='/serviceBooked'>
-               <li> Booked-Services</li>
+              <Link to="/serviceBooked">
+                <li> Booked-Services</li>
               </Link>
-              <Link to='/todoService'>
-              <li>Service-To-Do</li>
-              
+              <Link to="/todoService">
+                <li>Service-To-Do</li>
               </Link>
             </ul>
           </details>
@@ -42,7 +40,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar sticky top-0 right-0 left-0 z-30 bg-amber-100 text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white ">
+    <div className="lg:px-20 navbar sticky top-0 right-0 left-0 z-30 bg-gray-100 py-5 text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,12 +67,17 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="flex">
-        <Link to='/' className="btn btn-ghost text-3xl hidden md:flex">HomeRepair(BD)</Link>
-        <Link to='/'>
-        <img className="h-12 w-12 rounded-full" src={`https://i.ibb.co/V0nskT0v/home-06.jpg`} alt="" />
-        
-        </Link>
+        <div className="flex items-center">
+          <Link to="/" className="btn btn-ghost text-3xl hidden md:flex">
+            HomeRepair(BD) Ltd
+          </Link>
+          <Link to="/">
+            <img
+              className="h-10 w-10 rounded-full"
+              src={`https://i.ibb.co/V0nskT0v/home-06.jpg`}
+              alt=""
+            />
+          </Link>
         </div>
         <ModeToggle></ModeToggle>
       </div>

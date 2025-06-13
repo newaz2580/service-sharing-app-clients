@@ -4,10 +4,10 @@ import DisplayAllBookedService from "./DisplayAllBookedService";
 
 const TodoService = () => {
   const allBookedService = useLoaderData();
-  console.log(allBookedService);
+  
   return (
     <>
-    <div className="container p-2 mx-auto sm:p-4 dark:text-gray-500">
+    <div className="container p-2 mx-auto sm:p-4 bg-white text-black dark:bg-gray-800 dark:text-white">
 	<h2 className="mb-4 text-2xl font-semibold leading-tight text-center">Service Todo List</h2>
 	<div className="overflow-x-auto">
 		<table className="w-full p-6 text-xs text-left whitespace-nowrap">
@@ -21,7 +21,7 @@ const TodoService = () => {
 				<col className="w-5" />
 			</colgroup>
 			<thead>
-				<tr className="dark:bg-gray-300">
+				<tr className="bg-cyan-600 dark:bg-blue-600 px-20">
 					<th className="p-3 text-2xl">#</th>
 					<th className="p-3 text-2xl">Name</th>
 					<th className="p-3 text-2xl">Service Description</th>
@@ -33,7 +33,7 @@ const TodoService = () => {
 					</th>
 				</tr>
 			</thead>
-			<tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
+			<tbody className="border-b dark:bg-blue-700 dark:text-white dark:border-gray-300">
 			
         {allBookedService.map((bookService,index) => (
           <DisplayAllBookedService
@@ -42,35 +42,12 @@ const TodoService = () => {
             index={index}
           ></DisplayAllBookedService>
         ))}
-    
-				
 			</tbody>
 			
 		</table>
 	</div>
 </div>
-      {/* <div className="overflow-x-auto">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Service Name</th>
-              <th>specialInstruction</th>
-              <th>price</th>
-              <th>Date</th>
-              <th>status</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div>
-        {allBookedService.map((bookService) => (
-          <DisplayAllBookedService
-            key={bookService._id}
-            bookService={bookService}
-          ></DisplayAllBookedService>
-        ))}
-      </div> */}
+      
     </>
   );
 };

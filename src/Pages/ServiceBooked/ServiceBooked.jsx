@@ -15,13 +15,10 @@ const ServiceBooked = () => {
       setBookedData(booking);
     }
   }, [bookingService, user]);
-
-  console.log(bookedData);
-
   return (
-    <>
-    <h2 className="text-3xl font-bold py-5 text-green-300 text-center">Booked Services</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
+    <div className="bg-gray-200 dark:bg-gray-600 lg:px-20 px-5">
+    <h2 className="text-3xl font-bold py-5 text-green-500 text-center">Booked Services</h2>
+    <div className="grid grid-cols-1 items-center md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
       {bookedData.map((booked) => (
         <DisplayMyBookingService
           key={booked._id}
@@ -29,7 +26,7 @@ const ServiceBooked = () => {
         ></DisplayMyBookingService>
       ))}
     </div>
-    </>
+    </div>
   );
 };
 

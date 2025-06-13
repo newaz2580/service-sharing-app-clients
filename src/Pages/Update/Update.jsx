@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
+import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Update = () => {
   const singleServiceData = useLoaderData();
-
+  const [loading, setLoading] = useState(false);
   const { photo, price, area, serviceDescription, serviceName, _id } =
     singleServiceData;
 
   const handleUpdateService = (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const formData = new FormData(form);
     const updateServiceData = Object.fromEntries(formData.entries());
@@ -22,7 +24,7 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -30,11 +32,17 @@ const Update = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        setLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.error(`${errorCode}: ${errorMessage}`);
+        setLoading(false);
+      });
   };
   return (
-    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xl mx-auto border p-5">
+    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box max-w-xl mx-auto border p-5">
       <h2 className="text-center text-3xl">Update service</h2>
       <form onSubmit={handleUpdateService}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -44,7 +52,7 @@ const Update = () => {
               type="text"
               name="photo"
               defaultValue={photo}
-              className="input"
+              className="input max-w-full"
               placeholder="Photo URL"
             />
           </div>
@@ -54,7 +62,7 @@ const Update = () => {
               type="text"
               name="serviceName"
               defaultValue={serviceName}
-              className="input"
+              className="input max-w-full"
               placeholder="Service Name"
             />
           </div>
@@ -65,7 +73,7 @@ const Update = () => {
               type="text"
               name="price"
               defaultValue={price}
-              className="input"
+              className="input max-w-full"
               placeholder="Price"
             />
           </div>
@@ -76,7 +84,7 @@ const Update = () => {
               type="text"
               name="area"
               defaultValue={area}
-              className="input"
+              className="input max-w-full"
               placeholder="Service Area"
             />
           </div>
@@ -86,7 +94,7 @@ const Update = () => {
               type="text"
               defaultValue={serviceDescription}
               name="serviceDescription"
-              className="input"
+              className="input max-w-full"
               placeholder="Service Description"
             />
           </div>
@@ -95,17 +103,26 @@ const Update = () => {
             <input
               type="email"
               defaultValue={""}
-              className="input read-only"
+              className="input read-only max-w-full"
               placeholder="user email"
             />
           </div>
         </div>
-        <div className="w-full">
-          <input
+        <div className="w-full my-5">
+          <button
             type="submit"
-            value="Update service"
-            className=" text-center btn w-full"
-          />
+            className="btn w-full bg-blue-600 hover:bg-blue-700 text-white text-lg rounded-full"
+            disabled={loading}
+          >
+            {loading ? (
+              <>
+                <span className="loading loading-spinner loading-sm"></span>{" "}
+                Updating...
+              </>
+            ) : (
+              "Update Service"
+            )}
+          </button>
         </div>
       </form>
     </fieldset>

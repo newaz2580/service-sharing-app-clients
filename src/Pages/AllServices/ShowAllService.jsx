@@ -13,8 +13,8 @@ const ShowAllService = ({ service }) => {
   }, []);
 
   const {
-    User_Photo,
-    User_name,
+    user_Photo,
+    user_name,
     photo,
     price,
     area,
@@ -38,13 +38,13 @@ const ShowAllService = ({ service }) => {
       <div className="p-6 space-y-4">
         <div className="flex items-center space-x-4">
           <img
-            src={User_Photo}
-            alt={User_name}
+            src={user_Photo}
+            alt={user_name}
             className="w-12 h-12 rounded-full border-2 border-green-500"
           />
           <div>
             <p className="font-semibold text-lg text-gray-800 dark:text-white">
-              {User_name}
+              {user_name}
             </p>
           </div>
         </div>

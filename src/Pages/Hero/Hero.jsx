@@ -1,42 +1,70 @@
-import React from 'react';
-import { motion } from "motion/react"
-const Hero = () => {
-   
-    return (
-        <section className="">
-            <h1 className='text-5xl text-center font-bold py-9'>Service Sharing </h1>
-	<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-			<motion.h1 
-			
-			 animate={{ 
-				color:['#f42918','#f5d808 ','#1284f6','#17f10d'], 
-				transition:{duration:4,repeat:Infinity}
-			}}
-			className="text-3xl font-bold leading-none sm:text-5xl">Home
-				<span className="dark:text-violet-600">Repair</span>Service
-			</motion.h1>
-			<motion.p 
-			initial={{ scale: 0 }}
-			 animate={{ scale: 1,transition:{duration:3} }}
-			className="mt-6 mb-8  text-4xl">
-				Let the expert handle Your  house problems
-			</motion.p>
-			<div  className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-				<a rel="noopener noreferrer" href="#" className="px-8 py-3 text-lg font-semibold rounded btn-primary btn">Feature</a>
-				
-			</div>
-		</div>
+import React from "react";
+import { motion } from "framer-motion"; 
+import { FaTools } from "react-icons/fa";
 
-		<div  className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-			<motion.img 
-			animate={{y:[0,30,0]}}
-			transition={{duration:5,repeat:Infinity}}
-			src={`https://i.ibb.co/5gm1s7Y6/home.jpg`} alt="" className="object-contain h-60 sm:h-70 lg:h-80 xl:h-96 2xl:h-110 rounded-full" />
-		</div>
-	</div>
-</section>
-    );
+const Hero = () => {
+  return (
+    <section className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
+      <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+        
+
+        <div className="flex-1 text-center lg:text-left">
+          <motion.h1
+            animate={{
+              color: ["#f42918", "#1284f6", "#17f10d"],
+              transition: { duration: 4, repeat: Infinity },
+            }}
+            className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight"
+          >
+            Home <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Repair</span> Service
+          </motion.h1>
+
+          <motion.p
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1, transition: { duration: 2 } }}
+            className="mt-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300"
+          >
+            Let the experts handle your household problems with ease and care.
+          </motion.p>
+
+          <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
+            <a
+              href="#"
+              className="px-8 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md hover:scale-105 transition-transform duration-300"
+            >
+              Explore Features
+            </a>
+            <a
+              href="#"
+              className="px-8 py-3 text-lg font-semibold rounded-lg border-2 border-indigo-500 text-indigo-500 hover:bg-indigo-100 transition-colors duration-300"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+
+  
+        <div className="flex-1 flex justify-center items-center relative">
+         
+          <motion.div
+            animate={{ y: [0, -20, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="absolute top-0 right-10 text-indigo-500 text-4xl opacity-20"
+          >
+            <FaTools />
+          </motion.div>
+
+          <motion.img
+            animate={{ y: [0, 20, 0] }}
+            transition={{ duration: 4, repeat: Infinity }}
+            src="https://i.ibb.co/bRvPCq5K/house.jpg"
+            alt="Home Repair"
+            className="rounded-full object-cover w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 shadow-lg ring-4 ring-indigo-300 dark:ring-indigo-700"
+          />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

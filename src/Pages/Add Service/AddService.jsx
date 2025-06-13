@@ -1,22 +1,23 @@
-
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
-  
+  const [loading, setLoading] = useState(false);
+
   const handleAddService = (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = e.target;
     const formData = new FormData(form);
     const newService = Object.fromEntries(formData.entries());
     const email = user.email;
     newService.user_email = email;
-    newService.user_name=user.displayName
-    newService.user_Photo=user.photoURL
-   
-      fetch('http://localhost:3000/service', {
+    newService.user_name = user.displayName;
+    newService.user_Photo = user.photoURL;
+
+    fetch("http://localhost:3000/service", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -25,103 +26,125 @@ const AddService = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        toast.success(result)
-        toast.success('Add service successfully')
-        form.reset()
+        // console.log(result)
+        toast.success("Add service successfully");
+        form.reset();
+        setLoading(false);
       })
-      .catch((error) => toast.error(error))
-      
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.error(`${errorCode}: ${errorMessage}`);
+        setLoading(false); 
+      });
   };
   return (
-    <fieldset className="fieldset bg-gray-500 border-base-300 rounded-box w-2xl mx-auto border p-4">
-      <form onSubmit={handleAddService}>
-      <h2 className="text-center font-bold text-4xl py-5 ">Add New Service</h2>
+    <div className="bg-white py-5 lg:py-18 dark:bg-violet-400">
+      <fieldset className="fieldset bg-white dark:bg-fuchsia-200 text-gray-700 border-base-300 rounded-box max-w-2xl mx-auto shadow-2xl p-4">
+        <form onSubmit={handleAddService}>
+          <h2 className="text-center font-bold text-4xl py-5 ">
+            Add New Service
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="label text-xl">Image URL</label>
-            <input
-              type="text"
-              name="photo"
-              className="input bg-white text-black"
-              placeholder="Photo URL"
-            />
-          </div>
-          <div>
-            <label className="label text-xl">Service Name</label>
-            <input
-              type="text"
-              name="serviceName"
-              className="input bg-white text-black"
-              placeholder="Service Name"
-            />
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label className="label text-xl">Image URL</label>
+              <input
+                type="text"
+                name="photo"
+                className="input bg-gray-200 text-black w-full"
+                placeholder="Photo URL"
+              />
+            </div>
+            <div>
+              <label className="label text-xl">Service Name</label>
+              <input
+                type="text"
+                name="serviceName"
+                className="input bg-gray-200 text-black w-full"
+                placeholder="Service Name"
+                required
+              />
+            </div>
 
-          <div>
-            <label className="label text-xl">Price</label>
-            <input
-              type="text"
-              name="price"
-              className="input bg-white text-black"
-              placeholder="Price"
-            />
-          </div>
+            <div>
+              <label className="label text-xl">Price</label>
+              <input
+                type="text"
+                name="price"
+                className="input bg-gray-200 text-black w-full"
+                placeholder="Price"
+                required
+              />
+            </div>
 
-          <div>
-            <label className="label text-xl">Service Area</label>
-            <input
-              type="text"
-              name="area"
-              className="input bg-white text-black"
-              placeholder="Service Area"
-            />
+            <div>
+              <label className="label text-xl">Service Area</label>
+              <input
+                type="text"
+                name="area"
+                className="input bg-gray-200 text-black w-full"
+                placeholder="Service Area"
+                required
+              />
+            </div>
+            <div>
+              <label className="label text-xl">Service Description</label>
+              <input
+                type="text"
+                name="serviceDescription"
+                className="input bg-gray-200 text-black w-full"
+                placeholder="Service Description"
+                required
+              />
+            </div>
+            <div>
+              <label className="label text-xl">User Email</label>
+              <input
+                type="email"
+                defaultValue={user?.email}
+                className="input  bg-gray-200 text-black w-full"
+                readOnly
+              />
+            </div>
+            <div>
+              <label className="label text-xl">User Name</label>
+              <input
+                type="text"
+                defaultValue={user?.displayName}
+                className="input bg-gray-200 text-black w-full"
+                 readOnly
+              />
+            </div>
+            <div>
+              <label className="label text-xl">User PhotoURL</label>
+              <input
+                type="text"
+                defaultValue={user?.photoURL}
+                className="input bg-gray-200 text-black w-full"
+                 readOnly
+              />
+            </div>
           </div>
-          <div>
-            <label className="label text-xl">Service Description</label>
-            <input
-              type="text"
-              name="serviceDescription"
-              className="input bg-white text-black"
-              placeholder="Service Description"
-            />
+          <div className="w-full">
+            <button
+              type="submit"
+              value="Add Service"
+              disabled={loading}
+              className=" text-center btn w-full mt-5 text-2xl bg-green-600 rounded-2xl border-0"
+            >
+              {
+                loading ? (
+                  <>
+                  <span className="loading loading-spinner loading-sm"></span> Adding service
+                  </>
+                ):'Add Service'
+              }
+            </button>
           </div>
-          <div>
-            <label className="label text-xl">User Email</label>
-            <input
-              type="email"
-              defaultValue={user?.email}
-              className="input read-only bg-white text-black"
-              placeholder="user email"
-            />
-          </div>
-          <div>
-            <label className="label text-xl">User Name</label>
-            <input
-              type="text"
-              defaultValue={user?.displayName}
-              className="input read-only bg-white text-black"
-              placeholder="user email"
-            />
-          </div>
-          <div>
-            <label className="label text-xl">User PhotoURL</label>
-            <input
-              type="text"
-              defaultValue={user?.photoURL}
-              className="input read-only bg-white text-black"
-              placeholder="user email"
-            />
-          </div>
-        </div>
-        <div className="w-full">
-          <input
-            type="submit"
-            value="Add Service"
-            className=" text-center btn w-full mt-5 text-2xl bg-blue-600 border-0"
-          />
-        </div>
-      </form>
-    </fieldset>
+        </form>
+      </fieldset>
+    </div>
   );
 };
 

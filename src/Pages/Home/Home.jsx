@@ -7,7 +7,7 @@ import ClientReview from '../ClientReview/ClientReview';
 const Home = () => {
     const serviceData=useLoaderData()
     return (
-        <div className='px-10 lg:px-20 bg-white text-black dark:bg-black dark:text-white'>
+        <div className='px-10 lg:px-20 bg-white text-black dark:bg-gray-900 dark:text-white'>
          <Hero></Hero>
          <ServiceCard serviceData={serviceData}></ServiceCard>
          <ServicesCategories></ServicesCategories>

@@ -5,10 +5,11 @@ import { serviceCreateByPromise } from '../../ServiceApi/ServiceApi';
 
 const ManageServices = () => {
     const {user}=useContext(AuthContext)
+   
     return (
         <div>
             <Suspense>
-                <MyCreatedService serviceCreateByPromise={serviceCreateByPromise(user?.email)}></MyCreatedService>
+                <MyCreatedService serviceCreateByPromise={serviceCreateByPromise(user?.email,user.accessToken)}></MyCreatedService>
             </Suspense>
         </div>
     );

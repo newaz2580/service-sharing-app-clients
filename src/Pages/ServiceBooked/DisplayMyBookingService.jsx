@@ -1,16 +1,16 @@
 import React from "react";
 
 const DisplayMyBookingService = ({ booked }) => {
-  console.log(booked);
+
 
   return (
     <div className="">
-      <div className="border rounded-2xl">
+      <div className=" rounded-2xl bg-white text-black dark:bg-gray-900 dark:text-white">
         <img
-          className="h-50 w-full object-cover p-3 rounded-3xl"
+          className="max-h-60 w-full object-cover p-3 rounded-3xl"
           src={booked.photos}
           alt={booked.service_Name}        />
-         <div className="pl-3 space-x-3 py-3">
+         <div className="pl-3 space-y-3 py-3">
           <h2 className="text-2xl"> <span className="font-bold">Service Name</span> -{booked.service_Name}</h2>
           <p> <span className="font-bold">Service Price</span> -$ <span className="text-red-500">{booked.price}</span></p>
           <p> <span className="font-bold">Service Id</span>-{booked._id}</p>

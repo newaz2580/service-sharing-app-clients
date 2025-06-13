@@ -14,7 +14,7 @@ const cards = [
     place: 'Dhanmondi',
     comment: 'Great service',
     description: 'They did an excellent job with professional behavior.',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/Q3WcMRmw/men1.jpg',
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const cards = [
     place: 'Banani',
     comment: 'Very satisfied',
     description: 'Quick response and great quality of work.',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/mrr94f7m/men2.png',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const cards = [
     place: 'Uttara',
     comment: 'Highly recommended',
     description: 'Delivered exactly what I asked for. Very professional!',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/nqzVCJgK/women1.jpg',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const cards = [
     place: 'Gulshan',
     comment: 'Loved it',
     description: 'Great attention to detail and timely delivery.',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/spFjQ1PJ/m5.jpg',
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ const cards = [
     place: 'Mirpur',
     comment: 'Excellent',
     description: 'Very friendly team and professional work.',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/mrgNdR92/women2.jpg',
   },
   {
     id: 6,
@@ -54,7 +54,7 @@ const cards = [
     place: 'Mohakhali',
     comment: 'Perfect job',
     description: 'Exceeded my expectations!',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/4R4jJvsb/m4.jpg',
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ const cards = [
     place: 'Bashundhara',
     comment: 'Smooth experience',
     description: 'The team was responsive and efficient.',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/xt6XQXv6/w-3.jpg',
   },
   {
     id: 8,
@@ -70,7 +70,7 @@ const cards = [
     place: 'Shantinagar',
     comment: 'Highly professional',
     description: 'Would definitely work with them again.',
-    img: 'https://i.ibb.co/zh6bM44L/Civil-Work.jpg',
+    img: 'https://i.ibb.co/hxnmj8fX/m3.jpg',
   },
 ];
 

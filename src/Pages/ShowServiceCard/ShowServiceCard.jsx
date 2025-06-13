@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const ShowServiceCard = ({ service }) => {
+  // console.log(service);
   useEffect(() => {
     AOS.init({
       duration: 600,
@@ -12,8 +13,8 @@ const ShowServiceCard = ({ service }) => {
   }, []);
 
   const {
-    User_Photo,
-    User_name,
+    user_Photo,
+    user_name,
     photo,
     price,
     serviceDescription,
@@ -24,24 +25,23 @@ const ShowServiceCard = ({ service }) => {
   return (
     <div
       data-aos="fade-up"
-      className="w-full rounded-2xl shadow-xl bg-white dark:bg-gray-900 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-lg mx-auto"
+      className="w-full rounded-2xl shadow-xl bg-green-100 dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-lg mx-auto"
     >
       <img
         src={photo}
         alt={serviceName}
         className="w-full h-64  object-cover"
       />
-
       <div className="p-6 space-y-4">
         <div className="flex items-center space-x-4">
           <img
-            src={User_Photo}
-            alt={User_name}
+            src={user_Photo}
+            alt={user_name}
             className="w-12 h-12 rounded-full border-2 border-green-500"
           />
           <div>
             <p className="font-semibold text-lg text-gray-800 dark:text-white">
-              {User_name}
+              {user_name}
             </p>
           </div>
         </div>
@@ -65,7 +65,6 @@ const ShowServiceCard = ({ service }) => {
           </Link>
         </div>
       </div>
-      
     </div>
   );
 };
