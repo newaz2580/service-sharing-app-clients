@@ -1,12 +1,53 @@
-# React + Vite
+# 🎨 Home Repair (BD) Ltd
+Home Repair BD Ltd is a Bangladesh-based limited liability company that provides residential and commercial property repair, maintenance, and renovation services..
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🔗 Live URL
+Live: 
 
-Currently, two official plugins are available:
+# 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📊 Data Display from MongoDB
+Data is fetched from a MongoDB database to dynamically display Home repair service and related content.
 
-## Expanding the ESLint configuration
+## 🧩 Two Static Sections
+1. Categories of services
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Review of Our client
+
+## 🔐 User Authentication
+Login & Create Account
+Secure user registration and login functionality with firebase.
+SignIn with google.
+
+## 🛠 Home Repair service Management
+✅ Create Services
+Users can create repair-related services (e.g., plumbing, electrical work).
+
+📋 View All Services
+All services appear in the All Services section.
+Users can search services with name.
+
+📅 Book a Service
+Users can book any available service.
+
+✅ Manage service
+✏️ Update User Services
+Users can update their own service.
+❌ Delete User Services
+Users can delete services they created.
+✅ Service TODO
+User View All and update status.
+
+# 🦶 Organized Footer
+Clean, responsive footer with contact information, social media links, and navigation.
+
+# 📦 Technologies & NPM Packages Used:
+ 1. tailwind css,
+ 2. daisy ui,
+ 3. react icon,
+ 4. TypeWriter,
+ 5. AOS animation,
+ 6. react toastify,
+ 7. sweet alter 2 
+ 8. framer motion
+ 9. and others.
