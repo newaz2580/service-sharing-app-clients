@@ -18,6 +18,19 @@ const SignUP = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    if (password.length < 6) {
+      setLoading(false);
+      return toast.error("Password must be at least 6 characters");
+    }
+    if (!/[A-Z]/.test(password)) {
+      setLoading(false);
+      return toast.error("Password must contain at least one uppercase letter");
+    }
+    if (!/[a-z]/.test(password)) {
+      setLoading(false);
+      return toast.error("Password must contain at least one lowercase letter");
+    }
+
     createUser(email, password)
       .then((result) => {
         navigate("/");
@@ -83,15 +96,17 @@ const SignUP = () => {
                 />
                 <button
                   disabled={loading}
-                  className="btn bg-violet-900 rounded-3xl mt-4 text-md"
+                  className={`btn rounded-3xl mt-4 text-md text-white ${
+                    loading ? "bg-gray-500 cursor-not-allowed" : "bg-violet-900"
+                  }`}
                 >
                   {loading ? (
                     <>
-                      <span className="loading loading-spinner loading-sm"></span>
+                      <span className="loading loading-spinner loading-sm mr-2"></span>
                       Signing...
                     </>
                   ) : (
-                    "SignUP"
+                    "Sign Up"
                   )}
                 </button>
               </fieldset>

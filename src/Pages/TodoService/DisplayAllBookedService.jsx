@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { Helmet } from "react-helmet";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
@@ -37,6 +38,7 @@ const DisplayAllBookedService = ({ bookService, index }) => {
   };
   return (
     <tr>
+      <Helmet><title>Todo service</title></Helmet>
       <td className="px-3 text-2xl font-medium">
         {index + 1}
       </td>

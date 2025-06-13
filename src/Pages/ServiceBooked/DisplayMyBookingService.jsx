@@ -4,7 +4,8 @@ const DisplayMyBookingService = ({ booked }) => {
 
 
   return (
-    <div className="">
+    <div>
+      
       <div className=" rounded-2xl bg-white text-black dark:bg-gray-900 dark:text-white">
         <img
           className="max-h-60 w-full object-cover p-3 rounded-3xl"

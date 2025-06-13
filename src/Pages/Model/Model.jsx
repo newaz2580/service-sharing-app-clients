@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Model = ({ singleService }) => {
   const { user } = useContext(AuthContext);
@@ -45,6 +46,7 @@ const Model = ({ singleService }) => {
   };
   return (
     <>
+    <Helmet><title>Open Model for Booking service</title></Helmet>
       <button
         className="btn"
         onClick={() => document.getElementById("my_modal_4").showModal()}
@@ -150,7 +152,8 @@ const Model = ({ singleService }) => {
                     type="email"
                     defaultValue={user?.email}
                     name="CurrentUserEmail"
-                    className="input read-only w-full"
+                    className="input w-full"
+                    readOnly
                   />
                 </div>
                 <div>
@@ -159,7 +162,8 @@ const Model = ({ singleService }) => {
                     type="text"
                     defaultValue={user?.displayName}
                     name="CurrentUserName"
-                    className="input w-full read-only"
+                    className="input w-full"
+                    readOnly
                   />
                 </div>
                 <div>
@@ -169,6 +173,7 @@ const Model = ({ singleService }) => {
                     defaultValue={user?.photoURL}
                     className="input read-only w-full"
                     name="currentUserPhoto"
+                    readOnly
                   />
                 </div>
               </div>
