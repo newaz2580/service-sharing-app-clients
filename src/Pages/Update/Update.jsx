@@ -17,6 +17,7 @@ const Update = () => {
     const updateServiceData = Object.fromEntries(formData.entries());
     fetch(`http://localhost:3000/service/${_id}`, {
       method: "PUT",
+      credentials: 'include',
       headers: {
         "Content-type": "application/json",
       },
@@ -52,7 +53,7 @@ const Update = () => {
               type="text"
               name="photo"
               defaultValue={photo}
-              className="input max-w-full"
+              className="input w-full"
               placeholder="Photo URL"
             />
           </div>
@@ -62,7 +63,7 @@ const Update = () => {
               type="text"
               name="serviceName"
               defaultValue={serviceName}
-              className="input max-w-full"
+              className="input w-full"
               placeholder="Service Name"
             />
           </div>
@@ -73,7 +74,7 @@ const Update = () => {
               type="text"
               name="price"
               defaultValue={price}
-              className="input max-w-full"
+              className="input w-full"
               placeholder="Price"
             />
           </div>
@@ -84,7 +85,7 @@ const Update = () => {
               type="text"
               name="area"
               defaultValue={area}
-              className="input max-w-full"
+              className="input w-full"
               placeholder="Service Area"
             />
           </div>
@@ -94,19 +95,11 @@ const Update = () => {
               type="text"
               defaultValue={serviceDescription}
               name="serviceDescription"
-              className="input max-w-full"
+              className="input w-full"
               placeholder="Service Description"
             />
           </div>
-          <div>
-            <label className="label">User</label>
-            <input
-              type="email"
-              defaultValue={""}
-              className="input read-only max-w-full"
-              placeholder="user email"
-            />
-          </div>
+         
         </div>
         <div className="w-full my-5">
           <button

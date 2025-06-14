@@ -39,7 +39,7 @@ const Footer = () => {
           <a className="link link-hover" data-aos="fade-up">Cookie policy</a>
         </nav>
       </footer>
-      <h3 className="text-center py-5" data-aos="fade-up">
+      <h3 className="text-center py-5">
         © Copyright Home Repair BD Ltd. All Rights Reserved
       </h3>
     </div>

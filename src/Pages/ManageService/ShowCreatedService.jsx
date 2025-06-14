@@ -18,6 +18,7 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:3000/service/${id}`, {
+          credentials: 'include',
           method: "DELETE",
         })
           .then((res) => res.json())

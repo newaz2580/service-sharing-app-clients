@@ -13,6 +13,7 @@ import ManageServices from "../Pages/ManageService/ManageServices";
 import Update from "../Pages/Update/Update";
 import ServiceBooked from "../Pages/ServiceBooked/ServiceBooked";
 import TodoService from "../Pages/TodoService/TodoService";
+import { AuthContext } from "../Context/AuthContext";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,31 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/service"),
+         loader: async ({props}) => {
+          try {
+            console.log(props)
+
+
+            const resp = await fetch(
+              `http://localhost:3000/service`, {credentials: 'include'}
+            );
+            
+
+            if(resp.status != 200) {
+              window.location.href = "/login"
+              return;
+            }
+
+            const json = await resp.json();
+
+            console.log({json})
+
+            return json;
+          } catch (error) {
+            console.log("Err")
+            console.log(error);
+          }
+        },
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
@@ -52,7 +77,7 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/service/${params.id}`),
+          fetch(`http://localhost:3000/service/${params.id}`, {credentials: 'include'} ),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
@@ -65,7 +90,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "update/:id",
-        loader: ({ params }) =>fetch(`http://localhost:3000/service/${params.id}`),
+        loader: ({ params }) =>fetch(`http://localhost:3000/service/${params.id}`,  {credentials: 'include'}),
         element: (
           <PrivateRoutes>
             <Update></Update>
@@ -75,7 +100,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceBooked",
-        loader: () => fetch("http://localhost:3000/purchaseService"),
+        loader: () => fetch("http://localhost:3000/purchaseService", ),
         element: (
           <PrivateRoutes>
             <ServiceBooked></ServiceBooked>

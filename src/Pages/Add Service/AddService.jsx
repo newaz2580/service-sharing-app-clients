@@ -13,13 +13,10 @@ const AddService = () => {
     const form = e.target;
     const formData = new FormData(form);
     const newService = Object.fromEntries(formData.entries());
-    const email = user.email;
-    newService.user_email = email;
-    newService.user_name = user.displayName;
-    newService.user_Photo = user.photoURL;
 
     fetch("http://localhost:3000/service", {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-type": "application/json",
       },

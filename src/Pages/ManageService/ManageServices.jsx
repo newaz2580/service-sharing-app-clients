@@ -11,8 +11,9 @@ const ManageServices = () => {
         <div>
             <Helmet><title>Manage Service</title></Helmet>
             <Suspense>
-                <MyCreatedService serviceCreateByPromise={serviceCreateByPromise(user?.email,user.accessToken)}></MyCreatedService>
-            </Suspense>
+                {user && <MyCreatedService serviceCreateByPromise={serviceCreateByPromise(user?.email,user.accessToken)}></MyCreatedService>
+}
+                            </Suspense>
         </div>
     );
 };

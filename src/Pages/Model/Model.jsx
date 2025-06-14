@@ -26,6 +26,7 @@ const Model = ({ singleService }) => {
     newService.status = "Pending";
     fetch("http://localhost:3000/purchaseService", {
       method: "POST",
+      credentials: 'include',
       headers: {
         "Content-type": "application/json",
       },
