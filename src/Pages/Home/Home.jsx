@@ -7,6 +7,7 @@ import ClientReview from '../ClientReview/ClientReview';
 import { Helmet } from 'react-helmet';
 const Home = () => {
     const serviceData=useLoaderData()
+    console.log(serviceData)
     return (
         <div className='px-10 lg:px-20 bg-white text-black dark:bg-gray-900 dark:text-white'>
          <Helmet><title>Home</title></Helmet>

@@ -3,6 +3,7 @@ import { AuthContext } from './AuthContext';
 import {  createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase/Firebase.init';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
     const [loading,setLoading]=useState(true)
@@ -33,14 +34,14 @@ const AuthProvider = ({children}) => {
             setLoading(false)
             if(currentUser?.email){
                 const userData={email:currentUser.email}
-                axios.post('http://localhost:3000/jwt',userData,{
+                axios.post('https://service-sharing-server-steel.vercel.app/jwt',userData,{
                     withCredentials:true
                 })
                 .then(res=>{
                     console.log(res.data)
                     
                 }).catch(error=>{
-                    console.log(error)
+                   toast.error(error)
                 })
             }
         })

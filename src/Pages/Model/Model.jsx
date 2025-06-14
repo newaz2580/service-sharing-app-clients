@@ -24,7 +24,7 @@ const Model = ({ singleService }) => {
     const formData = new FormData(form);
     const newService = Object.fromEntries(formData.entries());
     newService.status = "Pending";
-    fetch("http://localhost:3000/purchaseService", {
+    fetch("https://service-sharing-server-steel.vercel.app/purchaseService", {
       method: "POST",
       credentials: 'include',
       headers: {

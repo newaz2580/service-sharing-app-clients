@@ -17,7 +17,7 @@ const DisplayAllBookedService = ({ bookService, index }) => {
   // console.log(bookService);
   const handleStatusChange = (e) => {
     axios
-      .patch(`http://localhost:3000/purchaseService/${_id}`, {
+      .patch(`https://service-sharing-server-steel.vercel.app/purchaseService/${_id}`, {
         status: e.target.value,
       })
       .then((res) => {
