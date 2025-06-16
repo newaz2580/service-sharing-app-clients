@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { Helmet } from "react-helmet";
 
 const ShowAllService = ({ service }) => {
   useEffect(() => {
@@ -30,9 +29,7 @@ const ShowAllService = ({ service }) => {
       data-aos="fade-up"
       className="w-full rounded-2xl shadow-xl bg-white dark:bg-gray-900 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-lg mx-auto mb-5"
     >
-      <Helmet>
         <title>All services</title>
-      </Helmet>
       <img
         src={photo}
         alt={serviceName}

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
-import { Helmet } from "react-helmet";
+
 
 const Model = ({ singleService }) => {
   const { user } = useContext(AuthContext);
@@ -10,44 +10,46 @@ const Model = ({ singleService }) => {
     _id,
     photo,
     price,
-    // serviceDescription,
     serviceName,
-    // area,
     user_email,
     user_name,
   } = singleService;
 
-  const handlePurchaseService = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    const form = e.target;
-    const formData = new FormData(form);
-    const newService = Object.fromEntries(formData.entries());
-    newService.status = "Pending";
-    fetch("https://service-sharing-server-steel.vercel.app/purchaseService", {
-      method: "POST",
-      credentials: 'include',
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(newService),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        // console.log(result);
+const handlePurchaseService = (e) => {
+  e.preventDefault();
+  setLoading(true);
+  const form = e.target;
+  const formData = new FormData(form);
+  const newService = Object.fromEntries(formData.entries());
+  newService.status = "Pending";
+
+  fetch("https://service-sharing-server-steel.vercel.app/purchaseService", {
+    method: "POST",
+    credentials: 'include',
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(newService),
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      if (result?.insertedId || result?.acknowledged) {
         toast.success("Book Service Successful");
-        setLoading(false);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        toast.error(`${errorCode}: ${errorMessage}`);
-        setLoading(false); 
-      });
-  };
+        document.getElementById("my_modal_4").close();
+      } else {
+        toast.error("Booking failed. Try again.");
+      }
+      setLoading(false);
+    })
+    .catch((error) => {
+      toast.error(`Failed to book service: ${error.message}`);
+      setLoading(false);
+    });
+};
+
   return (
     <>
-    <Helmet><title>Open Model for Booking service</title></Helmet>
+    <title>Open Model for Booking service</title>
       <button
         className="btn"
         onClick={() => document.getElementById("my_modal_4").showModal()}
@@ -187,10 +189,10 @@ const Model = ({ singleService }) => {
                   {loading ? (
                     <>
                       <span className="loading loading-spinner loading-sm"></span>{" "}
-                      Booking...
+                      purchasing...
                     </>
                   ) : (
-                    "Book Service"
+                    "Purchase Service"
                   )}
                 </button>
               </div>
@@ -198,7 +200,6 @@ const Model = ({ singleService }) => {
           </fieldset>
           <div className="modal-action">
             <form method="dialog">
-              {/* if there is a button, it will close the modal */}
               <button className="btn">Close</button>
             </form>
           </div>

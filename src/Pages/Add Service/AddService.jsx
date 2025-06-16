@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
-import { Helmet } from "react-helmet";
+
 
 const AddService = () => {
-  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
 
   const handleAddService = (e) => {
@@ -37,7 +36,7 @@ const AddService = () => {
   };
   return (
     <div className="bg-white py-5 lg:py-18 dark:bg-violet-400">
-      <Helmet><title>Add Service</title></Helmet>
+      <title>Add Service</title>
       <fieldset className="fieldset bg-white dark:bg-fuchsia-200 text-gray-700 border-base-300 rounded-box max-w-2xl mx-auto shadow-2xl p-4">
         <form onSubmit={handleAddService}>
           <h2 className="text-center font-bold text-4xl py-5 ">

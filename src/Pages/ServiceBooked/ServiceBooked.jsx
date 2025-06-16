@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import DisplayMyBookingService from "./DisplayMyBookingService";
-import { Helmet } from "react-helmet";
+
 
 const ServiceBooked = () => {
   const allBookings = useLoaderData();
@@ -16,9 +16,9 @@ const ServiceBooked = () => {
   }, [allBookings, user]);
   return (
     <div className="bg-gray-200 dark:bg-gray-600 lg:px-20 px-5 ">
-      <Helmet>
+     
         <title>Booked Services</title>
-      </Helmet>
+     
       <h2 className="text-3xl font-bold py-5 text-green-500 text-center">
         Booked Services
       </h2>

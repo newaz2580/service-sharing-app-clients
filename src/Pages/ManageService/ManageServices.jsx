@@ -2,19 +2,16 @@ import React, { Suspense, useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import MyCreatedService from "./MyCreatedService";
 import { serviceCreateByPromise } from "../../ServiceApi/ServiceApi";
-import { Helmet } from "react-helmet";
+import Loading from "../Loading/Loading";
+
 
 
 const ManageServices = () => {
   const { user } = useContext(AuthContext);
- 
-  // console.log(data)
   return (
     <div>
-      <Helmet>
         <title>Manage Service</title>
-      </Helmet>
-      <Suspense>
+      <Suspense fallback={<Loading />}>
         {user && (
           <MyCreatedService
             serviceCreateByPromise={serviceCreateByPromise(user?.email)}

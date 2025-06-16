@@ -58,8 +58,8 @@ const SignUP = () => {
       });
   };
   return (
-    <div className="hero bg-gray-200 dark:bg-gray-800 min-h-screen ">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="Banner bg-gray-200 dark:bg-gray-800 min-h-screen ">
+      <div className="Banner-content flex-col lg:flex-row-reverse">
         <div className="card bg-white text-gray-900 dark:bg-violet-500 w-full max-w-lg shrink-0 shadow-2xl lg:px-8">
           <div className="card-body">
             <h1 className="text-3xl font-bold">Please Register Now!</h1>

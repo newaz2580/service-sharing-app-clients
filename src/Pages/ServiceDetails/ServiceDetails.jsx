@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router";
 import Model from "../Model/Model";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -19,9 +18,9 @@ const ServiceDetails = () => {
 
   return (
     <div className="min-h-screen  bg-gray-200 dark:bg-gray-700 py-10 px-4">
-      <Helmet>
+   
         <title>{serviceName} - Service Details</title>
-      </Helmet>
+     
 
       <div className="max-w-4xl mx-auto bg-white dark:bg-cyan-600 shadow-2xl rounded-3xl overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center bg-cyan-100 dark:bg-blue-200 p-6">

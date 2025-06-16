@@ -24,7 +24,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: async ({ props }) => {
+        loader: async () => {
+
+
+          
           try {
             // console.log(props);
             const resp = await fetch(

@@ -1,13 +1,11 @@
 import React from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import { FaTools } from "react-icons/fa";
 
-const Hero = () => {
+const Banner = () => {
   return (
     <section className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-      <div className="container h-[580px] mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-        
-
+      <div className="container h-[580px] mt-40 md:mt-0 lg:mt-0 mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         <div className="flex-1 text-center lg:text-left">
           <motion.h1
             animate={{
@@ -16,7 +14,11 @@ const Hero = () => {
             }}
             className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight"
           >
-            Home <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">Repair</span> Service
+            Expert{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Home Repairs
+            </span>{" "}
+            You Can Trust
           </motion.h1>
 
           <motion.p
@@ -24,12 +26,13 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1, transition: { duration: 2 } }}
             className="mt-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300"
           >
-            Let the experts handle your household problems with ease and care.
+            Trusted by thousands of homeowners. Get expert help with plumbing,
+            electrical, carpentry, and more — right when you need it.
           </motion.p>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
             <a
-              href="#"
+              href=""
               className="px-8 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md hover:scale-105 transition-transform duration-300"
             >
               Explore Features
@@ -43,9 +46,7 @@ const Hero = () => {
           </div>
         </div>
 
-  
         <div className="flex-1 flex justify-center items-center relative">
-         
           <motion.div
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
@@ -67,4 +68,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Banner;
