@@ -11,9 +11,7 @@ const SignInWithGoogle = () => {
   const handleSignInWithGoogle = () => {
     setLoading(true);
     signInWithPopup(auth, provider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then(() => {
         navigate("/");
         setLoading(false);
       })

@@ -4,6 +4,8 @@ import { AuthContext } from "../../Context/AuthContext";
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
   
+  if(!user?.photoURL) return<></>
+  
   return (
     <div className="relative group w-10 h-10  lg:mr-5">
  

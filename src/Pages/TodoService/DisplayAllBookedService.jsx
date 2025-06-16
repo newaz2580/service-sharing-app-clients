@@ -17,7 +17,7 @@ const DisplayAllBookedService = ({ bookService, index }) => {
   // console.log(bookService);
   const handleStatusChange = (e) => {
     axios
-      .patch(`http://localhost:3000/purchaseService/${_id}`, {
+      .patch(`https://service-sharing-server-steel.vercel.app/purchaseService/${_id}`, {
         status: e.target.value,
       })
       .then((res) => {
@@ -66,7 +66,7 @@ const DisplayAllBookedService = ({ bookService, index }) => {
           className="select bg-white dark:bg-green-400"
         >
           <option disabled={true}>Update Status</option>
-          <option>{status}</option>
+          <option>pending</option>
           <option>working</option>
           <option>Completed</option>
         </select>

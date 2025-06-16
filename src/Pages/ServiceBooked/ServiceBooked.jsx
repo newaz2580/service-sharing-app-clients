@@ -10,9 +10,7 @@ const ServiceBooked = () => {
   const [myBookedServices, setMyBookedServices] = useState([]);
   useEffect(() => {
     if (user?.email) {
-      const booking = allBookings.filter(
-        (book) => book.CurrentUserEmail === user?.email
-      );
+      const booking = allBookings
       setMyBookedServices(booking);
     }
   }, [allBookings, user]);

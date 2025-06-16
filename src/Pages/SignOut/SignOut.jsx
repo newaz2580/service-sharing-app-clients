@@ -10,7 +10,12 @@ const SignOut = () => {
   const handleUserSignOut = () => {
     signOut(auth)
       .then(() => {
-        toast.success("User signOut successful");
+        fetch(
+          "https://service-sharing-server-steel.vercel.app/logout",
+          { method: "POST", credentials: "include" }
+        ).then(() => {
+          toast.success("User signOut successful");
+        });
       })
       .catch((error) => {
         toast.error(error);
@@ -19,10 +24,17 @@ const SignOut = () => {
   return (
     <div>
       {user ? (
-        <button className="bg-blue-600 px-4 py-2 text-white text-sm lg:text-xl rounded-4xl hover:bg-blue-950" onClick={handleUserSignOut}>SignOut</button>
+        <button
+          className="bg-blue-600 px-4 py-2 text-white text-sm lg:text-xl rounded-4xl hover:bg-blue-950"
+          onClick={handleUserSignOut}
+        >
+          SignOut
+        </button>
       ) : (
         <Link to="/login">
-          <button className="bg-blue-600 lg:px-4 py-2 text-white rounded-4xl hover:bg-blue-950">Login</button>
+          <button className="bg-blue-600 lg:px-4 py-2 text-white rounded-4xl hover:bg-blue-950">
+            Login
+          </button>
         </Link>
       )}
     </div>

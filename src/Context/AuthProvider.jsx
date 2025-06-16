@@ -29,16 +29,14 @@ const AuthProvider = ({children}) => {
             localStorage.setItem('theme','light')
         }
         const Unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
-            console.log(currentUser)
             setUser(currentUser)
             setLoading(false)
             if(currentUser?.email){
                 const userData={email:currentUser.email}
-                axios.post('http://localhost:3000/jwt',userData,{
+                axios.post('https://service-sharing-server-steel.vercel.app/jwt',userData,{
                     withCredentials:true
                 })
-                .then(res=>{
-                    console.log(res.data)
+                .then(()=>{
                     
                 }).catch(error=>{
                    toast.error(error)

@@ -14,7 +14,7 @@ const AddService = () => {
     const formData = new FormData(form);
     const newService = Object.fromEntries(formData.entries());
 
-    fetch("http://localhost:3000/service", {
+    fetch("https://service-sharing-server-steel.vercel.app/service", {
       method: "POST",
       credentials: 'include',
       headers: {
@@ -23,8 +23,7 @@ const AddService = () => {
       body: JSON.stringify(newService),
     })
       .then((res) => res.json())
-      .then((result) => {
-        // console.log(result)
+      .then(() => {
         toast.success("Add service successfully");
         form.reset();
         setLoading(false);
