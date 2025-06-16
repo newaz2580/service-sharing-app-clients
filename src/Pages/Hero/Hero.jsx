@@ -5,7 +5,7 @@ import { FaTools } from "react-icons/fa";
 const Hero = () => {
   return (
     <section className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-      <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+      <div className="container h-[580px] mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         
 
         <div className="flex-1 text-center lg:text-left">

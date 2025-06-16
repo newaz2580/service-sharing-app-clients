@@ -26,9 +26,9 @@ export const router = createBrowserRouter([
         element: <Home />,
         loader: async ({ props }) => {
           try {
-            console.log(props);
+            // console.log(props);
             const resp = await fetch(
-              `https://service-sharing-server-steel.vercel.app/service`,
+              `http://localhost:3000/service`,
               { credentials: "include" }
             );
             if (resp.status != 200) {
@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
               return;
             }
             const json = await resp.json();
-            console.log({ json });
+            // console.log({ json });
             return json;
           } catch (error) {
             console.log("Err");
@@ -57,12 +57,12 @@ export const router = createBrowserRouter([
         path: "/allServices",
         element: <AllServices></AllServices>,
         loader: () =>
-          fetch("https://service-sharing-server-steel.vercel.app/service"),
+          fetch("http://localhost:3000/service"),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/addService",
-        element: <AddService></AddService>,
+        element: <PrivateRoutes><AddService></AddService></PrivateRoutes>,
       },
       {
         path: "/serviceDetails/:id",
@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://service-sharing-server-steel.vercel.app/service/${params.id}`,
+            `http://localhost:3000/service/${params.id}`,
             { credentials: "include" }
           ),
         hydrateFallbackElement: <Loading></Loading>,
@@ -85,12 +85,13 @@ export const router = createBrowserRouter([
             <ManageServices></ManageServices>
           </PrivateRoutes>
         ),
+        
       },
       {
         path: "update/:id",
         loader: ({ params }) =>
           fetch(
-            `https://service-sharing-server-steel.vercel.app/service/${params.id}`,
+            `http://localhost:3000/service/${params.id}`,
             { credentials: "include" }
           ),
         element: (
@@ -104,7 +105,8 @@ export const router = createBrowserRouter([
         path: "/serviceBooked",
         loader: () =>
           fetch(
-            "https://service-sharing-server-steel.vercel.app/purchaseService"
+            "http://localhost:3000/purchaseService",
+            { credentials: "include" }
           ),
         element: (
           <PrivateRoutes>
@@ -117,7 +119,7 @@ export const router = createBrowserRouter([
         path: "/todoService",
         loader: () =>
           fetch(
-            "https://service-sharing-server-steel.vercel.app/purchaseService"
+            "http://localhost:3000/purchaseService"
           ),
         element: (
           <PrivateRoutes>

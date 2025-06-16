@@ -15,7 +15,7 @@ const Update = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updateServiceData = Object.fromEntries(formData.entries());
-    fetch(`https://service-sharing-server-steel.vercel.app/service/${_id}`, {
+    fetch(`http://localhost:3000/service/${_id}`, {
       method: "PUT",
       credentials: 'include',
       headers: {

@@ -17,7 +17,7 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://service-sharing-server-steel.vercel.app/service/${id}`, {
+        fetch(`http://localhost:3000/service/${id}`, {
           credentials: 'include',
           method: "DELETE",
         })

@@ -4,9 +4,11 @@ import MyCreatedService from "./MyCreatedService";
 import { serviceCreateByPromise } from "../../ServiceApi/ServiceApi";
 import { Helmet } from "react-helmet";
 
+
 const ManageServices = () => {
   const { user } = useContext(AuthContext);
-
+ 
+  // console.log(data)
   return (
     <div>
       <Helmet>

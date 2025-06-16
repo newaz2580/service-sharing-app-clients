@@ -47,17 +47,17 @@ const ShowAllService = ({ service }) => {
             className="w-12 h-12 rounded-full border-2 border-green-500"
           />
           <div>
-            <p className="font-semibold text-lg text-gray-800 dark:text-white">
+            <p className="font-semibold text-lg  text-cyan-800 dark:text-white">
               {user_name}
             </p>
           </div>
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-blue-900 dark:text-white">
             {serviceName}
           </h2>
-          <p className="flex items-center gap-2"><FaMapMarkerAlt />{area}</p>
+          <p className="flex items-center gap-2"><FaMapMarkerAlt className="text-blue-600" />{area}</p>
           <p className="text-gray-600 dark:text-gray-300 mt-1 line-clamp-3">
             {serviceDescription}
           </p>
