@@ -3,7 +3,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
-const DisplayAllBookedService = ({ bookService, index }) => {
+const DisplayAllBookedService = ({ bookService, index, isMobile }) => {
   const {
     _id,
     service_Name,
@@ -11,60 +11,86 @@ const DisplayAllBookedService = ({ bookService, index }) => {
     specialInstruction,
     price,
     status,
-    providerEmail,
+ 
+
+    CurrentUserEmail,
   } = bookService;
-  // console.log(bookService);
+
   const handleStatusChange = (e) => {
     axios
-      .patch(`https://service-sharing-server-steel.vercel.app/purchaseService/${_id}`, {
-        status: e.target.value,
-      })
+      .patch(
+        `https://service-sharing-server-steel.vercel.app/purchaseService/${_id}`,
+        {
+          status: e.target.value,
+        }
+      )
       .then((res) => {
-        // console.log(res.data);
         if (res.data.modifiedCount) {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Your work has been saved",
+            title: "Status updated",
             showConfirmButton: false,
             timer: 1500,
           });
         }
       })
       .catch((error) => {
-        toast.error(error);
+        toast.error("Error updating status", error);
       });
   };
+
+  if (isMobile) {
+    return (
+      <div className="border rounded-lg p-4 bg-white dark:bg-gray-700 shadow">
+        <p className="font-bold text-lg mb-1">
+          #{index + 1} {service_Name}
+        </p>
+        <p>
+          <span className="font-semibold">Instruction:</span>{" "}
+          {specialInstruction}
+        </p>
+        <p>
+          <span className="font-semibold">Booker:</span> {CurrentUserEmail}
+        </p>
+        <p>
+          <span className="font-semibold">Price:</span> ${price}
+        </p>
+        <p>
+          <span className="font-semibold">Date:</span>{" "}
+          <span className="text-red-500">{date}</span>
+        </p>
+        <p className="mt-2">
+          <select
+            onChange={handleStatusChange}
+            defaultValue={status}
+            className="select w-full mt-1 bg-white dark:bg-green-400"
+          >
+            <option disabled>Update Status</option>
+            <option>pending</option>
+            <option>working</option>
+            <option>Completed</option>
+          </select>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <tr>
-      <title>Todo service</title>
-      <td className="px-3 text-2xl font-medium">
-        {index + 1}
-      </td>
+      <td className="px-3 py-2">{index + 1}</td>
+      <td className="px-3 py-2">{service_Name}</td>
+      <td className="px-3 py-2">{specialInstruction}</td>
+      <td className="px-3 py-2">{CurrentUserEmail}</td>
+      <td className="px-3 py-2">${price}</td>
+      <td className="px-3 py-2 text-red-500">{date}</td>
       <td className="px-3 py-2">
-        <p>{service_Name}</p>
-      </td>
-      <td className="px-3 py-2">
-        <p>{specialInstruction}</p>
-      </td>
-      <td className="px-3 py-2">
-      
-        <p >{providerEmail}</p>
-      </td>
-
-      <td className="px-3 py-2">
-        <p>{price}</p>
-      </td>
-      <td className="px-3 py-2">
-        <p className="text-red-500">{date}</p>
-      </td>
-      <td className="">
         <select
           onChange={handleStatusChange}
           defaultValue={status}
           className="select bg-white dark:bg-green-400"
         >
-          <option disabled={true}>Update Status</option>
+          <option disabled>Update Status</option>
           <option>pending</option>
           <option>working</option>
           <option>Completed</option>

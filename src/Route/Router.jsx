@@ -14,6 +14,7 @@ import Update from "../Pages/Update/Update";
 import ServiceBooked from "../Pages/ServiceBooked/ServiceBooked";
 import TodoService from "../Pages/TodoService/TodoService";
 import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 export const router = createBrowserRouter([
   {
@@ -39,10 +40,10 @@ export const router = createBrowserRouter([
               return;
             }
             const json = await resp.json();
-            // console.log({ json });
+          
             return json;
           } catch (error) {
-            console.log(error);
+            toast.error(error);
           }
         },
         hydrateFallbackElement: <Loading></Loading>,
@@ -107,7 +108,7 @@ export const router = createBrowserRouter([
         path: "/serviceBooked",
         loader: () =>
           fetch(
-            "https://service-sharing-server-steel.vercel.app/my-purchaseService",
+            "https://service-sharing-server-steel.vercel.app/my-bookings",
             { credentials: "include" }
           ),
         element: (
@@ -121,7 +122,7 @@ export const router = createBrowserRouter([
         path: "/todoService",
         loader: () =>
           fetch(
-            "https://service-sharing-server-steel.vercel.app/purchaseService",
+            "https://service-sharing-server-steel.vercel.app/my-purchaseService",
              { credentials: "include" }
 
           ),

@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const Model = ({ singleService }) => {
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+
   const {
     _id,
     photo,
@@ -22,6 +23,7 @@ const handlePurchaseService = (e) => {
   const formData = new FormData(form);
   const newService = Object.fromEntries(formData.entries());
   newService.status = "Pending";
+ 
 
   fetch("https://service-sharing-server-steel.vercel.app/purchaseService", {
     method: "POST",

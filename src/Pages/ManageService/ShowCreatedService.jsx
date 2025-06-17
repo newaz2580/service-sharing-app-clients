@@ -5,7 +5,6 @@ import { CiEdit } from "react-icons/ci";
 import Swal from "sweetalert2";
 
 const ShowCreatedService = ({ service, setMyServices, myServices }) => {
-  // console.log(service)
   const handleServiceDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -28,8 +27,6 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
                 (ser) => ser._id !== id
               );
               setMyServices(remainingService);
-              console.log(data);
-
               Swal.fire(
                 "Deleted!",
                 "Your service has been deleted.",

@@ -11,8 +11,8 @@ const ServiceCard = ({serviceData}) => {
     
     return (
        <div>
-        <h2 className='text-center text-4xl py-5'>Available Services</h2>
-         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+        <h2 className='text-center text-4xl py-5'>Popular Services</h2>
+         <div className='grid grid-cols-1 gap-10 md:grid-cols-2'>
             {
                 service?.map(service=><ShowServiceCard key={service._id} service={service}></ShowServiceCard>)
             }
