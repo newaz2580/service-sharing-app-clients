@@ -50,6 +50,7 @@ const AuthProvider = ({children}) => {
     createUser,
     loginUser,
     user,
+    setUser,
     darkMode,
     setDarkMode,
     loading,

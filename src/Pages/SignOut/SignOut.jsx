@@ -6,7 +6,7 @@ import { Link } from "react-router";
 import { toast } from "react-toastify";
 
 const SignOut = () => {
-  const { user } = useContext(AuthContext);
+  const { user,setUser } = useContext(AuthContext);
   const handleUserSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -15,6 +15,7 @@ const SignOut = () => {
           { method: "POST", credentials: "include" }
         ).then(() => {
           toast.success("User signOut successful");
+          setUser(null)
         });
       })
       .catch((error) => {

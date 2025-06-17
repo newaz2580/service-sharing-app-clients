@@ -1,7 +1,6 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
-
 
 const AddService = () => {
   const [loading, setLoading] = useState(false);
@@ -15,7 +14,7 @@ const AddService = () => {
 
     fetch("https://service-sharing-server-steel.vercel.app/service", {
       method: "POST",
-      credentials: 'include',
+      credentials: "include",
       headers: {
         "Content-type": "application/json",
       },
@@ -31,7 +30,7 @@ const AddService = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         toast.error(`${errorCode}: ${errorMessage}`);
-        setLoading(false); 
+        setLoading(false);
       });
   };
   return (
@@ -86,16 +85,18 @@ const AddService = () => {
               />
             </div>
             <div>
-              <label className="label text-xl">Service Description</label>
+              <label className="label text-xl">
+                Service Description (max 100 characters)
+              </label>
               <input
                 type="text"
                 name="serviceDescription"
                 className="input bg-gray-200 text-black w-full"
                 placeholder="Service Description"
                 required
+                maxLength={100}
               />
             </div>
-            
           </div>
           <div className="w-full">
             <button
@@ -104,13 +105,14 @@ const AddService = () => {
               disabled={loading}
               className=" text-center btn w-full mt-5 text-2xl bg-green-600 rounded-2xl border-0"
             >
-              {
-                loading ? (
-                  <>
-                  <span className="loading loading-spinner loading-sm"></span> Adding service
-                  </>
-                ):'Add Service'
-              }
+              {loading ? (
+                <>
+                  <span className="loading loading-spinner loading-sm"></span>{" "}
+                  Adding service
+                </>
+              ) : (
+                "Add Service"
+              )}
             </button>
           </div>
         </form>
