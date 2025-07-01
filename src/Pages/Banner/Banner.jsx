@@ -4,8 +4,8 @@ import { FaTools } from "react-icons/fa";
 
 const Banner = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-      <div className="container h-[580px] mt-40 md:mt-0 lg:mt-0 mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+    <section className="px-5 lg:px-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
+      <div className="container max-h-screen[60%] mt-40 md:mt-0 lg:mt-0 mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         <div className="flex-1 text-center lg:text-left">
           <motion.h1
             animate={{
@@ -31,15 +31,12 @@ const Banner = () => {
           </motion.p>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
-            <a
-              href=""
-              className="px-8 py-3 text-lg font-semibold rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md hover:scale-105 transition-transform duration-300"
-            >
-              Explore Features
-            </a>
+            <button className="bg-blue-600 lg:px-8 py-2 text-white rounded-xl hover:bg-blue-950 text-xl">
+            Feature
+          </button>
             <a
               href="#"
-              className="px-8 py-3 text-lg font-semibold rounded-lg border-2 border-indigo-500 text-indigo-500 hover:bg-indigo-100 transition-colors duration-300"
+              className="px-8 py-3 text-lg font-semibold rounded-lg border-2 border-indigo-500 text-white transition-colors duration-300"
             >
               Contact Us
             </a>

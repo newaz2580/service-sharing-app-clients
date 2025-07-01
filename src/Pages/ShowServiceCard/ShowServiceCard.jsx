@@ -29,9 +29,9 @@ const ShowServiceCard = ({ service }) => {
   return (
     <div
       data-aos="fade-up"
-      className="w-full rounded-2xl shadow-xl bg-green-100 dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
+      className="w-full rounded-2xl shadow-xl bg-green-100  dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
     >
-      <img src={photo} alt={serviceName} className="w-full h-64 object-cover" />
+      <img src={photo} alt={serviceName} className="w-full h-48 object-cover" />
       <div className="p-6 space-y-4">
         <div className="flex items-center space-x-4">
           <img
@@ -40,7 +40,7 @@ const ShowServiceCard = ({ service }) => {
             className="w-12 h-12 rounded-full border-2 border-green-500"
           />
           <div>
-            <p className="font-semibold text-lg text-cyan-800 dark:text-white">
+            <p className="font-semibold text-lg text-blue-800 dark:text-white">
               {user_name}
             </p>
           </div>
@@ -54,10 +54,10 @@ const ShowServiceCard = ({ service }) => {
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xl font-semibold text-green-600">${price}</span>
+          <span className="text-xl font-semibold text-blue-600">${price}</span>
           <Link
             to={`/serviceDetails/${_id}`}
-            className="px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+            className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
           >
             View Details
           </Link>

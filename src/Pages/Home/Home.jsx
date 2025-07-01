@@ -4,17 +4,19 @@ import ServiceCard from '../ServiceCard/ServiceCard';
 import ServicesCategories from '../Services/ServiceCategories';
 import Banner from '../Banner/Banner';
 import ClientReview from '../ClientReview/ClientReview';
+import Contact from '../Contact/Contact';
 
 const Home = () => {
     const serviceData=useLoaderData()
     
     return (
-        <div className='px-5 lg:px-20 bg-white text-black dark:bg-gray-900 dark:text-white'>
+        <div className=' bg-white text-black dark:bg-gray-900 dark:text-white'>
          <title>Home</title>
          <Banner></Banner>
          <ServiceCard serviceData={serviceData}></ServiceCard>
          <ServicesCategories></ServicesCategories>
          <ClientReview></ClientReview>
+         <Contact/>
         </div>
     );
 };
