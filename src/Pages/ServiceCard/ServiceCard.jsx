@@ -12,7 +12,7 @@ const ServiceCard = ({serviceData}) => {
     return (
        <div>
         <h2 className='text-center text-4xl py-8'>Popular Services</h2>
-         <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 px-5 md:px-2 lg:px-20'>
+         <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-5 md:px-2 lg:px-20'>
             {
                 service?.map(service=><ShowServiceCard key={service._id} service={service}></ShowServiceCard>)
             }

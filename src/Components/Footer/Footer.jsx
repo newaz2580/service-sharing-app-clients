@@ -11,7 +11,7 @@ const Footer = () => {
     }, []);
   return (
     <div className="bg-blue-700 text-white dark:bg-gray-900 ">
-      <footer className="footer sm:footer-horizontal py-10 px-20">
+      <footer className="footer sm:footer-horizontal py-10 px-5 lg:px-20">
         <aside>
          <img className="h-16 w-16 rounded-full" data-aos="fade-up"  src={`https://i.ibb.co/tPJs4Gv5/home-06.jpg`} alt="" />
           <h2 className="text-2xl" data-aos="fade-Left">Home Repair Services</h2>
