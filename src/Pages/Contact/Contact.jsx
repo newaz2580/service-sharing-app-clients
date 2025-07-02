@@ -24,7 +24,7 @@ const Contact = () => {
       );
   };
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-800 py-16 px-6 md:px-10 lg:px-20">
+    <div className="min-h-screen bg-white dark:bg-gray-800 py-16 px-6 lg:px-10 xl:px-20">
        <h2 className="text-center text-blue-600 text-4xl py-5">Contact Us</h2>
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
        

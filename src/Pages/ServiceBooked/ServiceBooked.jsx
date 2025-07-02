@@ -15,7 +15,7 @@ const ServiceBooked = () => {
     }
   }, [allBookings, user]);
   return (
-    <div className="bg-gray-200 dark:bg-gray-600 lg:px-20 px-5 ">
+    <div className="bg-gray-200 dark:bg-gray-600 lg:px-10 xl:px-20 px-5 ">
      
         <title>Booked Services</title>
      
