@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaTools } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Banner = () => {
   return (
@@ -31,15 +32,19 @@ const Banner = () => {
           </motion.p>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
-            <button className="bg-blue-600 lg:px-8 py-2 text-white rounded-xl hover:bg-blue-950 text-xl">
+           <Link to='/allServices'>
+            <button className="bg-blue-600 px-6 lg:px-8 py-2 text-white rounded-xl hover:bg-blue-950 text-xl">
             Feature
           </button>
-            <a
-              href="#"
-              className="px-8 py-3 text-lg font-semibold rounded-lg border-2 border-indigo-500 text-white transition-colors duration-300"
+           </Link>
+           <Link to='/contact'>
+            <button
+              
+              className="px-2 lg:px-5 py-2 text-xl text-black font-semibold rounded-lg border-2 border-indigo-500 dark:text-white transition-colors duration-300"
             >
               Contact Us
-            </a>
+            </button>
+           </Link>
           </div>
         </div>
 

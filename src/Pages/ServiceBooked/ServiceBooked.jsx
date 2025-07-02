@@ -19,10 +19,10 @@ const ServiceBooked = () => {
      
         <title>Booked Services</title>
      
-      <h2 className="text-3xl font-bold py-5 text-green-500 text-center">
+      <h2 className="text-3xl font-bold py-5 text-blue-600 text-center">
         Booked Services
       </h2>
-      <div className="grid grid-cols-1 items-center md:grid-cols-2 lg:grid-cols-3 gap-5 py-5 text-center">
+      <div className="grid grid-cols-1 items-center md:grid-cols-2 lg:grid-cols-4 gap-5 py-5 text-center">
         {myBookedServices.length === 0 ? (
           <h2 className="text-center text-3xl text-red-600">
             No Service Booked Yet

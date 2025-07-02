@@ -4,7 +4,8 @@ import ServiceCard from '../ServiceCard/ServiceCard';
 import ServicesCategories from '../Services/ServiceCategories';
 import Banner from '../Banner/Banner';
 import ClientReview from '../ClientReview/ClientReview';
-import Contact from '../Contact/Contact';
+import Promotional from '../Promotional/Promotional';
+
 
 const Home = () => {
     const serviceData=useLoaderData()
@@ -16,7 +17,8 @@ const Home = () => {
          <ServiceCard serviceData={serviceData}></ServiceCard>
          <ServicesCategories></ServicesCategories>
          <ClientReview></ClientReview>
-         <Contact/>
+         <Promotional/>
+
         </div>
     );
 };

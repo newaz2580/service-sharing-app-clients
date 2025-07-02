@@ -15,6 +15,7 @@ const Navbar = () => {
       <li className="text-2xl">
         <NavLink to="/allServices">All Services</NavLink>
       </li>
+    
 
       {user && (
         <li className="text-2xl">
@@ -37,6 +38,9 @@ const Navbar = () => {
           </details>
         </li>
       )}
+        <li className="text-2xl">
+        <NavLink to="/contact">Contact Us</NavLink>
+      </li>
     </>
   );
   return (

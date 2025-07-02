@@ -34,9 +34,9 @@ const AddService = () => {
       });
   };
   return (
-    <div className="bg-white py-5 lg:py-18 dark:bg-violet-400">
+    <div className="bg-white py-5 lg:py-18 dark:bg-gray-700">
       <title>Add Service</title>
-      <fieldset className="fieldset bg-white dark:bg-fuchsia-200 text-gray-700 border-base-300 rounded-box max-w-2xl mx-auto shadow-2xl p-4">
+      <fieldset className="fieldset bg-white dark:bg-gray-800 text-gray-700 dark:text-white border-base-300 rounded-box max-w-2xl mx-auto shadow-2xl p-4">
         <form onSubmit={handleAddService}>
           <h2 className="text-center font-bold text-4xl py-5 ">
             Add New Service
@@ -48,7 +48,7 @@ const AddService = () => {
               <input
                 type="text"
                 name="photo"
-                className="input bg-gray-200 text-black w-full"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                 placeholder="Photo URL"
               />
             </div>
@@ -57,7 +57,7 @@ const AddService = () => {
               <input
                 type="text"
                 name="serviceName"
-                className="input bg-gray-200 text-black w-full"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                 placeholder="Service Name"
                 required
               />
@@ -68,7 +68,7 @@ const AddService = () => {
               <input
                 type="text"
                 name="price"
-                className="input bg-gray-200 text-black w-full"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                 placeholder="Price"
                 required
               />
@@ -79,7 +79,7 @@ const AddService = () => {
               <input
                 type="text"
                 name="area"
-                className="input bg-gray-200 text-black w-full"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                 placeholder="Service Area"
                 required
               />
@@ -91,7 +91,7 @@ const AddService = () => {
               <input
                 type="text"
                 name="serviceDescription"
-                className="input bg-gray-200 text-black w-full"
+                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                 placeholder="Service Description"
                 required
                 maxLength={100}

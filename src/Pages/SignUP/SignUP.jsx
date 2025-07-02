@@ -58,40 +58,40 @@ const SignUP = () => {
       });
   };
   return (
-    <div className="Banner bg-gray-200 dark:bg-gray-800 min-h-screen ">
+    <div className="Banner bg-gray-200 text-gray-900 dark:bg-gray-900 min-h-screen ">
       <div className="Banner-content flex-col lg:flex-row-reverse">
-        <div className="card bg-white text-gray-900 dark:bg-violet-500  max-w-lg mx-auto shrink-0 shadow-2xl lg:px-8">
+        <div className="card bg-white text-gray-900 dark:bg-gray-800  max-w-lg mx-auto shrink-0 shadow-2xl lg:px-8">
           <div className="card-body">
-            <h1 className="text-3xl font-bold">Please Register Now!</h1>
+            <h1 className="text-3xl font-bold dark:text-white">Please Register Now!</h1>
 
             <form onSubmit={handleSignUpForm}>
               <fieldset className="fieldset">
-                <label className="label text-md">Name</label>
+                <label className="label text-md dark:text-white">Name</label>
                 <input
                   type="text"
                   name="name"
-                  className="input w-full bg-gray-200 rounded-3xl"
+                  className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                   placeholder="Your name"
                 />
-                <label className="label text-md">Photo</label>
+                <label className="label text-md dark:text-white">Photo</label>
                 <input
                   type="text"
                   name="photo"
-                  className="input w-full bg-gray-200 rounded-3xl"
+                  className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                   placeholder="Photo URL"
                 />
-                <label className="label text-md">Email</label>
+                <label className="label text-md dark:text-white">Email</label>
                 <input
                   type="email"
                   name="email"
-                  className="input w-full bg-gray-200 rounded-3xl"
+                  className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                   placeholder="Email"
                 />
                 <label className="label text-md">Password</label>
                 <input
                   type="password"
                   name="password"
-                  className="input w-full bg-gray-200 rounded-3xl"
+                  className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
                   placeholder="Password"
                 />
                 <button
@@ -111,11 +111,11 @@ const SignUP = () => {
                 </button>
               </fieldset>
             </form>
-            <div className="divider font-extrabold">OR</div>
+            <div className="divider font-extrabold dark:text-white">OR</div>
             <SignInWithGoogle></SignInWithGoogle>
-            <p className="text-md text-center">
+            <p className="text-md text-center dark:text-white">
               Already have an Account ? please{" "}
-              <Link to="/login" className="text-green-700 underline">
+              <Link to="/login" className="text-blue-700 underline">
                 Login
               </Link>
             </p>

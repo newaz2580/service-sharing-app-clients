@@ -64,7 +64,7 @@ const DisplayAllBookedService = ({ bookService, index, isMobile }) => {
           <select
             onChange={handleStatusChange}
             defaultValue={status}
-            className="select w-full mt-1 bg-white dark:bg-green-400"
+            className="select w-full mt-1 bg-white dark:bg-blue-700"
           >
             <option disabled>Update Status</option>
             <option>pending</option>
@@ -83,12 +83,12 @@ const DisplayAllBookedService = ({ bookService, index, isMobile }) => {
       <td className="px-3 py-2">{specialInstruction}</td>
       <td className="px-3 py-2">{CurrentUserEmail}</td>
       <td className="px-3 py-2">${price}</td>
-      <td className="px-3 py-2 text-red-500">{date}</td>
+      <td className="px-3 py-2 text-blue-700">{date}</td>
       <td className="px-3 py-2">
         <select
           onChange={handleStatusChange}
           defaultValue={status}
-          className="select bg-white dark:bg-green-400"
+          className="select bg-white text-black dark:bg-gray-800 dark:text-white"
         >
           <option disabled>Update Status</option>
           <option>pending</option>

@@ -43,8 +43,8 @@ const Update = () => {
       });
   };
   return (
-    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box max-w-xl mx-auto border p-5">
-      <h2 className="text-center text-3xl">Update service</h2>
+    <fieldset className="fieldset bg-white dark:bg-gray-800 border-base-300 rounded-box max-w-xl mx-auto border p-5">
+      <h2 className="text-center text-3xl text-black dark:text-white">Update service</h2>
       <form onSubmit={handleUpdateService}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
@@ -53,7 +53,7 @@ const Update = () => {
               type="text"
               name="photo"
               defaultValue={photo}
-              className="input w-full"
+              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
               placeholder="Photo URL"
             />
           </div>
@@ -63,7 +63,7 @@ const Update = () => {
               type="text"
               name="serviceName"
               defaultValue={serviceName}
-              className="input w-full"
+              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
               placeholder="Service Name"
             />
           </div>
@@ -74,7 +74,7 @@ const Update = () => {
               type="text"
               name="price"
               defaultValue={price}
-              className="input w-full"
+              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
               placeholder="Price"
             />
           </div>
@@ -85,7 +85,7 @@ const Update = () => {
               type="text"
               name="area"
               defaultValue={area}
-              className="input w-full"
+              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
               placeholder="Service Area"
             />
           </div>
@@ -95,7 +95,7 @@ const Update = () => {
               type="text"
               defaultValue={serviceDescription}
               name="serviceDescription"
-              className="input w-full"
+              className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
               placeholder="Service Description"
             />
           </div>

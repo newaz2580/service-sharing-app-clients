@@ -23,7 +23,7 @@ const TodoService = () => {
           <div className="overflow-x-auto hidden md:block">
             <table className="w-full text-sm text-left whitespace-nowrap">
               <thead>
-                <tr className="bg-cyan-600 dark:bg-blue-600 text-white">
+                <tr className="bg-gray-200 dark:bg-gray-600 dark:text-white text-black ">
                   <th className="p-3">#</th>
                   <th className="p-3">Name</th>
                   <th className="p-3">Service Description</th>
@@ -33,7 +33,7 @@ const TodoService = () => {
                   <th className="p-3">Status</th>
                 </tr>
               </thead>
-              <tbody className="dark:bg-blue-700 dark:text-white">
+              <tbody className="dark:bg-gray-800 dark:text-white">
                 {allBookedService.map((bookService, index) => (
                   <DisplayAllBookedService
                     key={bookService._id}

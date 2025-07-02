@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router";
 const Footer = () => {
   useEffect(() => {
       AOS.init({
@@ -9,8 +10,8 @@ const Footer = () => {
       });
     }, []);
   return (
-    <div className="bg-blue-700 text-white dark:bg-gray-950 ">
-      <footer className="footer sm:footer-horizontal p-10">
+    <div className="bg-blue-700 text-white dark:bg-gray-900 ">
+      <footer className="footer sm:footer-horizontal py-10 px-20">
         <aside>
          <img className="h-16 w-16 rounded-full" data-aos="fade-up"  src={`https://i.ibb.co/tPJs4Gv5/home-06.jpg`} alt="" />
           <h2 className="text-2xl" data-aos="fade-Left">Home Repair Services</h2>
@@ -20,10 +21,12 @@ const Footer = () => {
         </aside>
         <nav>
           <h6 className="footer-title">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <Link to='/allServices'>All Service</Link>
+          <Link to='/manageServices'>Manage Service</Link>
+          <Link to='/contact'>Contact</Link>
+          
+
+          
         </nav>
         <nav>
           <h6 className="footer-title">Follow Us</h6>

@@ -97,17 +97,17 @@ const ClientReview = () => {
           <SwiperSlide key={card.id}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-blue-400 dark:bg-gray-400 mb-8 shadow-lg  rounded-2xl h-80 overflow-hidden transition duration-300"
+              className="bg-green-100 dark:bg-green-950 mb-8 shadow-lg  rounded-2xl h-80 overflow-hidden transition duration-300"
             >
               <img src={card.img} alt={card.title} className=" h-24 w-24  rounded-full mx-auto object-cover" />
               <div className="p-4 text-center space-y-3">
-                <h1 className='text-2xl font-bold'>{card.client_name}</h1>
+                <h1 className='text-2xl font-bold dark:text-white'>{card.client_name}</h1>
                 <div className='flex items-center justify-center gap-1'>
                   <span className='text-blue-700'><LuMapPin /></span>
-                  <p>{card.place}</p>
+                  <p className='dark:text-blue-700'>{card.place}</p>
                 </div>
-                <h3 className='text-gray-900 text-xl'>{card.comment}</h3>
-                <h2 className="text-xl font-semibold">{card.description}</h2>
+                <h3 className='text-gray-900 text-xl dark:text-white'>{card.comment}</h3>
+                <h2 className="text-xl font-semibold dark:text-white">{card.description}</h2>
               </div>
             </motion.div>
           </SwiperSlide>

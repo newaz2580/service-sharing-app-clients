@@ -39,7 +39,7 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
   };
 
   return (
-    <div className="card bg-white dark:bg-violet-200 text-black shadow-xl">
+    <div className="card bg-green-100  dark:bg-green-950 text-black shadow-xl">
       <figure>
         {service.photo && (
           <img
@@ -50,22 +50,22 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
         )}
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-blue-500 font-bold text-xl">
+        <h2 className="card-title text-blue-500 font-bold text-xl ">
           {service.serviceName}
         </h2>
-        <p>{service.serviceDescription}</p>
-        <p>Price - ${service.price}</p>
+        <p className="dark:text-white">{service.serviceDescription}</p>
+        <p className="dark:text-white">Price - ${service.price}</p>
 
         <div className="card-actions justify-end">
           <button
             onClick={() => handleServiceDelete(service._id)}
-            className="badge badge-outline cursor-pointer py-2"
+            className="badge badge-outline cursor-pointer py-2 dark:text-white"
           >
             <MdDelete size={20} className="text-red-600" />
             Delete
           </button>
           <Link to={`/update/${service._id}`}>
-            <button className="badge badge-outline cursor-pointer">
+            <button className="badge badge-outline cursor-pointer dark:text-white">
               <CiEdit />
               Update
             </button>

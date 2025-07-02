@@ -47,10 +47,10 @@ const ShowServiceCard = ({ service }) => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold text-blue-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-black dark:text-white">
             {serviceName}
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mt-1">{shortDescription}</p>
+          <p className="text-gray-700 dark:text-gray-300 mt-1">{shortDescription}</p>
         </div>
 
         <div className="flex items-center justify-between">

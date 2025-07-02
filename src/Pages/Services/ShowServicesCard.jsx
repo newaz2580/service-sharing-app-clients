@@ -16,7 +16,7 @@ const ShowServicesCard = ({ service }) => {
       className=" bg-green-100 dark:bg-green-950  w-full shadow-sm mx-auto"
     >
       <figure>
-        <img className="h-60" src={service.image} alt="" />
+        <img className="min-h-60 w-full" src={service.image} alt="" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-3xl">{service.title}</h2>

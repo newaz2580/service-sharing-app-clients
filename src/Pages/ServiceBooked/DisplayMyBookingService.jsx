@@ -15,13 +15,13 @@ const DisplayMyBookingService = ({ booked }) => {
         <div className="pl-3 space-y-3 py-3">
           <h2 className="text-2xl">
             {" "}
-            <span className="font-bold text-green-600">Service Name</span> -
+            <span className="font-bold text-blue-700">Service Name</span> -
             {booked.service_Name}
           </h2>
           <p>
             {" "}
             <span className="font-bold"> Price</span> -${" "}
-            <span className="text-red-500">{booked.price}</span>
+            <span className="text-black dark:text-white">{booked.price}</span>
           </p>
           <p>
             {" "}
@@ -31,7 +31,7 @@ const DisplayMyBookingService = ({ booked }) => {
           <p>
             {" "}
             <span className="font-bold">Status -</span>{" "}
-            <span className="text-green-500">{booked.status}</span>
+            <span className="text-blue-700">{booked.status}</span>
           </p>
         </div>
       </div>

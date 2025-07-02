@@ -15,6 +15,7 @@ import ServiceBooked from "../Pages/ServiceBooked/ServiceBooked";
 import TodoService from "../Pages/TodoService/TodoService";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import Contact from "../Pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -133,6 +134,10 @@ export const router = createBrowserRouter([
         ),
         hydrateFallbackElement: <Loading></Loading>,
       },
+      {
+        path:'/contact',
+        Component:Contact
+      }
     ],
   },
 ]);
