@@ -44,7 +44,7 @@ const ShowServiceCard = ({ service }) => {
           <span className="text-xl font-semibold text-gray-700">Price:${price}</span>
           <Link
             to={`/serviceDetails/${_id}`}
-            className="px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition"
+            className="px-3 py-2 bg-blue-500 text-gray-100 rounded-full hover:bg-blue-700 transition"
           >
             View Details
           </Link>

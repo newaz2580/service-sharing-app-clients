@@ -9,20 +9,20 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
   const links = (
     <>
-      <li className="text-2xl">
+      <li className="text-xl font-bold">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="text-2xl">
+      <li className="text-xl font-bold">
         <NavLink to="/allServices">All Services</NavLink>
       </li>
     
 
       {user && (
-        <li className="text-2xl">
+        <li className="text-xl font-bold">
           <details>
             <summary>Dashboard</summary>
-            <ul className="p-2 z-20 text-md bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-white">
-              <li className="">
+            <ul className="p-2 z-20 text-md font-bold bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-white">
+              <li className="text-md font-bold">
                 <Link to="/addService">Add Service</Link>{" "}
               </li>
               <li>
@@ -38,13 +38,13 @@ const Navbar = () => {
           </details>
         </li>
       )}
-        <li className="text-2xl">
+        <li className="text-xl font-bold">
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
     </>
   );
   return (
-    <div className="lg:px-10 xl:px-20 navbar sticky top-0 right-0 left-0 z-30 bg-gray-100 py-5 text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white ">
+    <div className="lg:px-10 xl:px-20 navbar sticky top-0 right-0 left-0 z-30 bg-gray-100 py-1 text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -71,10 +71,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="flex items-center">
-          <Link to="/" className="btn btn-ghost text-3xl hidden lg:hidden xl:flex text-blue-600 font-extrabold">
-            Home Repair Services
-          </Link>
+        <div className="flex items-center space-x-1">
           <Link to="/">
             <img
               className="h-10 w-10 rounded-full"
@@ -82,8 +79,12 @@ const Navbar = () => {
               alt=""
             />
           </Link>
+          <Link to="/" className=" text-3xl hidden lg:hidden xl:flex text-blue-500 font-extrabold">
+            HRS
+          </Link>
+          
         </div>
-        <ModeToggle></ModeToggle>
+        <div className="flex justify-center items-center mt-2"><ModeToggle></ModeToggle></div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

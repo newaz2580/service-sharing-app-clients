@@ -26,14 +26,14 @@ const SignOut = () => {
     <div>
       {user ? (
         <button
-          className="bg-blue-600 px-4 py-2 text-white text-sm lg:text-xl rounded-4xl hover:bg-blue-950"
+          className="bg-blue-500 px-4 py-2 text-gray-100 text-sm font-bold rounded-4xl hover:bg-blue-950"
           onClick={handleUserSignOut}
         >
           SignOut
         </button>
       ) : (
         <Link to="/login">
-          <button className="bg-blue-600 lg:px-4 py-2 text-white rounded-4xl hover:bg-blue-950">
+          <button className="bg-blue-500 text-sm lg:px-4 py-2 text-gray-100 rounded-4xl hover:bg-blue-950">
             Login
           </button>
         </Link>
