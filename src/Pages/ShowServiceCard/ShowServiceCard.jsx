@@ -22,22 +22,22 @@ const ShowServiceCard = ({ service }) => {
   } = service;
 
   const shortDescription =
-    serviceDescription.length > 100
-      ? serviceDescription.slice(0, 100) + "..."
+    serviceDescription.length > 60
+      ? serviceDescription.slice(0, 60) + "..."
       : serviceDescription;
 
   return (
     <div
       data-aos="fade-up"
-      className="w-full rounded-2xl shadow-xl bg-green-100  dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
+      className="w-full rounded-2xl shadow-xl bg-gray-100  dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
     >
-      <img src={photo} alt={serviceName} className="w-full h-48 object-cover" />
-      <div className="p-6 space-y-4">
+      <img src={photo} alt={serviceName} className="w-full h-36 p-2 rounded-2xl object-cover" />
+      <div className="p-2 space-y-2">
         <div className="flex items-center space-x-4">
           <img
             src={user_Photo}
             alt={user_name}
-            className="w-12 h-12 rounded-full border-2 border-green-500"
+            className="w-6 h-6 rounded-full border-2 border-green-500"
           />
           <div>
             <p className="font-semibold text-lg text-blue-800 dark:text-white">
@@ -47,17 +47,17 @@ const ShowServiceCard = ({ service }) => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold text-black dark:text-white">
+          <h2 className="text-xl font-bold text-black dark:text-white">
             {serviceName}
           </h2>
           <p className="text-gray-700 dark:text-gray-300 mt-1">{shortDescription}</p>
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xl font-semibold text-blue-600">${price}</span>
+          <span className="text-xl font-semibold text-gray-700">Price:${price}</span>
           <Link
             to={`/serviceDetails/${_id}`}
-            className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+            className="px-3 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
           >
             View Details
           </Link>
