@@ -5,22 +5,15 @@ import { Link } from "react-router";
 
 const Banner = () => {
   return (
-    <section className="px-5 lg:px-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-      <div className="container max-h-screen[60%] mt-40 md:mt-0 lg:mt-0 mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+    <section className="px-5 lg:px-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12">
+      <div className="container max-h-screen[50%]  mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         <div className="flex-1 text-center lg:text-left">
-          <motion.h1
-            animate={{
-              color: ["#f42918", "#1284f6", "#17f10d"],
-              transition: { duration: 4, repeat: Infinity },
-            }}
-            className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight"
+          <h1
+            
+            className="text-4xl md:text-4xl font-bold leading-tight tracking-tight"
           >
-            Expert{" "}
-            <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Home Repairs
-            </span>{" "}
-            You Can Trust
-          </motion.h1>
+            Expert Home Repairs You Can Trust
+          </h1>
 
           <motion.p
             initial={{ scale: 0.8, opacity: 0 }}
