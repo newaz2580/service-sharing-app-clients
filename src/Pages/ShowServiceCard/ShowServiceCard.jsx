@@ -12,8 +12,6 @@ const ShowServiceCard = ({ service }) => {
   }, []);
 
   const {
-    user_Photo,
-    user_name,
     photo,
     price,
     serviceDescription,
@@ -29,22 +27,11 @@ const ShowServiceCard = ({ service }) => {
   return (
     <div
       data-aos="fade-up"
-      className="w-full rounded-2xl shadow-xl bg-gray-100  dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
+      className="w-full rounded-2xl  bg-gray-100  dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
     >
       <img src={photo} alt={serviceName} className="w-full h-36 p-2 rounded-2xl object-cover" />
-      <div className="p-2 space-y-2">
-        <div className="flex items-center space-x-4">
-          <img
-            src={user_Photo}
-            alt={user_name}
-            className="w-6 h-6 rounded-full border-2 border-green-500"
-          />
-          <div>
-            <p className="font-semibold text-lg text-blue-800 dark:text-white">
-              {user_name}
-            </p>
-          </div>
-        </div>
+     <div className="p-2 space-y-2">
+        
 
         <div>
           <h2 className="text-xl font-bold text-black dark:text-white">
@@ -57,7 +44,7 @@ const ShowServiceCard = ({ service }) => {
           <span className="text-xl font-semibold text-gray-700">Price:${price}</span>
           <Link
             to={`/serviceDetails/${_id}`}
-            className="px-3 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+            className="px-3 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-700 transition"
           >
             View Details
           </Link>
