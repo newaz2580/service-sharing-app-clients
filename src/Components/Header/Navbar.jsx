@@ -21,7 +21,7 @@ const Navbar = () => {
         <li className="text-xl font-bold">
           <details>
             <summary>Dashboard</summary>
-            <ul className="p-2 z-20 text-md font-bold bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-white">
+            <ul className="p-2 z-20 text-md font-bold bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
               <li className="text-md font-bold">
                 <Link to="/addService">Add Service</Link>{" "}
               </li>
@@ -44,7 +44,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="lg:px-10 xl:px-20 navbar sticky top-0 right-0 left-0 z-30 bg-gray-100 py-1 text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white ">
+    <div className="lg:px-10 xl:px-20 navbar sticky top-0 right-0 left-0 z-30 bg-white py-1 text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -79,7 +79,7 @@ const Navbar = () => {
               alt=""
             />
           </Link>
-          <Link to="/" className=" text-3xl hidden lg:hidden xl:flex text-blue-500 font-extrabold">
+          <Link to="/" className=" text-3xl hidden lg:hidden abril-font xl:flex text-blue-500 font-extrabold">
             HRS
           </Link>
           

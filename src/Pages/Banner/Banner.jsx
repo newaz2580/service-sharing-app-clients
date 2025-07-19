@@ -10,7 +10,7 @@ const Banner = () => {
         <div className="flex-1 text-center lg:text-left">
           <h1
             
-            className="text-4xl md:text-4xl font-bold leading-tight tracking-tight"
+            className="text-4xl  font-bold leading-tight tracking-tight abril-font text-blue-500"
           >
             Expert Home Repairs You Can Trust
           </h1>
@@ -18,7 +18,7 @@ const Banner = () => {
           <motion.p
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1, transition: { duration: 2 } }}
-            className="mt-6 text-xl md:text-2xl text-gray-700 dark:text-gray-300"
+            className="mt-6 text-xl text-gray-700 dark:text-gray-300 font-poppins"
           >
             Trusted by thousands of homeowners. Get expert help with plumbing,
             electrical, carpentry, and more — right when you need it.

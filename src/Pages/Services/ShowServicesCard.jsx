@@ -10,8 +10,8 @@ const ShowServicesCard = ({ service }) => {
     });
   });
 
-  const services=service.description.length >60 ?
-  service.description.slice(0 ,60) + "..." :
+  const services=service.description.length >80 ?
+  service.description.slice(0 ,80) + "..." :
   service.description
   return (
     <div
@@ -23,8 +23,8 @@ const ShowServicesCard = ({ service }) => {
         <img className="h-32 w-full p-2 rounded-2xl" src={service.image} alt="" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-xl">{service.title}</h2>
-        <p>{services}</p>
+        <h2 className="card-title text-xl font-poppins">{service.title}</h2>
+        <p className="font-poppins text-gray-600 dark:text-blue-100">{services}</p>
       </div>
     </div>
   );
