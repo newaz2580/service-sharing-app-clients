@@ -11,7 +11,7 @@ const Home = () => {
     const serviceData=useLoaderData()
     
     return (
-        <div className=' bg-white text-black dark:bg-gray-900 dark:text-white'>
+        <div className=' bg-gray-100 text-black dark:bg-gray-900 dark:text-white'>
          <title>Home</title>
          <Banner></Banner>
          <ServiceCard serviceData={serviceData}></ServiceCard>

@@ -1,15 +1,10 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import { Link } from "react-router"; 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const ShowServiceCard = ({ service }) => {
-  useEffect(() => {
-    AOS.init({
-      duration: 600,
-      delay: 200,
-    });
-  }, []);
+  
 
   const {
     photo,
@@ -26,8 +21,8 @@ const ShowServiceCard = ({ service }) => {
 
   return (
     <div
-      data-aos="fade-up"
-      className="w-full rounded-2xl  bg-gray-100  dark:bg-green-950 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
+      
+      className="w-full rounded-2xl  bg-white p-2  dark:bg-gray-800 overflow-hidden transition hover:scale-[1.02] duration-300 max-w-2xl mx-auto mb-5"
     >
       <img src={photo} alt={serviceName} className="w-full h-36 p-2 rounded-2xl object-cover" />
      <div className="p-2 space-y-2">
@@ -41,10 +36,10 @@ const ShowServiceCard = ({ service }) => {
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xl font-semibold text-gray-700">Price:${price}</span>
+          <span className="text-xl font-semibold text-gray-700 dark:text-white">Price:${price}</span>
           <Link
             to={`/serviceDetails/${_id}`}
-            className="px-3 py-2 bg-blue-500 text-gray-100 rounded-full hover:bg-blue-700 transition"
+            className="px-3 py-2 bg-blue-500 dark:bg-gray-500 text-gray-100 rounded-2xl hover:bg-blue-700 transition"
           >
             View Details
           </Link>

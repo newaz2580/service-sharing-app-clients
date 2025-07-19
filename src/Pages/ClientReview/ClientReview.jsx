@@ -97,7 +97,7 @@ const ClientReview = () => {
           <SwiperSlide key={card.id}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-gray-100 p-3 dark:bg-green-950 mb-8 shadow-lg  rounded-xl h-60 overflow-hidden transition duration-300"
+              className="bg-white p-3 dark:bg-green-950 mb-8 shadow-lg  rounded-xl h-60 overflow-hidden transition duration-300"
             >
               <img src={card.img} alt={card.title} className=" h-12 w-12  bg-cover rounded-full mx-auto object-cover" />
               <div className="p-1 text-center space-y-1">

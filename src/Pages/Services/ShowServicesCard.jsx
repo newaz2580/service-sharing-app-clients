@@ -17,10 +17,10 @@ const ShowServicesCard = ({ service }) => {
     <div
       data-aos="flip-left"
       data-aos-delay="100"
-      className=" bg-gray-100 dark:bg-green-950  w-full  mx-auto rounded-2xl"
+      className=" bg-white dark:bg-gray-800  w-full  mx-auto rounded-2xl"
     >
       <figure>
-        <img className="h-36 w-full p-2 rounded-2xl" src={service.image} alt="" />
+        <img className="h-32 w-full p-2 rounded-2xl" src={service.image} alt="" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-xl">{service.title}</h2>
