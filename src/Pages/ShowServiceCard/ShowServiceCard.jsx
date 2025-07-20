@@ -15,8 +15,8 @@ const ShowServiceCard = ({ service }) => {
   } = service;
 
   const shortDescription =
-    serviceDescription.length > 45
-      ? serviceDescription.slice(0, 45) + "..."
+    serviceDescription.length > 40
+      ? serviceDescription.slice(0, 40) + "..."
       : serviceDescription;
 
   return (
@@ -40,9 +40,9 @@ const ShowServiceCard = ({ service }) => {
       </span>
       <Link
         to={`/serviceDetails/${_id}`}
-        className="px-3 py-2 font-poppins bg-blue-500 dark:bg-gray-500 text-gray-100 rounded-2xl hover:bg-blue-700 transition"
+        className="px-3 py-2 lg:px-5 lg:text-sm font-poppins bg-blue-500 dark:bg-gray-500 text-gray-100 rounded-2xl hover:bg-blue-700 transition"
       >
-        View Details
+        Details
       </Link>
     </div>
   </div>

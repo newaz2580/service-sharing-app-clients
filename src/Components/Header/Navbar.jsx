@@ -9,16 +9,16 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
   const links = (
     <>
-      <li className="text-xl font-bold">
+      <li className="text-xl">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="text-xl font-bold">
+      <li className="text-xl">
         <NavLink to="/allServices">All Services</NavLink>
       </li>
     
 
       {user && (
-        <li className="text-xl font-bold">
+        <li className="text-xl">
           <details>
             <summary>Dashboard</summary>
             <ul className="p-2 z-20 text-md font-bold bg-white text-gray-700 dark:bg-gray-800 dark:text-white">
@@ -38,7 +38,7 @@ const Navbar = () => {
           </details>
         </li>
       )}
-        <li className="text-xl font-bold">
+        <li className="text-xl">
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
     </>
@@ -66,7 +66,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 text-white dark:bg-gray-600 dark:text-black rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu abril-font menu-sm dropdown-content bg-base-100 text-white dark:bg-gray-600 dark:text-black rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
@@ -87,7 +87,7 @@ const Navbar = () => {
         <div className="flex justify-center items-center mt-2"><ModeToggle></ModeToggle></div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1 abril-font">{links}</ul>
       </div>
       <div className="navbar-end">
         <UserProfile></UserProfile>

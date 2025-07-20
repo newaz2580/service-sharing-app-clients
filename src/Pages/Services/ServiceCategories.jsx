@@ -53,7 +53,20 @@ const servicesData = [
     description:
       "Thorough deep cleaning services for homes and offices, including kitchens, bathrooms, floors, and hard-to-reach areas — ensuring a spotless, hygienic environment.",
   },
+  {
+    image: "https://i.ibb.co/RGLHjWvS/painting-and-finishing.webp",
+    title: "Painting & Finishing",
+    description:
+      "We provide professional painting services with high-quality finishes for both interiors and exteriors. Choose from texture, stencil, enamel, or emulsion finishes for lasting impact.",
+  },
+  {
+    image: "https://i.ibb.co/j9c6LPcd/ac-reapair.webp",
+    title: "AC Installation & Repair",
+    description:
+      "Expert AC services including installation, gas refilling, cleaning, and repairing of all major brands — ensuring efficient cooling and long-term system health.",
+  },
 ];
+
 
 
 
@@ -61,7 +74,7 @@ const servicesData = [
   return (
     <>
       <h1 className="text-4xl text-center py-5 text-blue-500 abril-font">Service categories</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-5 lg:px-10 xl:px-40">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-5 lg:px-10 xl:px-30">
         {
             servicesData?.map((service,index)=><ShowServicesCard key={index} service={service}></ShowServicesCard>)
         }

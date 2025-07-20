@@ -1,69 +1,105 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { FaGift, FaBolt } from "react-icons/fa";
-import { Link } from "react-router";
+import { FaTools, FaBolt, FaSnowflake, FaPaintRoller, FaHammer, FaToilet, FaLock, FaBrush } from "react-icons/fa";
+
+const offers = [
+  {
+    icon: <FaTools className="text-3xl text-blue-600" />,
+    title: "Plumbing Fix",
+    description: "Say goodbye to leaks and clogs. Includes pipe repair, faucet replacement & drain cleaning.",
+    oldPrice: 1200,
+    newPrice: 999,
+    badge: "Hot Deal",
+  },
+  {
+    icon: <FaBolt className="text-3xl text-yellow-500" />,
+    title: "Electrical Repair",
+    description: "Fix faulty wiring, circuit issues & switch boards with expert care and inspection.",
+    oldPrice: 1500,
+    newPrice: 1200,
+    badge: "20% OFF",
+  },
+  {
+    icon: <FaSnowflake className="text-3xl text-cyan-500" />,
+    title: "AC Servicing",
+    description: "Filter cleaning, coil check & FREE gas level check for better cooling.",
+    oldPrice: 1800,
+    newPrice: 1800,
+    badge: "Free Gas Check",
+  },
+  {
+    icon: <FaHammer className="text-3xl text-orange-500" />,
+    title: "Carpentry Work",
+    description: "From door fixes to custom furniture. Precision woodwork, now 10% off.",
+    oldPrice: 1300,
+    newPrice: 1170,
+    badge: "10% OFF",
+  },
+  {
+    icon: <FaPaintRoller className="text-3xl text-pink-500" />,
+    title: "Room Painting",
+    description: "Weatherproof wall paint with material + labor. FREE design on 1 wall!",
+    oldPrice: 3000,
+    newPrice: 2500,
+    badge: "Bonus Offer",
+  },
+  {
+    icon: <FaToilet className="text-3xl text-red-400" />,
+    title: "Bathroom Renovation",
+    description: "Modern design with plumbing, tiling, and finishing. Full upgrade at a discounted rate.",
+    oldPrice: 5500,
+    newPrice: 5000,
+    badge: "New!",
+  },
+  {
+    icon: <FaLock className="text-3xl text-indigo-500" />,
+    title: "Door Lock Repair",
+    description: "Fix broken locks & enhance your home’s safety with expert lock repair services.",
+    oldPrice: 900,
+    newPrice: 700,
+    badge: "Limited Time",
+  },
+  {
+    icon: <FaBrush className="text-3xl text-green-500" />,
+    title: "Water Tank Cleaning",
+    description: "Deep cleaning and sanitizing of household tanks. Ensure safe water for your family.",
+    oldPrice: 1200,
+    newPrice: 1000,
+    badge: "Clean Deal",
+  },
+];
 
 const Promotional = () => {
   return (
-    <section
-      className="relative bg-cover bg-center bg-no-repeat py-5 "
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1581093458791-4b5c3a003a2f?auto=format&fit=crop&w=1600&q=80')",
-      }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0   dark:bg-opacity-60"></div>
+    <section className="bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-10 xl:px-30">
+      <div className="max-w-7xl mx-auto text-center mb-10">
+        <h2 className="text-4xl font-bold text-blue-600 mb-2 abril-font ">🎉 Promotional Offers</h2>
+        <p className="text-gray-600 text-lg font-poppins dark:text-white">
+          Special discounts on essential home repair services — Limited Time Only!
+        </p>
+      </div>
 
-      {/* Content */}
-      <div className="relative max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="bg-white dark:bg-green-950/80 backdrop-blur-md p-10 rounded-2xl shadow-lg text-center text-gray-900 dark:text-white"
-        >
-          <h1 className="text-4xl font-bold mb-2 tracking-tight abril-font text-blue-500">
-            🎉 Promotional Offer
-          </h1>
-          <p className="text-md text-gray-600 font-poppins dark:text-gray-200 mb-6">
-            Special discounts and deals just for you!
-          </p>
-
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            {/* Text Side */}
-            <motion.div
-              initial={{ x: -30, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="flex-1 text-center md:text-left"
-            >
-              <h2 className="text-3xl md:text-  font-poppins font-bold text-blue-700 dark:text-white mb-4">
-                🔧 Big Summer Sale – Up to 30% OFF!
-              </h2>
-              <p className="text-sm font-poppins text-gray-600 dark:text-gray-300 mb-6">
-                Book any home repair service this month and get up to 30%
-                discount! Don’t miss this limited-time offer. Expert service at
-                affordable prices, guaranteed.
-              </p>
-              <Link to="/allServices">
-                <button className="inline-flex font-poppins items-center gap-2 bg-blue-700 hover:bg-blue-900 text-white font-semibold py-3 px-6 rounded-full shadow-md transition duration-300">
-                  Grab the Offer <FaBolt />
-                </button>
-              </Link>
-            </motion.div>
-
-            {/* Icon Side */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="flex-1 flex justify-center"
-            >
-              <img src="https://i.ibb.co/VcbL4nKP/unnamed.jpg" alt="" />
-            </motion.div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {offers.map((offer, index) => (
+          <div
+            key={index}
+            className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow hover:shadow-lg transition"
+          >
+            <div className="flex items-center space-x-4 mb-4">
+              <div className="p-3 bg-gray-100 rounded-full">{offer.icon}</div>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{offer.title}</h3>
+            </div>
+            <p className="text-gray-600 mb-4 text-sm font-poppins dark:text-white">{offer.description}</p>
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-gray-400 line-through mr-2 dark:text-white">৳{offer.oldPrice}</span>
+                <span className="text-lg font-bold text-blue-600 dark:text-white">৳{offer.newPrice}</span>
+              </div>
+              <span className="px-3 py-1 text-xs bg-blue-500 text-white rounded-full font-semibold">
+                {offer.badge}
+              </span>
+            </div>
           </div>
-        </motion.div>
+        ))}
       </div>
     </section>
   );
