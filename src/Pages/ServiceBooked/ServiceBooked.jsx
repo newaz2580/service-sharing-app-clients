@@ -3,39 +3,36 @@ import { useLoaderData } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import DisplayMyBookingService from "./DisplayMyBookingService";
 
-
 const ServiceBooked = () => {
   const allBookings = useLoaderData();
   const { user } = useContext(AuthContext);
   const [myBookedServices, setMyBookedServices] = useState([]);
+
   useEffect(() => {
     if (user?.email) {
-      const booking = allBookings
-      setMyBookedServices(booking);
+      setMyBookedServices(allBookings);
     }
   }, [allBookings, user]);
+
   return (
-    <div className="bg-gray-200 dark:bg-gray-600 lg:px-10 xl:px-20 px-5 ">
-     
-        <title>Booked Services</title>
-     
-      <h2 className="text-3xl font-bold py-5 text-blue-600 text-center">
-        Booked Services
-      </h2>
-      <div className="grid grid-cols-1 items-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 py-5 text-center">
-        {myBookedServices.length === 0 ? (
-          <h2 className="text-center text-3xl text-red-600">
-            No Service Booked Yet
-          </h2>
-        ) : (
-          myBookedServices.map((booked) => (
-            <DisplayMyBookingService
-              key={booked._id}
-              booked={booked}
-            ></DisplayMyBookingService>
-          ))
-        )}
-      </div>
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-800 px-5 lg:px-16 xl:px-24 py-10">
+      <title>Booked Services</title>
+
+      <h1 className="text-4xl abril-font font-extrabold text-center text-blue-700 dark:text-blue-400 mb-12">
+        Your Booked Services
+      </h1>
+
+      {myBookedServices.length === 0 ? (
+        <p className="text-center text-xl md:text-2xl text-red-600 dark:text-red-400 font-semibold mt-20">
+          You have not booked any services yet.
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {myBookedServices.map((booked) => (
+            <DisplayMyBookingService key={booked._id} booked={booked} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

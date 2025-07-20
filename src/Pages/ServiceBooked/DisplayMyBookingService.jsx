@@ -1,37 +1,36 @@
 import React from "react";
 
 const DisplayMyBookingService = ({ booked }) => {
-
-
+  // Truncate description to 60 chars
+  const truncateDescription = (text, maxLength = 60) => {
+    if (!text) return "N/A";
+    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  };
 
   return (
-    <div>
-      <div className=" rounded-2xl bg-white text-black dark:bg-gray-900 dark:text-white">
-        <img
-          className="max-h-60 w-full object-cover p-3 rounded-3xl"
-          src={booked.photos}
-          alt={booked.service_Name}
-        />
-        <div className="pl-3 space-y-3 py-3">
-          <h2 className="text-2xl">
-            {" "}
-            <span className="font-bold text-blue-700">Service Name</span> -
+    <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform hover:scale-[1.03] duration-300">
+      <img
+        className="w-full max-h-36 object-cover"
+        src={booked.photos}
+        alt={booked.service_Name}
+      />
+      <div className="p-5 flex flex-col flex-grow text-black dark:text-white">
+        <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400 mb-2">
+          <span className="font-normal font-poppins text-blue-600">
             {booked.service_Name}
-          </h2>
-          <p>
-            {" "}
-            <span className="font-bold"> Price</span> -${" "}
-            <span className="text-black dark:text-white">{booked.price}</span>
+          </span>
+        </h2>
+        <p className="text-gray-700 dark:text-gray-300 flex-grow">
+          {truncateDescription(booked.specialInstruction)}
+        </p>
+
+        {/* Price & Status always at bottom */}
+        <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-300 dark:border-gray-700">
+          <p className="text-gray-700 dark:text-gray-300 font-semibold">
+            Price: ${booked.price}
           </p>
-          <p>
-            {" "}
-            <span className="font-bold">Service Instruction</span>-
-            {booked.specialInstruction}
-          </p>
-          <p>
-            {" "}
-            <span className="font-bold">Status -</span>{" "}
-            <span className="text-blue-700">{booked.status}</span>
+          <p className="text-blue-600 dark:text-blue-400 font-semibold">
+            Status: {booked.status}
           </p>
         </div>
       </div>
