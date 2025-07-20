@@ -77,7 +77,7 @@ const cards = [
 const ClientReview = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 text-black  mb-5 ">
-        <h2 className='text-center py-5 text-4xl  dark:text-white abril-font text-blue-500'>What Our Clients Have To Say</h2>
+        <h2 className='text-center py-5 text-4xl   abril-font text-blue-500'>What Our Clients Have To Say</h2>
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -97,16 +97,16 @@ const ClientReview = () => {
           <SwiperSlide key={card.id}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-white p-3 dark:bg-green-950 py-5  shadow-lg  rounded-xl h-60 overflow-hidden transition duration-300"
+              className="bg-white p-3 dark:bg-gray-800 py-5 mb-6  shadow-lg  rounded-xl h-60 overflow-hidden transition duration-300"
             >
               <img src={card.img} alt={card.title} className=" h-12 w-12  bg-cover rounded-full mx-auto object-cover" />
               <div className="p-1 text-center space-y-1">
-                <h1 className='text-xl font-bold dark:text-white font-poppins'>{card.client_name}</h1>
+                <h1 className='text-md font-bold dark:text-white font-poppins'>{card.client_name}</h1>
                 <div className='flex items-center justify-center gap-1'>
                   <span className='text-blue-700'><LuMapPin /></span>
-                  <p className='dark:text-blue-700 font-poppins'>{card.place}</p>
+                  <p className='dark:text-blue-700 font-poppins text-sm'>{card.place}</p>
                 </div>
-                <h3 className='text-blue-500 text-md dark:text-white font-poppins'>{card.comment}</h3>
+                <h3 className='text-blue-500 text-sm dark:text-white font-poppins'>{card.comment}</h3>
                 <h2 className="text-sm font-semibold text-gray-600 dark:text-white font-poppins">{card.description}</h2>
               </div>
             </motion.div>

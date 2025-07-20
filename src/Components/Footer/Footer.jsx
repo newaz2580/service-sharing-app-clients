@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const Footer = () => {
 
   return (
-    <div className="bg-white  dark:bg-gray-900 ">
+    <div className="bg-white  dark:bg-gray-800 ">
       <footer className="footer sm:footer-horizontal py-10 px-5 lg:px-20">
         <aside>
          <img className="h-16 w-16 rounded-full"   src={`https://i.ibb.co/tPJs4Gv5/home-06.jpg`} alt="" />
@@ -24,7 +24,7 @@ const Footer = () => {
           
         </nav>
         <nav className="text-black dark:text-white font-poppins">
-          <h6 className="footer-title font-poppins text-blue- dark:text-blue-100">Follow Us</h6>
+          <h6 className="footer-title font-poppins text-blue-700">Follow Us</h6>
           <a href='https://web.facebook.com/shahnewaz.ahammed' target="_blank" className="link link-hover">Facebook</a>
           <a href="https://www.linkedin.com/jobs/" target="_blank" className="link link-hover">LinkedIn</a>
           <a href="https://www.instagram.com/blue_bird_himu/" className="link link-hover">Instagram</a>

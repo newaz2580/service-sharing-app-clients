@@ -71,7 +71,7 @@ const offers = [
 const Promotional = () => {
   return (
     <section className="bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-10 xl:px-30">
-      <div className="max-w-7xl mx-auto text-center mb-10">
+      <div className="max-w-7xl mx-auto text-center mb-5">
         <h2 className="text-4xl font-bold text-blue-600 mb-2 abril-font ">🎉 Promotional Offers</h2>
         <p className="text-gray-600 text-lg font-poppins dark:text-white">
           Special discounts on essential home repair services — Limited Time Only!
