@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 
 const AddService = () => {
@@ -8,6 +7,7 @@ const AddService = () => {
   const handleAddService = (e) => {
     e.preventDefault();
     setLoading(true);
+
     const form = e.target;
     const formData = new FormData(form);
     const newService = Object.fromEntries(formData.entries());
@@ -16,107 +16,112 @@ const AddService = () => {
       method: "POST",
       credentials: "include",
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(newService),
     })
       .then((res) => res.json())
       .then(() => {
-        toast.success("Add service successfully");
+        toast.success("Service added successfully!");
         form.reset();
         setLoading(false);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        toast.error(`${errorCode}: ${errorMessage}`);
+        toast.error(`Error: ${error.message}`);
         setLoading(false);
       });
   };
-  return (
-    <div className="bg-white py-5 lg:py-18 dark:bg-gray-700">
-      <title>Add Service</title>
-      <fieldset className="fieldset bg-white dark:bg-gray-800 text-gray-700 dark:text-white border-base-300 rounded-box max-w-2xl mx-auto shadow-2xl p-4">
-        <form onSubmit={handleAddService}>
-          <h2 className="text-center font-bold text-4xl py-5 ">
-            Add New Service
-          </h2>
 
+  return (
+    <div className="bg-gray-100 dark:bg-gray-900 py-10 px-4 min-h-screen">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8">
+        <h2 className="abril-font text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">
+          🚀 Add a New Service
+        </h2>
+        <form onSubmit={handleAddService} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="label text-xl">Image URL</label>
-              <input
-                type="text"
-                name="photo"
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
-                placeholder="Photo URL"
-              />
-            </div>
-            <div>
-              <label className="label text-xl">Service Name</label>
-              <input
-                type="text"
-                name="serviceName"
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
-                placeholder="Service Name"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="label text-xl">Price</label>
-              <input
-                type="text"
-                name="price"
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
-                placeholder="Price"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="label text-xl">Service Area</label>
-              <input
-                type="text"
-                name="area"
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
-                placeholder="Service Area"
-                required
-              />
-            </div>
-            <div>
-              <label className="label text-xl">
-                Service Description (max 100 characters)
+              <label className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Image URL
               </label>
               <input
                 type="text"
-                name="serviceDescription"
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black dark:text-white"
-                placeholder="Service Description"
+                name="photo"
+                placeholder="https://your-image.jpg"
+                className="w-full text-black font-poppins p-3 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+
+            <div>
+              <label className="block font-poppins text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Service Name
+              </label>
+              <input
+                type="text"
+                name="serviceName"
+                placeholder="e.g., AC Repair"
                 required
-                maxLength={100}
+                className="w-full text-black p-3 font-poppins rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+
+            <div>
+              <label className="block font-poppins text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Price
+              </label>
+              <input
+                type="text"
+                name="price"
+                placeholder="$120"
+                required
+                className="w-full text-black font-poppins p-3 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+
+            <div>
+              <label className="block font-poppins text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Service Area
+              </label>
+              <input
+                type="text"
+                name="area"
+                placeholder="e.g., Dhaka"
+                required
+                className="w-full  p-3 font-poppins rounded-md border text-black border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
               />
             </div>
           </div>
-          <div className="w-full">
-            <button
-              type="submit"
-              value="Add Service"
-              disabled={loading}
-              className=" text-center btn w-full mt-5 text-2xl bg-green-600 rounded-2xl border-0"
-            >
-              {loading ? (
-                <>
-                  <span className="loading loading-spinner loading-sm"></span>{" "}
-                  Adding service
-                </>
-              ) : (
-                "Add Service"
-              )}
-            </button>
+
+          <div>
+            <label className="block font-poppins text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Service Description <span className="text-sm text-gray-500">(max 100 chars)</span>
+            </label>
+            <input
+              type="text"
+              name="serviceDescription"
+              placeholder="Brief description of the service"
+              maxLength={100}
+              required
+              className="w-full text-black font-poppins p-3 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            />
           </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 text-xl font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition duration-300"
+          >
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <span className="loading loading-spinner loading-sm"></span>
+                Adding Service...
+              </span>
+            ) : (
+              "Add Service"
+            )}
+          </button>
         </form>
-      </fieldset>
+      </div>
     </div>
   );
 };
