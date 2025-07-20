@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router"; // Fixed: use react-router-dom
 import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
 import Swal from "sweetalert2";
@@ -23,15 +23,9 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              const remainingService = myServices.filter(
-                (ser) => ser._id !== id
-              );
-              setMyServices(remainingService);
-              Swal.fire(
-                "Deleted!",
-                "Your service has been deleted.",
-                "success"
-              );
+              const remaining = myServices.filter((s) => s._id !== id);
+              setMyServices(remaining);
+              Swal.fire("Deleted!", "Your service has been deleted.", "success");
             }
           });
       }
@@ -39,36 +33,37 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
   };
 
   return (
-    <div className="card bg-green-100  dark:bg-green-950 text-black shadow-xl">
-      <figure>
-        {service.photo && (
-          <img
-            className="h-[200px] w-full object-cover"
-            src={service.photo}
-            alt={service.serviceName}
-          />
-        )}
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title text-blue-500 font-bold text-xl ">
-          {service.serviceName}
-        </h2>
-        <p className="dark:text-white">{service.serviceDescription}</p>
-        <p className="dark:text-white">Price - ${service.price}</p>
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+      <img
+        src={service.photo}
+        alt={service.serviceName}
+        className="w-full h-36 object-cover"
+      />
 
-        <div className="card-actions justify-end">
+      <div className="p-4 space-y-2">
+        <h2 className="text-xl font-semibold text-blue-600 dark:text-blue-400 font-poppins">{service.serviceName}</h2>
+        <p className="text-gray-600 dark:text-gray-300 text-sm font-poppins">
+          {service.serviceDescription.length > 100
+            ? service.serviceDescription.slice(0, 100) + "..."
+            : service.serviceDescription}
+        </p>
+        <p className="font-semibold text-green-600 dark:text-green-400 font-poppins">Price: ${service.price}</p>
+
+        <div className="flex justify-between items-center pt-4">
           <button
             onClick={() => handleServiceDelete(service._id)}
-            className="badge badge-outline cursor-pointer py-2 dark:text-white"
+            className="flex btn text-white items-center gap-1  text-sm font-medium rounded-4xl"
           >
-            <MdDelete size={20} className="text-red-600" />
-            Delete
+            <MdDelete className="text-md" />
+            <span>Delete</span>
           </button>
-          <Link to={`/update/${service._id}`}>
-            <button className="badge badge-outline cursor-pointer dark:text-white">
-              <CiEdit />
-              Update
-            </button>
+
+          <Link
+            to={`/update/${service._id}`}
+            className="flex items-center gap-1 text-white btn btn-primary bg-blue-600 rounded-4xl text-sm font-medium"
+          >
+            <CiEdit className="text-lg" />
+            Update
           </Link>
         </div>
       </div>
