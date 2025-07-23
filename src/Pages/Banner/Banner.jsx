@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const Banner = () => {
   return (
-    <section className="px-5 lg:px-20 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12">
+    <section className="px-5 lg:px-20 bg-white dark:bg-gray-950 py-12">
       <div className="container max-h-screen[50%]  mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
         <div className="flex-1 text-center lg:text-left">
           <h1
