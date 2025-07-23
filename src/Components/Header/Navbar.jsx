@@ -117,7 +117,7 @@ const Navbar = () => {
         {isMobileDropdownOpen && (
           <ul
             tabIndex={0}
-            className="menu dropdown-content lg:hidden absolute top-full left-0 mt-2 p-4 shadow-lg bg-base-100 rounded-lg w-60 z-50"
+            className="menu dropdown-content lg:hidden absolute top-full left-0 mt-2 p-4 shadow-lg bg-gray-100 text-black dark:bg-gray-800 dark:text-white rounded-lg w-60 z-50"
           >
             {mobileLinks}
           </ul>
