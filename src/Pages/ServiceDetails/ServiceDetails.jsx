@@ -23,7 +23,7 @@ const ServiceDetails = () => {
      
 
       <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center bg-cyan-100 dark:bg-gray-900 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center bg-white dark:bg-gray-900 p-6">
           <div>
             <img
               src={photo}
@@ -38,11 +38,11 @@ const ServiceDetails = () => {
               alt={user_name}
               className="h-20 w-20 mx-auto rounded-full border-4 border-white shadow-md hover:shadow-blue-300 transition"
             />
-            <h3 className="mt-3 text-xl font-bold text-cyan-700  dark:text-white">
+            <h3 className="mt-3 text-xl font-bold text-gray-800  dark:text-white">
               {user_name}
             </h3>
             <p className="text-gray-500 flex justify-center items-center gap-1">
-              <span><FaMapMarkerAlt className="text-blue-900"/></span>
+              <span><FaMapMarkerAlt className="text-blue-700"/></span>
               <span className="text-xl dark:text-white">{area}</span>
               </p>
             </div>
