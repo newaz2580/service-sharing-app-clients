@@ -20,7 +20,7 @@ const TodoService = () => {
       ) : (
         <>
          
-          <div className="overflow-x-auto hidden md:block">
+          <div className="overflow-x-auto hidden md:block lg:px-30">
             <table className="w-full text-sm text-left whitespace-nowrap">
               <thead>
                 <tr className="bg-gray-200 dark:bg-gray-600 dark:text-white text-black ">

@@ -11,8 +11,6 @@ const DisplayAllBookedService = ({ bookService, index, isMobile }) => {
     specialInstruction,
     price,
     status,
- 
-
     CurrentUserEmail,
   } = bookService;
 

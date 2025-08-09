@@ -14,8 +14,8 @@ const DisplayMyBookingService = ({ booked }) => {
         src={booked.photos}
         alt={booked.service_Name}
       />
-      <div className="p-5 flex flex-col flex-grow text-black dark:text-white">
-        <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400 mb-2">
+      <div className="p-3 flex flex-col flex-grow text-black dark:text-white">
+        <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400">
           <span className="font-normal font-poppins text-blue-600">
             {booked.service_Name}
           </span>
