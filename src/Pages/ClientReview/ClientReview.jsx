@@ -76,7 +76,7 @@ const cards = [
 
 const ClientReview = () => {
   return (
-    <div className="max-w-7xl mx-auto  py-8 text-black  mb-5 ">
+    <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-0 py-8 text-black  mb-5 ">
         <h2 className='text-center py-5 text-4xl   abril-font text-blue-500'>What Our Clients Have To Say</h2>
 
       <Swiper
@@ -104,7 +104,7 @@ const ClientReview = () => {
                 <h1 className='text-md font-bold dark:text-white font-poppins'>{card.client_name}</h1>
                 <div className='flex items-center justify-center gap-1'>
                   <span className='text-blue-700'><LuMapPin /></span>
-                  <p className='dark:text-blue-700 font-poppins text-sm'>{card.place}</p>
+                  <p className='dark:text-blue-300 font-poppins text-sm'>{card.place}</p>
                 </div>
                 <h3 className='text-blue-500 text-sm dark:text-white font-poppins'>{card.comment}</h3>
                 <h2 className="text-sm font-semibold text-gray-600 dark:text-white font-poppins">{card.description}</h2>

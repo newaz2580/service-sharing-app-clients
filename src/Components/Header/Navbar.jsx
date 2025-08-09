@@ -94,7 +94,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar sticky top-0 z-30 bg-white dark:bg-gray-800 shadow-sm py-1 text-gray-900 dark:text-white px-5 lg:px-20">
+    <div className="navbar sticky top-0 z-30 bg-white dark:bg-gray-800 shadow-sm py-1 text-gray-900 dark:text-white px-5 lg:px-30">
       <div className="navbar-start relative">
         {/* Mobile Dropdown Toggle */}
         <label
