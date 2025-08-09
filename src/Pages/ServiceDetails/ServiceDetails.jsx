@@ -22,7 +22,7 @@ const ServiceDetails = () => {
         <title>{serviceName} - Service Details</title>
      
 
-      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden">
+      <div className="max-w-7xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-3xl overflow-hidden  lg:px-30">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center bg-white dark:bg-gray-900 p-6">
           <div>
             <img

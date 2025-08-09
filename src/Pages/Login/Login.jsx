@@ -32,7 +32,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="Banner bg-gray-200 text-gray-900 dark:bg-gray-900 min-h-screen">
+    <div className="Banner bg-gray-200 text-gray-900 dark:bg-gray-900 min-h-screen pt-5">
       <div className="Banner-content flex-col lg:flex-row-reverse ">
         
         <div className="card bg-white dark:bg-gray-800 w-full max-w-lg mx-auto shrink-0 shadow-2xl lg:px-6">

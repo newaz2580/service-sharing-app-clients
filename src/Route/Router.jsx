@@ -16,6 +16,7 @@ import TodoService from "../Pages/TodoService/TodoService";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 import Contact from "../Pages/Contact/Contact";
+import DashboardLayout from "../Layout/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -27,9 +28,6 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
         loader: async () => {
-
-
-          
           try {
             // console.log(props);
             const resp = await fetch(
@@ -140,4 +138,61 @@ export const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path:'dashboard',
+    element:<DashboardLayout/>,
+    children:[
+      {
+        path:'addService',
+        element:<PrivateRoutes><AddService/> </PrivateRoutes>
+      },
+      {
+        path:'manageServices',
+        element:<PrivateRoutes><ManageServices/></PrivateRoutes>
+      },
+      { 
+        path: "serviceBooked",
+        loader: () =>
+          fetch(
+            "https://service-sharing-server-steel.vercel.app/my-bookings",
+            { credentials: "include" }
+          ),
+        element: (
+          <PrivateRoutes>
+            <ServiceBooked></ServiceBooked>
+          </PrivateRoutes>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "todoService",
+        loader: () =>
+          fetch(
+            "https://service-sharing-server-steel.vercel.app/my-purchaseService",
+             { credentials: "include" }
+
+          ),
+        element: (
+          <PrivateRoutes>
+            <TodoService></TodoService>
+          </PrivateRoutes>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+        {
+        path: "update/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://service-sharing-server-steel.vercel.app/service/${params.id}`,
+            { credentials: "include" }
+          ),
+        element: (
+          <PrivateRoutes>
+            <Update></Update>
+          </PrivateRoutes>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+    ]
+  }
 ]);

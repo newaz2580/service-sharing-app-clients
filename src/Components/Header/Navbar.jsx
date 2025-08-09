@@ -24,6 +24,11 @@ const Navbar = () => {
       <li className="text-xl">
         <NavLink to="/allServices" onClick={handleLinkClick}>All Services</NavLink>
       </li>
+      <li>
+                <NavLink to="/dashboard" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:text-blue-700 md:p-0 dark:text-white">
+                  Dashboard
+                </NavLink>
+              </li>
 
       {user && (
         <li className="text-xl relative">
@@ -68,6 +73,11 @@ const Navbar = () => {
       <li className="text-xl">
         <NavLink to="/allServices" onClick={handleLinkClick}>All Services</NavLink>
       </li>
+       <li>
+                <NavLink to="/dashboard" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:text-blue-700 md:p-0 dark:text-white">
+                  Dashboard
+                </NavLink>
+              </li>
 
       {user && (
         <>
