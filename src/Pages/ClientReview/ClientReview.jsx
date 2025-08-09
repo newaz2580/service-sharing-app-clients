@@ -76,7 +76,7 @@ const cards = [
 
 const ClientReview = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 text-black  mb-5 ">
+    <div className="max-w-7xl mx-auto  py-8 text-black  mb-5 ">
         <h2 className='text-center py-5 text-4xl   abril-font text-blue-500'>What Our Clients Have To Say</h2>
 
       <Swiper
