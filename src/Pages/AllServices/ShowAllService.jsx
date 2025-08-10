@@ -27,7 +27,7 @@ const ShowAllService = ({ service }) => {
 
     <Link
       to={`/serviceDetails/${_id}`}
-      className="w-full block text-center md:px-2 lg:px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition mt-4"
+      className="w-full block text-center md:px-2 lg:px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-green-600 transition mt-4"
     >
       View Details
     </Link>

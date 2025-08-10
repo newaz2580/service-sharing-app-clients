@@ -115,7 +115,7 @@ const DashboardLayout = () => {
         </div>
 
         {/* Logout button */}
-        <button
+        <span
           className="w-full py-2 bg-gray-300 rounded dark:bg-gray-600 transition-colors flex items-center justify-center space-x-2"
           onClick={() => {
             navigate('/')
@@ -123,7 +123,7 @@ const DashboardLayout = () => {
         >
           <MdLogout size={20} />
           <SignOut />
-        </button>
+        </span>
       </aside>
 
       {sidebarOpen && (

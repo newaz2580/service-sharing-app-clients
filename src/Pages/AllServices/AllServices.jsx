@@ -38,14 +38,14 @@ const AllServices = () => {
         <input
           type="text"
           placeholder="Search service"
-          className="input bg-green-700 text-white rounded-2xl px-4 py-2"
+          className="input bg-blue-600 text-white rounded-2xl px-4 py-2"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
 
      
         <select
-          className="select bg-green-700 text-white rounded-2xl px-4 py-2"
+          className="select bg-blue-600 text-white rounded-2xl px-4 py-2"
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
         >

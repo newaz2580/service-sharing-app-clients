@@ -6,7 +6,8 @@ import { Link } from "react-router";
 import { toast } from "react-toastify";
 
 const SignOut = () => {
-  const { user,setUser } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
+
   const handleUserSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -15,13 +16,14 @@ const SignOut = () => {
           { method: "POST", credentials: "include" }
         ).then(() => {
           toast.success("User signOut successful");
-          setUser(null)
+          setUser(null);
         });
       })
       .catch((error) => {
         toast.error(error);
       });
   };
+
   return (
     <div>
       {user ? (
@@ -32,10 +34,11 @@ const SignOut = () => {
           SignOut
         </button>
       ) : (
-        <Link to="/login">
-          <button className="bg-blue-500 text-sm lg:px-4 py-2 text-gray-100 rounded-4xl hover:bg-blue-950">
-            Login
-          </button>
+        <Link
+          to="/login"
+          className="bg-blue-500 text-sm lg:px-4 py-2 text-gray-100 rounded-4xl hover:bg-blue-950 inline-block text-center"
+        >
+          Login
         </Link>
       )}
     </div>

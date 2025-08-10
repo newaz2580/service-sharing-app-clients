@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Update = () => {
   const singleServiceData = useLoaderData();
+  const navigate=useNavigate()
   const [loading, setLoading] = useState(false);
   const { photo, price, area, serviceDescription, serviceName, _id } =
     singleServiceData;
@@ -25,7 +26,7 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        // console.log(result);
+        navigate('/dashboard/manageServices')
         Swal.fire({
           position: "top-end",
           icon: "success",

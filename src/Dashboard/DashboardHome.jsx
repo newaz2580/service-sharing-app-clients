@@ -9,38 +9,31 @@ const DashboardHome = () => {
   const [totalServices, setTotalServices] = useState(0);
   const [bookedServices, setBookedServices] = useState(0);
   const [pendingTodos, setPendingTodos] = useState(0);
-  const [recentActivity, setRecentActivity] = useState([]);
+ 
 
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
         // Total Services
-        const servicesRes = await axios.get("https://service-sharing-server-steel.vercel.app/service", {
-          withCredentials: true
-        });
+        const servicesRes = await axios.get(
+          "https://service-sharing-server-steel.vercel.app/service",
+          { withCredentials: true }
+        );
         setTotalServices(servicesRes.data.length);
 
         // Booked Services
-        const bookingsRes = await axios.get("https://service-sharing-server-steel.vercel.app/my-bookings", {
-          withCredentials: true
-        });
+        const bookingsRes = await axios.get(
+          "https://service-sharing-server-steel.vercel.app/my-bookings",
+          { withCredentials: true }
+        );
         setBookedServices(bookingsRes.data.length);
-
+        
         // Pending Todos
-        const todosRes = await axios.get("https://service-sharing-server-steel.vercel.app/my-purchaseService", {
-          withCredentials: true
-        });
+        const todosRes = await axios.get(
+          "https://service-sharing-server-steel.vercel.app/my-purchaseService",
+          { withCredentials: true }
+        );
         setPendingTodos(todosRes.data.length);
-
-        // Recent Activity (Example: combining all)
-        const activities = [];
-        bookingsRes.data.forEach(b => {
-          activities.push(`✅ Service “${b.serviceName}” booked`);
-        });
-        servicesRes.data.slice(-3).forEach(s => {
-          activities.push(`🛠 New service “${s.serviceName}” added`);
-        });
-        setRecentActivity(activities.slice(0, 5));
 
       } catch (error) {
         console.error("Error loading dashboard data:", error);
@@ -50,7 +43,6 @@ const DashboardHome = () => {
     fetchDashboardData();
   }, []);
 
-  // Demo chart data (replace with real monthly data if available)
   const chartData = [
     { month: "Jan", booked: 2 },
     { month: "Feb", booked: 4 },
@@ -61,13 +53,13 @@ const DashboardHome = () => {
 
   return (
     <div className="px-5 pt-6 space-y-6">
-      {/* Welcome Banner */}
+      {/* Welcome Card */}
       <div className="bg-gray-200 text-gray-700 dark:bg-gray-900 dark:text-white p-6 rounded-lg shadow">
         <h1 className="text-2xl font-bold">👋 Welcome back, {user?.displayName}!</h1>
         <p className="mt-1">Here’s what’s happening with your services today.</p>
       </div>
 
-      {/* Stats Cards */}
+      {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white dark:bg-gray-800 p-4 rounded shadow flex items-center gap-4">
           <FaTools className="text-4xl text-indigo-500" />
@@ -94,7 +86,7 @@ const DashboardHome = () => {
         </div>
       </div>
 
-      {/* Chart Section */}
+      {/* Chart */}
       <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">
         <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-4">Monthly Bookings</h2>
         <ResponsiveContainer width="100%" height={200}>
@@ -107,19 +99,7 @@ const DashboardHome = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* Recent Activity */}
-      <div className="bg-white dark:bg-gray-800 p-4 rounded shadow">
-        <h2 className="text-xl font-semibold text-gray-700 dark:text-white mb-4">Recent Activity</h2>
-        <ul className="space-y-3">
-          {recentActivity.length > 0 ? (
-            recentActivity.map((activity, idx) => (
-              <li key={idx} className="border-b pb-2 text-gray-800 dark:text-white">{activity}</li>
-            ))
-          ) : (
-            <li>No recent activity</li>
-          )}
-        </ul>
-      </div>
+   
     </div>
   );
 };
