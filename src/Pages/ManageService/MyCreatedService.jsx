@@ -14,12 +14,12 @@ const MyCreatedService = ({ serviceCreateByPromise }) => {
 
         {myServices?.length === 0 ? (
           <div className="text-center py-20">
-            <p className="text-xl text-red-500 dark:text-red-300 abril-font">
-              🚫 No services found. Start by adding a service!
+            <p className="text-xl text-blue-500 dark:text-gray-300 abril-font">
+              No services found. Start by adding a service!
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4  xl:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4   gap-5">
             {myServices.map((service) => (
               <ShowCreatedService
                 key={service._id}

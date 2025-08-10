@@ -18,7 +18,7 @@ const Footer = () => {
           <h6 className="footer-title text-blue-900 font-poppins dark:text-blue-100">Services</h6>
           <Link to='/allServices'>All Service</Link>
           <Link to='/manageServices'>Manage Service</Link>
-          <Link to='/contact'>Contact</Link>
+          <Link to='/about'>About</Link>
           
 
           
@@ -26,15 +26,15 @@ const Footer = () => {
         <nav className="text-black dark:text-white font-poppins">
           <h6 className="footer-title font-poppins text-blue-900 dark:text-blue-100">Follow Us</h6>
           <a href='https://web.facebook.com/shahnewaz.ahammed' target="_blank" className="link link-hover">Facebook</a>
-          <a href="https://www.linkedin.com/jobs/" target="_blank" className="link link-hover">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/mohammad-shahnowaz/" target="_blank" className="link link-hover">LinkedIn</a>
           <a href="https://www.instagram.com/blue_bird_himu/" className="link link-hover">Instagram</a>
           <a href='https://github.com/newaz2580' target="_blank" className="link link-hover">Github</a>
         </nav>
         <nav className="text-black dark:text-white font-poppins">
-          <h6 className="footer-title text-blue-900 dark:text-blue-100">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <h6 className="footer-title text-blue-900 dark:text-blue-100">Contact</h6>
+          <a className="link link-hover">Email:newaz2796@gmail.com</a>
+          <a className="link link-hover">Phone:+8801687678113</a>
+         
         </nav>
       </footer>
       <h3 className="text-center py-5 text-black dark:text-white font-poppins">

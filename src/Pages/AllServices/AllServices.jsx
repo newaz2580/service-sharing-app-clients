@@ -30,7 +30,7 @@ const AllServices = () => {
   }, [searchText, sortOrder, serviceData]);
 
   return (
-    <div className="bg-white text-black dark:bg-gray-800 dark:text-white p-5">
+    <div className="bg-gray-100 text-black dark:bg-gray-800 dark:text-white p-5">
       <h2 className="text-center text-4xl py-5">All Services</h2>
 
       <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-center items-center py-5">

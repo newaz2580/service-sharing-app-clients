@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet, NavLink, useNavigate } from "react-router";
+import { Outlet, NavLink, useNavigate, Link } from "react-router";
 import {
   MdLogout,
   MdManageAccounts,
@@ -136,38 +136,37 @@ const DashboardLayout = () => {
 
       <div className="flex-1 flex flex-col md:ml-64">
         
-        <header className="bg-white dark:bg-gray-800 shadow-md p-4 flex items-center md:hidden">
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-gray-700 focus:outline-none"
-            aria-label="Toggle sidebar"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              {sidebarOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-          <h1 className="ml-4 text-xl font-semibold text-black dark:text-white">
-            Dashboard
-          </h1>
-        </header>
+        <header className="bg-gray-300 sticky top-0 left-0 right-0 dark:bg-gray-800 shadow-md p-4 flex items-center justify-between md:hidden">
+  <div className="flex items-center">
+    <button
+      onClick={() => setSidebarOpen(!sidebarOpen)}
+      className="text-gray-700 dark:text-white focus:outline-none"
+      aria-label="Toggle sidebar"
+    >
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+      >
+        {sidebarOpen ? (
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        ) : (
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        )}
+      </svg>
+    </button>
+    <h1 className="ml-4 text-xl font-semibold text-black dark:text-white">
+      <Link to='/'> Dashboard</Link>
+    </h1>
+  </div>
+
+  <div>
+    <ModeToggle />
+  </div>
+</header>
+
 
         <main className="overflow-auto p-4">
           <Outlet />

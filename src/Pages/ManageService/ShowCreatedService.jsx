@@ -33,21 +33,21 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 max-w-md mx-auto sm:max-w-full flex flex-col">
+    <div className="bg-white dark:bg-gray-800 h-88 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 max-w-md mx-auto sm:max-w-full flex flex-col">
       <img
         src={service.photo}
         alt={service.serviceName}
-        className="w-full h-36 object-cover"
+        className="w-full h-32 object-cover"
       />
 
-      <div className="p-4 flex flex-col flex-grow">
+      <div className="p-2 flex flex-col flex-grow">
         <div className="space-y-1 flex-grow">
           <h2 className="text-md  font-semibold text-blue-600 dark:text-blue-400 font-poppins">
             {service.serviceName}
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm font-poppins">
-            {service.serviceDescription.length > 80
-              ? service.serviceDescription.slice(0, 80) + "..."
+            {service.serviceDescription.length > 60
+              ? service.serviceDescription.slice(0, 60) + "..."
               : service.serviceDescription}
           </p>
           <p className="font-semibold text-green-600 dark:text-green-400 font-poppins text-sm sm:text-base">
@@ -55,7 +55,7 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 pt-4 mt-auto">
+        <div className="flex flex-col gap-2 pt-2 mt-auto">
           <button
             onClick={() => handleServiceDelete(service._id)}
             className="flex btn text-white items-center gap-1 text-sm font-medium rounded-xl w-full justify-center transition "

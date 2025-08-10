@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 
 const ErrorPage = () => {
-  const [animationData, setAnimationData] = useState(null);
+  const [animationData, setAnimationData] = useState(null)
 
   useEffect(() => {
     fetch("/Error.json")
@@ -16,7 +16,7 @@ const ErrorPage = () => {
   }
 
   return (
-    <section className="flex items-center h-full p-16 dark:bg-gray-50 dark:text-gray-800">
+    <section className="flex items-center h-full p-12 dark:bg-gray-50 dark:text-gray-800">
       <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
         <div className="max-w-md text-center">
           <Lottie animationData={animationData} />
@@ -28,7 +28,7 @@ const ErrorPage = () => {
           </p>
           <a
             href="/"
-            className="px-8 btn py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
+            className="px-5 btn py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
           >
             Back to home
           </a>
