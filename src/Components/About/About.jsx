@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="bg-white dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white h-screen dark:bg-gray-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl mb-4">
           About Service Sharing
