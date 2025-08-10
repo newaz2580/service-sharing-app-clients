@@ -15,7 +15,7 @@ const ServiceBooked = () => {
   }, [allBookings, user]);
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-700 px-5 lg:px-16 xl:px-24 py-10">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-700 px-5 lg:px-6 py-10">
       <title>Booked Services</title>
 
       <h1 className="text-4xl abril-font font-extrabold text-center text-blue-700 dark:text-blue-400 mb-12">
@@ -27,7 +27,7 @@ const ServiceBooked = () => {
           You have not booked any services yet.
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 ">
           {myBookedServices.map((booked) => (
             <DisplayMyBookingService key={booked._id} booked={booked} />
           ))}

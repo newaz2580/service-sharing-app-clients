@@ -17,6 +17,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 import Contact from "../Pages/Contact/Contact";
 import DashboardLayout from "../Layout/DashboardLayout";
+import DashboardHome from "../Dashboard/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -142,6 +143,10 @@ export const router = createBrowserRouter([
     path:'dashboard',
     element:<DashboardLayout/>,
     children:[
+       {
+        index: true,          // ডিফল্ট পেজ
+        element: <DashboardHome />,
+      },
       {
         path:'addService',
         element:<PrivateRoutes><AddService/> </PrivateRoutes>

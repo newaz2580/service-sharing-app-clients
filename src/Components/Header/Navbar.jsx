@@ -8,58 +8,28 @@ import ModeToggle from "../../Pages/ModeToggle/ModeToggle";
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-  const [isDashboardOpen, setIsDashboardOpen] = useState(false);
+ 
 
-  const handleLinkClick = () => {
-    setIsMobileDropdownOpen(false);
-    setIsDashboardOpen(false);
-  };
+ 
 
   // Desktop Links with toggling Dashboard submenu
   const desktopLinks = (
     <>
       <li className="text-xl">
-        <NavLink to="/" onClick={handleLinkClick}>Home</NavLink>
+        <NavLink to="/" >Home</NavLink>
       </li>
       <li className="text-xl">
-        <NavLink to="/allServices" onClick={handleLinkClick}>All Services</NavLink>
+        <NavLink to="/allServices" >All Services</NavLink>
       </li>
-      <li>
-                <NavLink to="/dashboard" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:text-blue-700 md:p-0 dark:text-white">
-                  Dashboard
-                </NavLink>
-              </li>
-
-      {user && (
-        <li className="text-xl relative">
-          <button
-            onClick={() => setIsDashboardOpen(!isDashboardOpen)}
-            className="hover:text-blue-600"
-          >
-            Dashboard ▾
-          </button>
-
-          {isDashboardOpen && (
-            <ul className="absolute bg-white dark:bg-gray-800 text-black dark:text-white mt-2 p-3 rounded-md shadow-md space-y-2 z-50 w-56">
-              <li className="border-b border-gray-300 dark:border-gray-600 last:border-none py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-                <Link to="/addService" onClick={handleLinkClick}>Add Service</Link>
-              </li>
-              <li className="border-b border-gray-300 dark:border-gray-600 last:border-none py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-                <Link to="/manageServices" onClick={handleLinkClick}>Manage Service</Link>
-              </li>
-              <li className="border-b border-gray-300 dark:border-gray-600 last:border-none py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-                <Link to="/serviceBooked" onClick={handleLinkClick}>Booked-Services</Link>
-              </li>
-              <li className="py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-                <Link to="/todoService" onClick={handleLinkClick}>Service-To-Do</Link>
-              </li>
-            </ul>
-          )}
-        </li>
-      )}
+     {
+      user &&  <li className="text-xl">
+        <NavLink to="/dashboard" >Dashboard</NavLink>
+      </li>
+     }
+     
 
       <li className="text-xl">
-        <NavLink to="/contact" onClick={handleLinkClick}>Contact Us</NavLink>
+        <NavLink to="/contact" >Contact Us</NavLink>
       </li>
     </>
   );
@@ -68,10 +38,10 @@ const Navbar = () => {
   const mobileLinks = (
     <>
       <li className="text-xl">
-        <NavLink to="/" onClick={handleLinkClick}>Home</NavLink>
+        <NavLink to="/" >Home</NavLink>
       </li>
       <li className="text-xl">
-        <NavLink to="/allServices" onClick={handleLinkClick}>All Services</NavLink>
+        <NavLink to="/allServices" >All Services</NavLink>
       </li>
        <li>
                 <NavLink to="/dashboard" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:text-blue-700 md:p-0 dark:text-white">
@@ -79,26 +49,14 @@ const Navbar = () => {
                 </NavLink>
               </li>
 
-      {user && (
-        <>
-          <li className="text-xl font-bold pt-2">Dashboard</li>
-          <li className="pl-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-            <Link to="/addService" onClick={handleLinkClick}>Add Service</Link>
-          </li>
-          <li className="pl-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-            <Link to="/manageServices" onClick={handleLinkClick}>Manage Service</Link>
-          </li>
-          <li className="pl-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-            <Link to="/serviceBooked" onClick={handleLinkClick}>Booked-Services</Link>
-          </li>
-          <li className="pl-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
-            <Link to="/todoService" onClick={handleLinkClick}>Service-To-Do</Link>
-          </li>
-        </>
-      )}
+      {
+      user &&  <li className="text-xl">
+        <NavLink to="/dashboard" >Dashboard</NavLink>
+      </li>
+     }
 
       <li className="text-xl">
-        <NavLink to="/contact" onClick={handleLinkClick}>Contact Us</NavLink>
+        <NavLink to="/contact">Contact Us</NavLink>
       </li>
     </>
   );
