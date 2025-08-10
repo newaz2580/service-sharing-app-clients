@@ -17,7 +17,7 @@ const ShowAllService = ({ service }) => {
 
   <div className="flex flex-col flex-1 p-3 justify-between">
     <div>
-      <h2 className="text-xl font-bold text-blue-900 dark:text-white">
+      <h2 className="text-md font-bold text-blue-900 dark:text-white">
         {serviceName}
       </h2>
       <p className="text-gray-600 dark:text-gray-300 mt-2">
@@ -27,7 +27,7 @@ const ShowAllService = ({ service }) => {
 
     <Link
       to={`/serviceDetails/${_id}`}
-      className="w-full block text-center px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition mt-4"
+      className="w-full block text-center md:px-2 lg:px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition mt-4"
     >
       View Details
     </Link>

@@ -4,9 +4,6 @@ import DisplayAllBookedService from "./DisplayAllBookedService";
 
 const TodoService = () => {
   const allBookedService = useLoaderData();
-
-
-
   return (
     <div className="container p-4 mx-auto bg-white text-black dark:bg-gray-800 dark:text-white">
       <h2 className="mb-6 text-3xl font-semibold text-center">Service Todo List</h2>
@@ -20,7 +17,7 @@ const TodoService = () => {
       ) : (
         <>
          
-          <div className="overflow-x-auto hidden md:block lg:px-30">
+          <div className="overflow-x-auto hidden md:block px-5 md:px-6">
             <table className="w-full text-sm text-left whitespace-nowrap">
               <thead>
                 <tr className="bg-gray-200 dark:bg-gray-600 dark:text-white text-black ">

@@ -10,13 +10,13 @@ const DisplayMyBookingService = ({ booked }) => {
   return (
     <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform hover:scale-[1.03] duration-300">
       <img
-        className="w-full max-h-36 object-cover"
+        className="w-full min-h-36 object-cover"
         src={booked.photos}
         alt={booked.service_Name}
       />
       <div className="p-3 flex flex-col flex-grow text-black dark:text-white">
         <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400">
-          <span className="font-normal font-poppins text-blue-600">
+          <span className="font-normal font-poppins text-blue-600 text-md">
             {booked.service_Name}
           </span>
         </h2>

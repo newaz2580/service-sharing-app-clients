@@ -126,7 +126,6 @@ const DashboardLayout = () => {
         </button>
       </aside>
 
-      {/* Overlay for mobile */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-30 md:hidden"
@@ -134,9 +133,9 @@ const DashboardLayout = () => {
         />
       )}
 
-      {/* Main content */}
+
       <div className="flex-1 flex flex-col md:ml-64">
-        {/* Top Navbar for mobile */}
+        
         <header className="bg-white dark:bg-gray-800 shadow-md p-4 flex items-center md:hidden">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}

@@ -60,7 +60,7 @@ const AllServices = () => {
           No services found
         </h3>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 lg:px-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 lg:px-30">
           {filteredServices.map((service) => (
             <ShowAllService key={service._id} service={service} />
           ))}

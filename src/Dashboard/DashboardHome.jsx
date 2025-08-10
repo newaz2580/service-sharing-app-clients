@@ -62,7 +62,7 @@ const DashboardHome = () => {
   return (
     <div className="px-5 pt-6 space-y-6">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white p-6 rounded-lg shadow">
+      <div className="bg-gray-200 text-gray-700 dark:bg-gray-900 dark:text-white p-6 rounded-lg shadow">
         <h1 className="text-2xl font-bold">👋 Welcome back, {user?.displayName}!</h1>
         <p className="mt-1">Here’s what’s happening with your services today.</p>
       </div>
@@ -113,19 +113,12 @@ const DashboardHome = () => {
         <ul className="space-y-3">
           {recentActivity.length > 0 ? (
             recentActivity.map((activity, idx) => (
-              <li key={idx} className="border-b pb-2">{activity}</li>
+              <li key={idx} className="border-b pb-2 text-gray-800 dark:text-white">{activity}</li>
             ))
           ) : (
             <li>No recent activity</li>
           )}
         </ul>
-      </div>
-
-      {/* Quick Action Buttons */}
-      <div className="flex flex-wrap gap-4">
-        <button className="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">Add Service</button>
-        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Manage Todos</button>
-        <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">View All Services</button>
       </div>
     </div>
   );

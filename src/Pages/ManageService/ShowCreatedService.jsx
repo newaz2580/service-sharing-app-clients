@@ -33,30 +33,32 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 max-w-md mx-auto sm:max-w-full">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 max-w-md mx-auto sm:max-w-full flex flex-col">
       <img
         src={service.photo}
         alt={service.serviceName}
         className="w-full h-36 object-cover"
       />
 
-      <div className="p-4 space-y-1">
-        <h2 className="text-lg sm:text-xl font-semibold text-blue-600 dark:text-blue-400 font-poppins">
-          {service.serviceName}
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm font-poppins">
-          {service.serviceDescription.length > 100
-            ? service.serviceDescription.slice(0, 100) + "..."
-            : service.serviceDescription}
-        </p>
-        <p className="font-semibold text-green-600 dark:text-green-400 font-poppins text-sm sm:text-base">
-          Price: ${service.price}
-        </p>
+      <div className="p-4 flex flex-col flex-grow">
+        <div className="space-y-1 flex-grow">
+          <h2 className="text-md  font-semibold text-blue-600 dark:text-blue-400 font-poppins">
+            {service.serviceName}
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm font-poppins">
+            {service.serviceDescription.length > 80
+              ? service.serviceDescription.slice(0, 80) + "..."
+              : service.serviceDescription}
+          </p>
+          <p className="font-semibold text-green-600 dark:text-green-400 font-poppins text-sm sm:text-base">
+            Price: ${service.price}
+          </p>
+        </div>
 
-        <div className="flex flex-col sm:flex-row sm:space-x-4 justify-between items-center pt-4">
+        <div className="flex flex-col gap-2 pt-4 mt-auto">
           <button
             onClick={() => handleServiceDelete(service._id)}
-            className="flex btn text-white items-center gap-1 text-sm font-medium rounded-4xl w-full sm:w-auto  justify-center  transition"
+            className="flex btn text-white items-center gap-1 text-sm font-medium rounded-xl w-full justify-center transition "
           >
             <MdDelete className="text-md" />
             <span>Delete</span>
@@ -64,7 +66,7 @@ const ShowCreatedService = ({ service, setMyServices, myServices }) => {
 
           <Link
             to={`/update/${service._id}`}
-            className="flex items-center gap-1 text-white btn btn-primary bg-blue-600 rounded-4xl text-sm font-medium w-full sm:w-auto  justify-center hover:bg-blue-700 transition"
+            className="flex items-center gap-1 text-white btn btn-primary bg-blue-600 rounded-xl text-sm font-medium w-full justify-center hover:bg-blue-700 transition"
           >
             <CiEdit className="text-md" />
             Update

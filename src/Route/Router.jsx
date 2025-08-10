@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 import Contact from "../Pages/Contact/Contact";
 import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../Dashboard/DashboardHome";
+import About from "../Components/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
           }
         },
         hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+      path:'/about',
+      element:<About/>
       },
       {
         path: "/login",

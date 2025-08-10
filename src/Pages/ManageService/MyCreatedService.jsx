@@ -6,7 +6,7 @@ const MyCreatedService = ({ serviceCreateByPromise }) => {
   const [myServices, setMyServices] = useState(services);
 
   return (
-    <div className="bg-white dark:bg-gray-800 min-h-screen py-10 px-4 sm:px-8">
+    <div className="bg-white dark:bg-gray-800 min-h-screen py-10 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center abril-font text-blue-700 dark:text-white mb-10">
           Services You Created
@@ -19,7 +19,7 @@ const MyCreatedService = ({ serviceCreateByPromise }) => {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2  lg:grid-cols-4  xl:grid-cols-5 gap-3">
             {myServices.map((service) => (
               <ShowCreatedService
                 key={service._id}

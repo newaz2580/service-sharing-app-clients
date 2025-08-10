@@ -8,28 +8,27 @@ import ModeToggle from "../../Pages/ModeToggle/ModeToggle";
 const Navbar = () => {
   const { user } = useContext(AuthContext);
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
- 
-
- 
 
   // Desktop Links with toggling Dashboard submenu
   const desktopLinks = (
     <>
       <li className="text-xl">
-        <NavLink to="/" >Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li className="text-xl">
-        <NavLink to="/allServices" >All Services</NavLink>
+        <NavLink to="/allServices">All Services</NavLink>
       </li>
-     {
-      user &&  <li className="text-xl">
-        <NavLink to="/dashboard" >Dashboard</NavLink>
-      </li>
-     }
-     
+      {user && (
+        <li className="text-xl">
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        </li>
+      )}
 
       <li className="text-xl">
-        <NavLink to="/contact" >Contact Us</NavLink>
+        <NavLink to="/contact">Contact Us</NavLink>
+      </li>
+      <li className="text-xl">
+        <NavLink to="/about">About</NavLink>
       </li>
     </>
   );
@@ -38,25 +37,31 @@ const Navbar = () => {
   const mobileLinks = (
     <>
       <li className="text-xl">
-        <NavLink to="/" >Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li className="text-xl">
-        <NavLink to="/allServices" >All Services</NavLink>
+        <NavLink to="/allServices">All Services</NavLink>
       </li>
-       <li>
-                <NavLink to="/dashboard" className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:text-blue-700 md:p-0 dark:text-white">
-                  Dashboard
-                </NavLink>
-              </li>
+      <li>
+        <NavLink
+          to="/dashboard"
+          className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:text-blue-700 md:p-0 dark:text-white"
+        >
+          Dashboard
+        </NavLink>
+      </li>
 
-      {
-      user &&  <li className="text-xl">
-        <NavLink to="/dashboard" >Dashboard</NavLink>
-      </li>
-     }
+      {user && (
+        <li className="text-xl">
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        </li>
+      )}
 
       <li className="text-xl">
         <NavLink to="/contact">Contact Us</NavLink>
+      </li>
+      <li className="text-xl">
+        <NavLink to="/about">About</NavLink>
       </li>
     </>
   );
@@ -77,7 +82,12 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </label>
 
@@ -100,7 +110,10 @@ const Navbar = () => {
               alt="Logo"
             />
           </Link>
-          <Link to="/" className="text-3xl hidden lg:flex text-blue-500 font-extrabold">
+          <Link
+            to="/"
+            className="text-3xl hidden lg:flex text-blue-500 font-extrabold"
+          >
             HRS
           </Link>
         </div>
@@ -113,7 +126,9 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-poppins">{desktopLinks}</ul>
+        <ul className="menu menu-horizontal px-1 font-poppins">
+          {desktopLinks}
+        </ul>
       </div>
 
       {/* Right Side */}
