@@ -18,7 +18,7 @@ const DashboardLayout = () => {
 
   return (
     <div className="bg-gray-100 dark:bg-gray-700 min-h-screen flex">
-      {/* Sidebar */}
+     
       <aside
         className={`
           fixed top-0 left-0 w-64 h-screen bg-gray-200  text-gray-800 dark:bg-gray-800 dark:text-white p-2
@@ -30,7 +30,7 @@ const DashboardLayout = () => {
         `}
       >
         <div>
-          {/* Logo & Dark Mode */}
+      
           <div className="flex items-center justify-between bg-white text-gray-800 dark:text-white dark:bg-gray-900 px-2 py-2">
             <NavLink to="/">
               <h2 className="text-2xl font-bold cursor-pointer">
@@ -40,7 +40,7 @@ const DashboardLayout = () => {
             <ModeToggle />
           </div>
 
-          {/* Navigation */}
+       
           <nav className="flex flex-col space-y-4 ">
             <NavLink
               to="/"
@@ -114,7 +114,7 @@ const DashboardLayout = () => {
           </nav>
         </div>
 
-        {/* Logout button */}
+      
         <span
           className="w-full py-2 bg-gray-300 rounded dark:bg-gray-600 transition-colors flex items-center justify-center space-x-2"
           onClick={() => {
