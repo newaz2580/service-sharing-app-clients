@@ -2,44 +2,176 @@ import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router";
+
 const Footer = () => {
-
   return (
-    <div className="bg-white  dark:bg-gray-800  ">
-      <footer className="footer sm:footer-horizontal max-w-7xl mx-auto py-10 px-5 md:px-10 lg:px-1">
-        <aside>
-         <img className="h-16 w-16 rounded-full"src={`https://i.ibb.co/tPJs4Gv5/home-06.jpg`} alt="" />
-          <h2 className="text-2xl text-blue-500 font-extrabold abril-font" data-aos="fade-Left">Home Repair Services</h2>
-          <p data-aos="fade-left" className="text-black dark:text-white">
-            Providing reliable service since 2010
-          </p>
-        </aside>
-        <nav className="text-black dark:text-white font-poppins">
-          <h6 className="footer-title text-blue-900 font-poppins dark:text-blue-100">Services</h6>
-          <Link to='/allServices'>All Service</Link>
-          <Link to='/manageServices'>Manage Service</Link>
-          <Link to='/about'>About</Link>
-          
+    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-t border-gray-200 dark:border-gray-700">
+      <footer className="max-w-7xl mx-auto py-12 px-5 md:px-10 lg:px-8">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Company Info */}
+          <div className="lg:col-span-1" data-aos="fade-up">
+            <div className="flex items-center mb-4">
+              <img 
+                className="h-14 w-14 rounded-full shadow-lg border-2 border-blue-100 dark:border-blue-800"
+                src={`https://i.ibb.co/tPJs4Gv5/home-06.jpg`} 
+                alt="Home Repair Services Logo" 
+              />
+              <h2 className="ml-4 text-2xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent font-bold abril-font">
+                Home Repair Services
+              </h2>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+              Providing reliable home repair services with excellence and trust since 2010. Your satisfaction is our priority.
+            </p>
+            <div className="flex space-x-3">
+              {['Facebook', 'LinkedIn', 'Instagram', 'Github'].map((social, index) => (
+                <div 
+                  key={social}
+                  data-aos="zoom-in" 
+                  data-aos-delay={200 + (index * 100)}
+                  className="p-2 bg-blue-50 dark:bg-gray-700 rounded-full hover:bg-blue-100 dark:hover:bg-gray-600 transition-colors duration-300 cursor-pointer"
+                >
+                  <div className="w-5 h-5 bg-blue-500 rounded-full"></div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          
-        </nav>
-        <nav className="text-black dark:text-white font-poppins">
-          <h6 className="footer-title font-poppins text-blue-900 dark:text-blue-100">Follow Us</h6>
-          <a href='https://web.facebook.com/shahnewaz.ahammed' target="_blank" className="link link-hover">Facebook</a>
-          <a href="https://www.linkedin.com/in/mohammad-shahnowaz/" target="_blank" className="link link-hover">LinkedIn</a>
-          <a href="https://www.instagram.com/blue_bird_himu/" className="link link-hover">Instagram</a>
-          <a href='https://github.com/newaz2580' target="_blank" className="link link-hover">Github</a>
-        </nav>
-        <nav className="text-black dark:text-white font-poppins">
-          <h6 className="footer-title text-blue-900 dark:text-blue-100">Contact</h6>
-          <a className="link link-hover">Email:newaz2796@gmail.com</a>
-          <a className="link link-hover">Phone:+8801687678113</a>
-         
-        </nav>
+          {/* Services Links */}
+          <nav className="text-gray-600 dark:text-gray-300 font-poppins" data-aos="fade-up" data-aos-delay="200">
+            <h6 className="footer-title text-lg font-semibold text-gray-800 dark:text-white mb-4 pb-2 border-b-2 border-blue-200 dark:border-blue-700 inline-block">
+              Our Services
+            </h6>
+            <div className="space-y-3 mt-4">
+              {[
+                { to: '/allServices', label: 'All Services' },
+                { to: '/manageServices', label: 'Manage Services' },
+                { to: '/about', label: 'About Us' },
+                { to: '/contact', label: 'Get Quote' }
+              ].map((link, index) => (
+                <Link 
+                  key={link.to}
+                  to={link.to}
+                  className="block py-2 px-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-300 transform hover:translate-x-2 group"
+                  data-aos="fade-left"
+                  data-aos-delay={300 + (index * 100)}
+                >
+                  <span className="flex items-center">
+                    <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-600 transition-colors"></span>
+                    {link.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </nav>
+
+          {/* Follow Us */}
+          <nav className="text-gray-600 dark:text-gray-300 font-poppins" data-aos="fade-up" data-aos-delay="300">
+            <h6 className="footer-title text-lg font-semibold text-gray-800 dark:text-white mb-4 pb-2 border-b-2 border-blue-200 dark:border-blue-700 inline-block">
+              Follow Us
+            </h6>
+            <div className="space-y-3 mt-4">
+              {[
+                { href: 'https://web.facebook.com/shahnewaz.ahammed', label: 'Facebook' },
+                { href: 'https://www.linkedin.com/in/mohammad-shahnowaz/', label: 'LinkedIn' },
+                { href: 'https://www.instagram.com/blue_bird_himu/', label: 'Instagram' },
+                { href: 'https://github.com/newaz2580', label: 'GitHub' }
+              ].map((social, index) => (
+                <a 
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center py-2 px-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-300 group"
+                  data-aos="fade-left"
+                  data-aos-delay={400 + (index * 100)}
+                >
+                  <span className="w-2 h-2 bg-green-400 rounded-full mr-3 group-hover:bg-green-600 transition-colors"></span>
+                  {social.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          {/* Contact Info */}
+          <nav className="text-gray-600 dark:text-gray-300 font-poppins" data-aos="fade-up" data-aos-delay="400">
+            <h6 className="footer-title text-lg font-semibold text-gray-800 dark:text-white mb-4 pb-2 border-b-2 border-blue-200 dark:border-blue-700 inline-block">
+              Contact Info
+            </h6>
+            <div className="space-y-4 mt-4">
+              <div 
+                className="flex items-start p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 group"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-3 group-hover:bg-blue-200 transition-colors">
+                  <span className="text-blue-500 text-sm">✉</span>
+                </div>
+                <div>
+                  <p className="font-medium text-gray-700 dark:text-gray-200">Email</p>
+                  <p className="text-sm">newaz2796@gmail.com</p>
+                </div>
+              </div>
+              <div 
+                className="flex items-start p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 group"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                <div className="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-3 group-hover:bg-green-200 transition-colors">
+                  <span className="text-green-500 text-sm">📞</span>
+                </div>
+                <div>
+                  <p className="font-medium text-gray-700 dark:text-gray-200">Phone</p>
+                  <p className="text-sm">+8801687678113</p>
+                </div>
+              </div>
+              <div 
+                className="flex items-start p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 group"
+                data-aos="fade-up"
+                data-aos-delay="700"
+              >
+                <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-3 group-hover:bg-purple-200 transition-colors">
+                  <span className="text-purple-500 text-sm">🕒</span>
+                </div>
+                <div>
+                  <p className="font-medium text-gray-700 dark:text-gray-200">Hours</p>
+                  <p className="text-sm">Mon-Sun: 8AM-8PM</p>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-200 dark:border-gray-700 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 md:mb-0" data-aos="fade-right">
+              Trusted by thousands of homeowners since 2010
+            </p>
+            <div className="flex space-x-6" data-aos="fade-left">
+              <a href="#" className="text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-300 transition-colors text-sm">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-300 transition-colors text-sm">
+                Terms of Service
+              </a>
+              <a href="#" className="text-gray-500 hover:text-blue-500 dark:text-gray-400 dark:hover:text-blue-300 transition-colors text-sm">
+                Cookie Policy
+              </a>
+            </div>
+          </div>
+        </div>
       </footer>
-      <h3 className="text-center py-5 text-black dark:text-white font-poppins">
-        © Copyright Home Repair Services All Rights Reserved
-      </h3>
+
+      {/* Copyright */}
+      <div className="bg-blue-50 dark:bg-gray-800 border-t border-blue-100 dark:border-gray-700">
+        <div className="max-w-7xl mx-auto py-4 px-5 md:px-10 lg:px-8">
+          <h3 className="text-center text-sm text-gray-600 dark:text-gray-300 font-poppins">
+            © {new Date().getFullYear()} Copyright Home Repair Services. All Rights Reserved.
+          </h3>
+        </div>
+      </div>
     </div>
   );
 };
