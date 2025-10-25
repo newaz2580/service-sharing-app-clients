@@ -12,7 +12,7 @@ const AddService = () => {
     const formData = new FormData(form);
     const newService = Object.fromEntries(formData.entries());
 
-    fetch("https://service-sharing-server-steel.vercel.app/service", {
+    fetch("https://service-sharing-app-server.onrender.com/service", {
       method: "POST",
       credentials: "include",
       headers: {

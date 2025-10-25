@@ -25,7 +25,7 @@ const handlePurchaseService = (e) => {
   newService.status = "Pending";
  
 
-  fetch("https://service-sharing-server-steel.vercel.app/purchaseService", {
+  fetch("https://service-sharing-app-server.onrender.com/purchaseService", {
     method: "POST",
     credentials: 'include',
     headers: {

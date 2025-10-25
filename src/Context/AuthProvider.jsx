@@ -33,7 +33,7 @@ const AuthProvider = ({children}) => {
             setLoading(false)
             if(currentUser?.email){
                 const userData={email:currentUser.email}
-                axios.post('https://service-sharing-server-steel.vercel.app/jwt',userData,{
+                axios.post('https://service-sharing-app-server.onrender.com/jwt',userData,{
                     withCredentials:true
                 })
                 .then(()=>{

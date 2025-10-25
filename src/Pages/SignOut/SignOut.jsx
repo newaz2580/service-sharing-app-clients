@@ -12,7 +12,7 @@ const SignOut = () => {
     signOut(auth)
       .then(() => {
         fetch(
-          "https://service-sharing-server-steel.vercel.app/logout",
+          "https://service-sharing-app-server.onrender.com/logout",
           { method: "POST", credentials: "include" }
         ).then(() => {
           toast.success("User signOut successful");

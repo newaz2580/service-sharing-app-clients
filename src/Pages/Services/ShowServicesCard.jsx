@@ -10,8 +10,8 @@ const ShowServicesCard = ({ service }) => {
     });
   });
 
-  const services=service.description.length >80 ?
-  service.description.slice(0 ,80) + "..." :
+  const services=service.description.length >60 ?
+  service.description.slice(0 ,60) + "..." :
   service.description
   return (
     <div

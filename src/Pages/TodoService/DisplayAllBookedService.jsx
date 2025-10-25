@@ -17,7 +17,7 @@ const DisplayAllBookedService = ({ bookService, index, isMobile }) => {
   const handleStatusChange = (e) => {
     axios
       .patch(
-        `https://service-sharing-server-steel.vercel.app/purchaseService/${_id}`,
+        `https://service-sharing-app-server.onrender.com/purchaseService/${_id}`,
         {
           status: e.target.value,
         }

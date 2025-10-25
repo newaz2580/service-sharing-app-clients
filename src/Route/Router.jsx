@@ -13,196 +13,191 @@ import ManageServices from "../Pages/ManageService/ManageServices";
 import Update from "../Pages/Update/Update";
 import ServiceBooked from "../Pages/ServiceBooked/ServiceBooked";
 import TodoService from "../Pages/TodoService/TodoService";
-import { AuthContext } from "../Context/AuthContext";
-import { toast } from "react-toastify";
 import Contact from "../Pages/Contact/Contact";
 import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../Dashboard/DashboardHome";
 import About from "../Components/About/About";
+import { toast } from "react-toastify";
+
+// ✅ Common safe fetch helper
+const safeFetch = async (url) => {
+  try {
+    const resp = await fetch(url, { credentials: "include" });
+
+    if (!resp.ok) {
+      console.error("❌ Response not OK:", resp.status);
+      throw new Error(`Server error: ${resp.status}`);
+    }
+
+    const contentType = resp.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("Response is not JSON. Possibly HTML returned.");
+    }
+
+    const data = await resp.json();
+    return data;
+  } catch (error) {
+    console.error("❌ Loader Fetch Error:", error);
+    toast.error("Failed to load data. Please try again later.");
+    return null;
+  }
+};
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
         element: <Home />,
-        loader: async () => {
-          try {
-            // console.log(props);
-            const resp = await fetch(
-              `https://service-sharing-server-steel.vercel.app/service`,
-              { credentials: "include" }
-            );
-            if (resp.status != 200) {
-              window.location.href = "/login";
-              return;
-            }
-            const json = await resp.json();
-          
-            return json;
-          } catch (error) {
-            toast.error(error);
-          }
-        },
-        hydrateFallbackElement: <Loading></Loading>,
+        loader: async () => await safeFetch("https://service-sharing-app-server.onrender.com/service"),
+        hydrateFallbackElement: <Loading />,
       },
       {
-      path:'/about',
-      element:<About/>
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/login",
-        Component: Login,
+        element: <Login />,
       },
       {
         path: "/signup",
-        element: <SignUP></SignUP>,
+        element: <SignUP />,
       },
       {
         path: "/allServices",
-        element: <AllServices></AllServices>,
-        loader: () =>
-          fetch("https://service-sharing-server-steel.vercel.app/service"),
-        hydrateFallbackElement: <Loading></Loading>,
+        element: <AllServices />,
+        loader: async () => await safeFetch("https://service-sharing-app-server.onrender.com/service"),
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: "/addService",
-        element: <PrivateRoutes><AddService></AddService></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <AddService />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/serviceDetails/:id",
         element: (
           <PrivateRoutes>
-            <ServiceDetails></ServiceDetails>
+            <ServiceDetails />
           </PrivateRoutes>
         ),
-        loader: ({ params }) =>
-          fetch(
-            `https://service-sharing-server-steel.vercel.app/service/${params.id}`,
-            { credentials: "include" }
-          ),
-        hydrateFallbackElement: <Loading></Loading>,
+        loader: async ({ params }) =>
+          await safeFetch(`https://service-sharing-app-server.onrender.com/service/${params.id}`),
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: "/manageServices",
         element: (
           <PrivateRoutes>
-            <ManageServices></ManageServices>
+            <ManageServices />
           </PrivateRoutes>
         ),
-        
       },
       {
         path: "update/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://service-sharing-server-steel.vercel.app/service/${params.id}`,
-            { credentials: "include" }
-          ),
+        loader: async ({ params }) =>
+          await safeFetch(`https://service-sharing-app-server.onrender.com/service/${params.id}`),
         element: (
           <PrivateRoutes>
-            <Update></Update>
+            <Update />
           </PrivateRoutes>
         ),
-        hydrateFallbackElement: <Loading></Loading>,
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: "/serviceBooked",
-        loader: () =>
-          fetch(
-            "https://service-sharing-server-steel.vercel.app/my-bookings",
-            { credentials: "include" }
-          ),
+        loader: async () =>
+          await safeFetch("https://service-sharing-app-server.onrender.com/my-bookings"),
         element: (
           <PrivateRoutes>
-            <ServiceBooked></ServiceBooked>
+            <ServiceBooked />
           </PrivateRoutes>
         ),
-        hydrateFallbackElement: <Loading></Loading>,
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: "/todoService",
-        loader: () =>
-          fetch(
-            "https://service-sharing-server-steel.vercel.app/my-purchaseService",
-             { credentials: "include" }
-
-          ),
+        loader: async () =>
+          await safeFetch("https://service-sharing-app-server.onrender.com/my-purchaseService"),
         element: (
           <PrivateRoutes>
-            <TodoService></TodoService>
+            <TodoService />
           </PrivateRoutes>
         ),
-        hydrateFallbackElement: <Loading></Loading>,
+        hydrateFallbackElement: <Loading />,
       },
       {
-        path:'/contact',
-        Component:Contact
-      }
+        path: "/contact",
+        element: <Contact />,
+      },
     ],
   },
+
+  // ✅ Dashboard Layout Routes
   {
-    path:'dashboard',
-    element:<DashboardLayout/>,
-    children:[
-       {
-        index: true,          // ডিফল্ট পেজ
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
         element: <DashboardHome />,
       },
       {
-        path:'addService',
-        element:<PrivateRoutes><AddService/> </PrivateRoutes>
-      },
-      {
-        path:'manageServices',
-        element:<PrivateRoutes><ManageServices/></PrivateRoutes>
-      },
-      { 
-        path: "serviceBooked",
-        loader: () =>
-          fetch(
-            "https://service-sharing-server-steel.vercel.app/my-bookings",
-            { credentials: "include" }
-          ),
+        path: "addService",
         element: (
           <PrivateRoutes>
-            <ServiceBooked></ServiceBooked>
+            <AddService />
           </PrivateRoutes>
         ),
-        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "manageServices",
+        element: (
+          <PrivateRoutes>
+            <ManageServices />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "serviceBooked",
+        loader: async () =>
+          await safeFetch("https://service-sharing-app-server.onrender.com/my-bookings"),
+        element: (
+          <PrivateRoutes>
+            <ServiceBooked />
+          </PrivateRoutes>
+        ),
+        hydrateFallbackElement: <Loading />,
       },
       {
         path: "todoService",
-        loader: () =>
-          fetch(
-            "https://service-sharing-server-steel.vercel.app/my-purchaseService",
-             { credentials: "include" }
-
-          ),
+        loader: async () =>
+          await safeFetch("https://service-sharing-app-server.onrender.com/my-purchaseService"),
         element: (
           <PrivateRoutes>
-            <TodoService></TodoService>
+            <TodoService />
           </PrivateRoutes>
         ),
-        hydrateFallbackElement: <Loading></Loading>,
+        hydrateFallbackElement: <Loading />,
       },
-        {
+      {
         path: "update/:id",
-        loader: ({ params }) =>
-          fetch(
-            `https://service-sharing-server-steel.vercel.app/service/${params.id}`,
-            { credentials: "include" }
-          ),
+        loader: async ({ params }) =>
+          await safeFetch(`https://service-sharing-app-server.onrender.com/service/${params.id}`),
         element: (
           <PrivateRoutes>
-            <Update></Update>
+            <Update />
           </PrivateRoutes>
         ),
-        hydrateFallbackElement: <Loading></Loading>,
+        hydrateFallbackElement: <Loading />,
       },
-    ]
-  }
+    ],
+  },
 ]);
